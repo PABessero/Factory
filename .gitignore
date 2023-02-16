@@ -7,3 +7,6 @@
 /dataSources/
 /dataSources.local.xml
 *.uistate.json
+/Backend/node_modules
+/Backend/package-lock.json
+/Backend/src/*.js
