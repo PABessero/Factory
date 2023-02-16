@@ -65,6 +65,7 @@
 	],
 	"uniqueId": "5vtm7n4tma6",
 	"objectTypes": {
+<<<<<<< Updated upstream
 		"items": [
 			"WebSocket",
 			"TextDebug",
@@ -83,6 +84,52 @@
 			"JSON"
 		],
 		"subfolders": []
+=======
+		"items": [],
+		"subfolders": [
+			{
+				"items": [
+					"Audio",
+					"JSON",
+					"Mouse",
+					"BinaryData",
+					"WebSocket"
+				],
+				"subfolders": [],
+				"name": "ressource"
+			},
+			{
+				"items": [
+					"ButtonCraftManual",
+					"ButtonLeave",
+					"ButtonSendData",
+					"ButtonServer",
+					"ClearButton"
+				],
+				"subfolders": [],
+				"name": "Button"
+			},
+			{
+				"items": [
+					"TextCraftCurrent",
+					"TextDebug",
+					"TextLogWebSocket",
+					"TextRessource",
+					"TextSendData"
+				],
+				"subfolders": [],
+				"name": "Text"
+			},
+			{
+				"items": [
+					"LogText",
+					"TextIp"
+				],
+				"subfolders": [],
+				"name": "TextInput"
+			}
+		]
+>>>>>>> Stashed changes
 	},
 	"autosaveData": null,
 	"containers": [],

@@ -281,6 +281,7 @@
 						{
 							"id": "send-text",
 							"objectClass": "WebSocket",
+<<<<<<< Updated upstream
 							"sid": 195606296402693,
 							"parameters": {
 								"data": "\"{message : \" & IronOre & \",type : resource, slug : iron_ore, name : Iron Ore , language : EN}\""
@@ -292,6 +293,11 @@
 							"sid": 923746750685137,
 							"parameters": {
 								"text": "\"{message : \" & IronOre & \",type : resource, slug : iron_ore, name : Iron Ore , language : EN}\""
+=======
+							"sid": 383308703562735,
+							"parameters": {
+								"data": "\"{\" & newline &\n\"\"\"slug\"\": \"\"iron_ore\"\",\" & newline &\n\"\"\"quantity\"\": \" & IronOre & newline &\n\"}\""
+>>>>>>> Stashed changes
 							}
 						}
 					],
@@ -315,7 +321,16 @@
 							}
 						}
 					],
-					"actions": [],
+					"actions": [
+						{
+							"id": "send-text",
+							"objectClass": "WebSocket",
+							"sid": 858290247775475,
+							"parameters": {
+								"data": "\"{\" & newline &\n\"\"\"slug\"\": \"\"iron_ore\"\",\" & newline &\n\"\"\"quantity\"\": \" & IronOre & newline &\n\"}\""
+							}
+						}
+					],
 					"sid": 697033408908435
 				}
 			],
@@ -375,6 +390,7 @@
 							"parameters": {
 								"text": "\"Ressource :\" & newline & \"Iron Ore : \" & IronOre & newline & \"Iron Ingot : \" & IronIngot"
 							}
+<<<<<<< Updated upstream
 						},
 						{
 							"type": "comment",
@@ -387,6 +403,8 @@
 							"parameters": {
 								"text": "\"{message : \" & IronOre & \",type : resource, slug : iron_ore, name : Iron Ore , language : EN}\""
 							}
+=======
+>>>>>>> Stashed changes
 						}
 					],
 					"sid": 330287568170441

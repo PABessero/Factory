@@ -9,7 +9,7 @@
 			"eventType": "variable",
 			"name": "Ip",
 			"type": "string",
-			"initialValue": "wss://bf81-185-42-101-58.eu.ngrok.io ",
+			"initialValue": "wss://6f11-90-29-162-154.eu.ngrok.io",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
