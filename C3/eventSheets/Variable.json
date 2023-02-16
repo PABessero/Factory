@@ -1,5 +1,26 @@
 {
 	"name": "Variable",
-	"events": [],
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "IronOre",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 572334785257375
+		},
+		{
+			"eventType": "variable",
+			"name": "IronIngot",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 160407967647579
+		}
+	],
 	"sid": 638167688340769
 }

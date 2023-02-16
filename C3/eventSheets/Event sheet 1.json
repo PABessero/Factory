@@ -78,6 +78,116 @@
 				}
 			],
 			"sid": 732324701754908
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Prototype",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 168457265406668
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "TextRessource",
+							"sid": 675581467511163,
+							"parameters": {
+								"text": "\"Ressource :\" & newline & \"Iron Ore : \" & IronOre & newline & \"Iron Ingot : \" & IronIngot"
+							}
+						}
+					],
+					"sid": 758472669123899
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-any-click",
+							"objectClass": "Mouse",
+							"sid": 725170424187434
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 358142267204393,
+							"parameters": {
+								"variable": "IronOre",
+								"value": "1"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "TextRessource",
+							"sid": 860134217451498,
+							"parameters": {
+								"text": "\"Ressource :\" & newline & \"Iron Ore : \" & IronOre & newline & \"Iron Ingot : \" & IronIngot"
+							}
+						}
+					],
+					"sid": 330287568170441
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-clicked",
+							"objectClass": "ButtonCraftManual",
+							"sid": 294911343629347
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 154437793145933,
+							"parameters": {
+								"variable": "IronOre",
+								"comparison": 5,
+								"value": "2"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 569096566170856,
+							"parameters": {
+								"variable": "IronIngot",
+								"value": "1"
+							}
+						},
+						{
+							"id": "subtract-from-eventvar",
+							"objectClass": "System",
+							"sid": 506624618194109,
+							"parameters": {
+								"variable": "IronOre",
+								"value": "2"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "TextRessource",
+							"sid": 643828378345149,
+							"parameters": {
+								"text": "\"Ressource :\" & newline & \"Iron Ore : \" & IronOre & newline & \"Iron Ingot : \" & IronIngot"
+							}
+						}
+					],
+					"sid": 736522467125298
+				}
+			],
+			"sid": 862471311643176
 		}
 	],
 	"sid": 255337968219618
