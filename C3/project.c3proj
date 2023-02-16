@@ -8,6 +8,13 @@
 	"usedAddons": [
 		{
 			"type": "plugin",
+			"id": "Audio",
+			"name": "Audio",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
 			"id": "C2WebSocket",
 			"name": "WebSocket",
 			"author": "Scirra",
@@ -25,7 +32,8 @@
 	"objectTypes": {
 		"items": [
 			"WebSocket",
-			"TextDebug"
+			"TextDebug",
+			"Audio"
 		],
 		"subfolders": []
 	},
@@ -43,7 +51,8 @@
 	},
 	"eventSheets": {
 		"items": [
-			"Event sheet 1"
+			"Event sheet 1",
+			"Variable"
 		],
 		"subfolders": []
 	},

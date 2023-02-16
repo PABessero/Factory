@@ -6,68 +6,78 @@
 			"text": "WebSocket"
 		},
 		{
-			"eventType": "block",
-			"conditions": [
+			"eventType": "group",
+			"disabled": false,
+			"title": "WebSocketConnection",
+			"description": "Web Socket Connection\nStarting game",
+			"isActiveOnStart": true,
+			"children": [
 				{
-					"id": "on-start-of-layout",
-					"objectClass": "System",
-					"sid": 759696240407940
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 888450021610425
+						}
+					],
+					"actions": [
+						{
+							"id": "connect",
+							"objectClass": "WebSocket",
+							"sid": 619335585892545,
+							"parameters": {
+								"url": "\"ws://\"",
+								"protocol-optional": "\"\""
+							}
+						}
+					],
+					"sid": 408624756623370
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-opened",
+							"objectClass": "WebSocket",
+							"sid": 539990503705593
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "TextDebug",
+							"sid": 175434005666662,
+							"parameters": {
+								"text": "\"Websocket is okay\""
+							}
+						}
+					],
+					"sid": 347356015728287
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-error",
+							"objectClass": "WebSocket",
+							"sid": 708918676516793
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "TextDebug",
+							"sid": 173358121698152,
+							"parameters": {
+								"text": "\"Websocket Error : \" & WebSocket.ErrorMsg"
+							}
+						}
+					],
+					"sid": 575306457398513
 				}
 			],
-			"actions": [
-				{
-					"id": "connect",
-					"objectClass": "WebSocket",
-					"sid": 821977343226113,
-					"parameters": {
-						"url": "\"ws://\"",
-						"protocol-optional": "\"\""
-					}
-				}
-			],
-			"sid": 370999804150048
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-opened",
-					"objectClass": "WebSocket",
-					"sid": 447307159202140
-				}
-			],
-			"actions": [
-				{
-					"id": "set-text",
-					"objectClass": "TextDebug",
-					"sid": 922886462010847,
-					"parameters": {
-						"text": "\"Websocket is okay\""
-					}
-				}
-			],
-			"sid": 648010114018926
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-error",
-					"objectClass": "WebSocket",
-					"sid": 168516223363753
-				}
-			],
-			"actions": [
-				{
-					"id": "set-text",
-					"objectClass": "TextDebug",
-					"sid": 785468221694038,
-					"parameters": {
-						"text": "\"Websocket Error : \" & WebSocket.ErrorMsg"
-					}
-				}
-			],
-			"sid": 271872328034536
+			"sid": 732324701754908
 		}
 	],
 	"sid": 255337968219618
