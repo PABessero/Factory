@@ -1,12 +1,12 @@
 {
-	"name": "Scène 1",
+	"name": "Layout 1",
 	"layers": [
 		{
-			"name": "Calque 0",
+			"name": "Layer 0",
 			"overriden": 0,
 			"subLayers": [],
 			"instances": [],
-			"sid": 407873270200388,
+			"sid": 845636421203411,
 			"effectTypes": [],
 			"isInitiallyVisible": true,
 			"isInitiallyInteractive": true,
@@ -35,7 +35,7 @@
 			"global": false
 		}
 	],
-	"sid": 524002570564118,
+	"sid": 438588122354213,
 	"nonworld-instances": [],
 	"effectTypes": [],
 	"width": 3840,
@@ -44,5 +44,5 @@
 	"vpX": 0.5,
 	"vpY": 0.5,
 	"projection": "perspective",
-	"eventSheet": "Feuille d'Evènements 1"
+	"eventSheet": "Event sheet 1"
 }

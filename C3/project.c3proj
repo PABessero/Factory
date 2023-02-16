@@ -1,12 +1,12 @@
 {
 	"projectFormatVersion": 1,
 	"savedWithRelease": 32702,
-	"name": "Nouveau projet",
+	"name": "Factory Game",
 	"runtime": "c3",
 	"useWorker": "auto",
 	"bundleAddons": false,
 	"usedAddons": [],
-	"uniqueId": "f1yk2kdcqsj",
+	"uniqueId": "5vtm7n4tma6",
 	"objectTypes": {
 		"items": [],
 		"subfolders": []
@@ -19,13 +19,13 @@
 	},
 	"layouts": {
 		"items": [
-			"Scène 1"
+			"Layout 1"
 		],
 		"subfolders": []
 	},
 	"eventSheets": {
 		"items": [
-			"Feuille d'Evènements 1"
+			"Event sheet 1"
 		],
 		"subfolders": []
 	},
@@ -53,59 +53,59 @@
 		"icon": {
 			"items": [
 				{
-					"name": "Icône-16.png",
+					"name": "icon-16.png",
 					"type": "image/png",
-					"sid": 562141025423672,
+					"sid": 814270319612819,
 					"icon-info": {
 						"purpose": "app-icon"
 					}
 				},
 				{
-					"name": "Icône-32.png",
+					"name": "icon-32.png",
 					"type": "image/png",
-					"sid": 953903591181315,
+					"sid": 769944548640125,
 					"icon-info": {
 						"purpose": "app-icon"
 					}
 				},
 				{
-					"name": "Icône-64.png",
+					"name": "icon-64.png",
 					"type": "image/png",
-					"sid": 262790316244545,
+					"sid": 519184495762757,
 					"icon-info": {
 						"purpose": "app-icon"
 					}
 				},
 				{
-					"name": "Icône-128.png",
+					"name": "icon-128.png",
 					"type": "image/png",
-					"sid": 309003420437771,
+					"sid": 672119878313063,
 					"icon-info": {
 						"purpose": "app-icon"
 					}
 				},
 				{
-					"name": "Icône-256.png",
+					"name": "loading-logo.png",
 					"type": "image/png",
-					"sid": 792711613371775,
-					"icon-info": {
-						"purpose": "app-icon"
-					}
-				},
-				{
-					"name": "Icône-512.png",
-					"type": "image/png",
-					"sid": 554185267373525,
-					"icon-info": {
-						"purpose": "app-icon"
-					}
-				},
-				{
-					"name": "logo-chargement.png",
-					"type": "image/png",
-					"sid": 249913707657747,
+					"sid": 219701011070625,
 					"icon-info": {
 						"purpose": "loading-logo"
+					}
+				},
+				{
+					"name": "icon-512.png",
+					"type": "image/png",
+					"sid": 685125203832463,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-256.png",
+					"type": "image/png",
+					"sid": 693151530428092,
+					"icon-info": {
+						"purpose": "app-icon"
 					}
 				}
 			],
