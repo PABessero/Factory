@@ -183,6 +183,44 @@
 					"sid": 351489641315026
 				},
 				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-message",
+							"objectClass": "WebSocket",
+							"sid": 520040186890882
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "TextLogWebSocket",
+							"sid": 680793385456490,
+							"parameters": {
+								"text": "WebSocket.MessageText"
+							}
+						},
+						{
+							"id": "set-json",
+							"objectClass": "JSON",
+							"sid": 182316433508135,
+							"parameters": {
+								"path": "\"WebSocket\"",
+								"json": "WebSocket.MessageText"
+							}
+						},
+						{
+							"id": "append-text",
+							"objectClass": "LogText",
+							"sid": 690376454207881,
+							"parameters": {
+								"text": "newline & JSON.GetAsBeautifiedString(\"WebSocket\")"
+							}
+						}
+					],
+					"sid": 531983950524301
+				},
+				{
 					"eventType": "comment",
 					"text": "Bouton Déco"
 				},
@@ -281,17 +319,17 @@
 						{
 							"id": "send-text",
 							"objectClass": "WebSocket",
-							"sid": 195606296402693,
+							"sid": 112546913129230,
 							"parameters": {
-								"data": "\"{message : \" & IronOre & \",type : resource, slug : iron_ore, name : Iron Ore , language : EN}\""
+								"data": "\"{\"\"message\"\" : \" & IronOre & \",\"\"type\"\" : \"\"resource\"\", \"\"slug\"\" : \"\"iron_ore\"\", \"\"name\"\" : \"\"Iron Ore\"\" , \"\"language\"\" : \"\"EN\"\"}\""
 							}
 						},
 						{
 							"id": "set-text",
 							"objectClass": "TextSendData",
-							"sid": 923746750685137,
+							"sid": 699830652596596,
 							"parameters": {
-								"text": "\"{message : \" & IronOre & \",type : resource, slug : iron_ore, name : Iron Ore , language : EN}\""
+								"text": "\"{\"\"message\"\" : \" & IronOre & \",\"\"type\"\" : \"\"resource\"\", \"\"slug\"\" : \"\"iron_ore\"\", \"\"name\"\" : \"\"Iron Ore\"\" , \"\"language\"\" : \"\"EN\"\"}\""
 							}
 						}
 					],
@@ -383,9 +421,9 @@
 						{
 							"id": "set-text",
 							"objectClass": "TextSendData",
-							"sid": 909947575983503,
+							"sid": 247069944237107,
 							"parameters": {
-								"text": "\"{message : \" & IronOre & \",type : resource, slug : iron_ore, name : Iron Ore , language : EN}\""
+								"text": "\"{'message' : \" & IronOre & \"',type' : 'resource', 'slug' : iron_ore, 'name' : 'Iron Ore' , language : 'EN'}\""
 							}
 						}
 					],
@@ -442,6 +480,37 @@
 				}
 			],
 			"sid": 862471311643176
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Debug",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-clicked",
+							"objectClass": "ClearButton",
+							"sid": 252353151371623
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "LogText",
+							"sid": 236754166549798,
+							"parameters": {
+								"text": "\"\""
+							}
+						}
+					],
+					"sid": 789824990134549
+				}
+			],
+			"sid": 940556069216316
 		}
 	],
 	"sid": 255337968219618

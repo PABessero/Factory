@@ -80,7 +80,9 @@
 			"ButtonLeave",
 			"BinaryData",
 			"TextSendData",
-			"JSON"
+			"JSON",
+			"LogText",
+			"ClearButton"
 		],
 		"subfolders": []
 	},

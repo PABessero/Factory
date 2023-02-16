@@ -64,7 +64,7 @@ wss.on("connection", function connection(ws, req) {
 
   ws.on("message", function incoming(message, isBinary) {
     console.log(message.toString());
-    const test = message.toJSON();
+    const test = JSON.parse(message.toString());
     console.log(test);
   });
 
