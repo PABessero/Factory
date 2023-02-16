@@ -62,6 +62,17 @@ wss.on("connection", function connection(ws, req) {
     })
   );
 
+  ws.send(
+    JSON.stringify({
+      type: "craft",
+      slug: "iron_to_plates",
+      machine: "metal_press",
+      materials: [{ slug: "iron_ingot", amount: 2 }],
+      outputs: [{ slug: "iron_plate", amount: 3 }],
+      time: 3,
+    })
+  );
+
   ws.on("message", function incoming(message, isBinary) {
     console.log(message.toString());
     const test = JSON.parse(message.toString());
