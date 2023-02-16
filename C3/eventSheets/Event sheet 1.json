@@ -3,7 +3,71 @@
 	"events": [
 		{
 			"eventType": "comment",
-			"text": "Ce si est un test"
+			"text": "WebSocket"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 759696240407940
+				}
+			],
+			"actions": [
+				{
+					"id": "connect",
+					"objectClass": "WebSocket",
+					"sid": 821977343226113,
+					"parameters": {
+						"url": "\"ws://\"",
+						"protocol-optional": "\"\""
+					}
+				}
+			],
+			"sid": 370999804150048
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-opened",
+					"objectClass": "WebSocket",
+					"sid": 447307159202140
+				}
+			],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "TextDebug",
+					"sid": 922886462010847,
+					"parameters": {
+						"text": "\"Websocket is okay\""
+					}
+				}
+			],
+			"sid": 648010114018926
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-error",
+					"objectClass": "WebSocket",
+					"sid": 168516223363753
+				}
+			],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "TextDebug",
+					"sid": 785468221694038,
+					"parameters": {
+						"text": "\"Websocket Error : \" & WebSocket.ErrorMsg"
+					}
+				}
+			],
+			"sid": 271872328034536
 		}
 	],
 	"sid": 255337968219618
