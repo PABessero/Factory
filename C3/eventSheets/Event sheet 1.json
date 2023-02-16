@@ -1,5 +1,10 @@
 {
 	"name": "Event sheet 1",
-	"events": [],
+	"events": [
+		{
+			"eventType": "comment",
+			"text": "Ce si est un test"
+		}
+	],
 	"sid": 255337968219618
 }
