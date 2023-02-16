@@ -1,11 +1,13 @@
 {
   "name": "backend",
   "version": "1.0.0",
+  "type": "module",
   "dependencies": {
     "@types/ws": "^8.5.4",
     "colors": "^1.4.0",
     "prettier": "^2.8.4",
     "sequelize": "^6.28.0",
+    "sequelize-typescript": "^2.1.5",
     "sqlite3": "^5.1.4",
     "ws": "^8.12.1"
   }
