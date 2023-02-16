@@ -3,7 +3,445 @@
 	"events": [
 		{
 			"eventType": "comment",
-			"text": "Ce si est un test"
+			"text": "WebSocket"
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "WebSocketConnection",
+			"description": "Web Socket Connection\nStarting game",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 888450021610425
+						}
+					],
+					"actions": [
+						{
+							"id": "connect",
+							"objectClass": "WebSocket",
+							"sid": 205608273210413,
+							"parameters": {
+								"url": "Ip",
+								"protocol-optional": "\"\""
+							}
+						}
+					],
+					"sid": 408624756623370
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-opened",
+							"objectClass": "WebSocket",
+							"sid": 539990503705593
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "TextDebug",
+							"sid": 175434005666662,
+							"parameters": {
+								"text": "\"Websocket is okay\""
+							}
+						}
+					],
+					"sid": 347356015728287
+				},
+				{
+					"eventType": "comment",
+					"text": "Debug Error connection"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-error",
+							"objectClass": "WebSocket",
+							"sid": 708918676516793
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "TextDebug",
+							"sid": 173358121698152,
+							"parameters": {
+								"text": "\"Websocket Error : \" & WebSocket.ErrorMsg"
+							}
+						}
+					],
+					"sid": 575306457398513
+				},
+				{
+					"eventType": "comment",
+					"text": "Debug Close connection"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-closed",
+							"objectClass": "WebSocket",
+							"sid": 881558645603116
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "TextDebug",
+							"sid": 183696887696065,
+							"parameters": {
+								"text": "\"Websocket Error : Close Code :\" & WebSocket.CloseCode & newline & \"Reason : \" & WebSocket.CloseReason"
+							}
+						}
+					],
+					"sid": 610166681123526
+				},
+				{
+					"eventType": "comment",
+					"text": "Système auto reconnection"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-open",
+							"objectClass": "WebSocket",
+							"sid": 277864683247384,
+							"isInverted": true
+						},
+						{
+							"id": "every-x-seconds",
+							"objectClass": "System",
+							"sid": 344188860514627,
+							"parameters": {
+								"interval-seconds": "1.0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "connect",
+							"objectClass": "WebSocket",
+							"sid": 840338033538013,
+							"parameters": {
+								"url": "Ip",
+								"protocol-optional": "\"\""
+							}
+						}
+					],
+					"sid": 164314138548503
+				},
+				{
+					"eventType": "comment",
+					"text": "Reception Data"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-open",
+							"objectClass": "WebSocket",
+							"sid": 211545797010259
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "TextLogWebSocket",
+							"sid": 339948036367310,
+							"parameters": {
+								"text": "WebSocket.MessageText"
+							}
+						},
+						{
+							"id": "set-json",
+							"objectClass": "JSON",
+							"sid": 454654473741195,
+							"parameters": {
+								"path": "\"WebSocket\"",
+								"json": "WebSocket.MessageText"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "TextLogWebSocket",
+							"sid": 220337108746090,
+							"parameters": {
+								"text": "JSON.GetAsBeautifiedString(\"WebSocket\")"
+							}
+						}
+					],
+					"sid": 351489641315026
+				},
+				{
+					"eventType": "comment",
+					"text": "Bouton Déco"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-clicked",
+							"objectClass": "ButtonLeave",
+							"sid": 102543513788750
+						}
+					],
+					"actions": [
+						{
+							"id": "close",
+							"objectClass": "WebSocket",
+							"sid": 751500870806997
+						}
+					],
+					"sid": 488175555329536
+				},
+				{
+					"eventType": "comment",
+					"text": "Bouton Connection avec Ip diff"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-clicked",
+							"objectClass": "ButtonServer",
+							"sid": 924874063519308
+						},
+						{
+							"id": "compare-text",
+							"objectClass": "TextIp",
+							"sid": 272394213243888,
+							"parameters": {
+								"text": "\"\"",
+								"case": "case-insensitive"
+							},
+							"isInverted": true
+						},
+						{
+							"id": "is-open",
+							"objectClass": "WebSocket",
+							"sid": 208952368954002,
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "connect",
+							"objectClass": "WebSocket",
+							"sid": 572456442896785,
+							"parameters": {
+								"url": "TextIp.Text",
+								"protocol-optional": "\"\""
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 942843536735587,
+							"parameters": {
+								"variable": "Ip",
+								"value": "TextIp.Text"
+							}
+						}
+					],
+					"sid": 507485595099208
+				},
+				{
+					"eventType": "comment",
+					"text": "Envoi Manuel Data (WIP)"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-clicked",
+							"objectClass": "ButtonSendData",
+							"sid": 239539055951276
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 572771431710455,
+							"parameters": {
+								"variable": "CompteBouton",
+								"value": "1"
+							}
+						},
+						{
+							"id": "send-text",
+							"objectClass": "WebSocket",
+							"sid": 195606296402693,
+							"parameters": {
+								"data": "\"{message : \" & IronOre & \",type : resource, slug : iron_ore, name : Iron Ore , language : EN}\""
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "TextSendData",
+							"sid": 923746750685137,
+							"parameters": {
+								"text": "\"{message : \" & IronOre & \",type : resource, slug : iron_ore, name : Iron Ore , language : EN}\""
+							}
+						}
+					],
+					"sid": 376170866869053,
+					"children": [
+						{
+							"eventType": "comment",
+							"text": "Envoi Auto Data (WIP)"
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-x-seconds",
+							"objectClass": "System",
+							"sid": 655875426359180,
+							"parameters": {
+								"interval-seconds": "60.0"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 697033408908435
+				}
+			],
+			"sid": 732324701754908
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Prototype",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 168457265406668
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "TextRessource",
+							"sid": 675581467511163,
+							"parameters": {
+								"text": "\"Ressource :\" & newline & \"Iron Ore : \" & IronOre & newline & \"Iron Ingot : \" & IronIngot"
+							}
+						}
+					],
+					"sid": 758472669123899
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-any-click",
+							"objectClass": "Mouse",
+							"sid": 725170424187434
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 358142267204393,
+							"parameters": {
+								"variable": "IronOre",
+								"value": "1"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "TextRessource",
+							"sid": 860134217451498,
+							"parameters": {
+								"text": "\"Ressource :\" & newline & \"Iron Ore : \" & IronOre & newline & \"Iron Ingot : \" & IronIngot"
+							}
+						},
+						{
+							"type": "comment",
+							"text": "Tempo (debug)"
+						},
+						{
+							"id": "set-text",
+							"objectClass": "TextSendData",
+							"sid": 909947575983503,
+							"parameters": {
+								"text": "\"{message : \" & IronOre & \",type : resource, slug : iron_ore, name : Iron Ore , language : EN}\""
+							}
+						}
+					],
+					"sid": 330287568170441
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-clicked",
+							"objectClass": "ButtonCraftManual",
+							"sid": 294911343629347
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 154437793145933,
+							"parameters": {
+								"variable": "IronOre",
+								"comparison": 5,
+								"value": "2"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 569096566170856,
+							"parameters": {
+								"variable": "IronIngot",
+								"value": "1"
+							}
+						},
+						{
+							"id": "subtract-from-eventvar",
+							"objectClass": "System",
+							"sid": 506624618194109,
+							"parameters": {
+								"variable": "IronOre",
+								"value": "2"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "TextRessource",
+							"sid": 643828378345149,
+							"parameters": {
+								"text": "\"Ressource :\" & newline & \"Iron Ore : \" & IronOre & newline & \"Iron Ingot : \" & IronIngot"
+							}
+						}
+					],
+					"sid": 736522467125298
+				}
+			],
+			"sid": 862471311643176
 		}
 	],
 	"sid": 255337968219618

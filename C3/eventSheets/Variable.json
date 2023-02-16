@@ -1,0 +1,58 @@
+{
+	"name": "Variable",
+	"events": [
+		{
+			"eventType": "comment",
+			"text": "WebSocket"
+		},
+		{
+			"eventType": "variable",
+			"name": "Ip",
+			"type": "string",
+			"initialValue": "wss://bf81-185-42-101-58.eu.ngrok.io ",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 392756894371476
+		},
+		{
+			"eventType": "comment",
+			"text": "Ressource"
+		},
+		{
+			"eventType": "variable",
+			"name": "IronOre",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 866674914836662
+		},
+		{
+			"eventType": "variable",
+			"name": "IronIngot",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 917726924950507
+		},
+		{
+			"eventType": "comment",
+			"text": "Tempo (debug)"
+		},
+		{
+			"eventType": "variable",
+			"name": "CompteBouton",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 505220146263669
+		}
+	],
+	"sid": 638167688340769
+}
