@@ -15,13 +15,6 @@
 		},
 		{
 			"type": "plugin",
-			"id": "BinaryData",
-			"name": "Binary Data",
-			"author": "Scirra",
-			"bundled": false
-		},
-		{
-			"type": "plugin",
 			"id": "Button",
 			"name": "Button",
 			"author": "Scirra",
@@ -31,13 +24,6 @@
 			"type": "plugin",
 			"id": "C2WebSocket",
 			"name": "WebSocket",
-			"author": "Scirra",
-			"bundled": false
-		},
-		{
-			"type": "plugin",
-			"id": "Json",
-			"name": "JSON",
 			"author": "Scirra",
 			"bundled": false
 		},
@@ -65,46 +51,24 @@
 	],
 	"uniqueId": "5vtm7n4tma6",
 	"objectTypes": {
-<<<<<<< Updated upstream
-		"items": [
-			"WebSocket",
-			"TextDebug",
-			"Audio",
-			"ButtonCraftManual",
-			"TextCraftCurrent",
-			"Mouse",
-			"TextRessource",
-			"ButtonSendData",
-			"TextLogWebSocket",
-			"TextIp",
-			"ButtonServer",
-			"ButtonLeave",
-			"BinaryData",
-			"TextSendData",
-			"JSON"
-		],
-		"subfolders": []
-=======
 		"items": [],
 		"subfolders": [
 			{
 				"items": [
 					"Audio",
-					"JSON",
 					"Mouse",
-					"BinaryData",
 					"WebSocket"
 				],
 				"subfolders": [],
-				"name": "ressource"
+				"name": "Ressource"
 			},
 			{
 				"items": [
 					"ButtonCraftManual",
-					"ButtonLeave",
 					"ButtonSendData",
 					"ButtonServer",
-					"ClearButton"
+					"ClearButton",
+					"ButtonLeave"
 				],
 				"subfolders": [],
 				"name": "Button"
@@ -129,7 +93,6 @@
 				"name": "TextInput"
 			}
 		]
->>>>>>> Stashed changes
 	},
 	"autosaveData": null,
 	"containers": [],

@@ -161,26 +161,30 @@
 							"parameters": {
 								"text": "WebSocket.MessageText"
 							}
-						},
-						{
-							"id": "set-json",
-							"objectClass": "JSON",
-							"sid": 454654473741195,
-							"parameters": {
-								"path": "\"WebSocket\"",
-								"json": "WebSocket.MessageText"
-							}
-						},
-						{
-							"id": "set-text",
-							"objectClass": "TextLogWebSocket",
-							"sid": 220337108746090,
-							"parameters": {
-								"text": "JSON.GetAsBeautifiedString(\"WebSocket\")"
-							}
 						}
 					],
 					"sid": 351489641315026
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-message",
+							"objectClass": "WebSocket",
+							"sid": 520040186890882
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "TextLogWebSocket",
+							"sid": 680793385456490,
+							"parameters": {
+								"text": "WebSocket.MessageText"
+							}
+						}
+					],
+					"sid": 531983950524301
 				},
 				{
 					"eventType": "comment",
@@ -281,23 +285,9 @@
 						{
 							"id": "send-text",
 							"objectClass": "WebSocket",
-<<<<<<< Updated upstream
-							"sid": 195606296402693,
-							"parameters": {
-								"data": "\"{message : \" & IronOre & \",type : resource, slug : iron_ore, name : Iron Ore , language : EN}\""
-							}
-						},
-						{
-							"id": "set-text",
-							"objectClass": "TextSendData",
-							"sid": 923746750685137,
-							"parameters": {
-								"text": "\"{message : \" & IronOre & \",type : resource, slug : iron_ore, name : Iron Ore , language : EN}\""
-=======
-							"sid": 383308703562735,
+							"sid": 406337879644633,
 							"parameters": {
 								"data": "\"{\" & newline &\n\"\"\"slug\"\": \"\"iron_ore\"\",\" & newline &\n\"\"\"quantity\"\": \" & IronOre & newline &\n\"}\""
->>>>>>> Stashed changes
 							}
 						}
 					],
@@ -325,7 +315,7 @@
 						{
 							"id": "send-text",
 							"objectClass": "WebSocket",
-							"sid": 858290247775475,
+							"sid": 419772913878367,
 							"parameters": {
 								"data": "\"{\" & newline &\n\"\"\"slug\"\": \"\"iron_ore\"\",\" & newline &\n\"\"\"quantity\"\": \" & IronOre & newline &\n\"}\""
 							}
@@ -385,26 +375,11 @@
 						},
 						{
 							"id": "set-text",
-							"objectClass": "TextRessource",
-							"sid": 860134217451498,
-							"parameters": {
-								"text": "\"Ressource :\" & newline & \"Iron Ore : \" & IronOre & newline & \"Iron Ingot : \" & IronIngot"
-							}
-<<<<<<< Updated upstream
-						},
-						{
-							"type": "comment",
-							"text": "Tempo (debug)"
-						},
-						{
-							"id": "set-text",
 							"objectClass": "TextSendData",
-							"sid": 909947575983503,
+							"sid": 247069944237107,
 							"parameters": {
-								"text": "\"{message : \" & IronOre & \",type : resource, slug : iron_ore, name : Iron Ore , language : EN}\""
+								"text": "\"{'message' : \" & IronOre & \"',type' : 'resource', 'slug' : iron_ore, 'name' : 'Iron Ore' , language : 'EN'}\""
 							}
-=======
->>>>>>> Stashed changes
 						}
 					],
 					"sid": 330287568170441
@@ -460,6 +435,37 @@
 				}
 			],
 			"sid": 862471311643176
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Debug",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-clicked",
+							"objectClass": "ClearButton",
+							"sid": 252353151371623
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "LogText",
+							"sid": 236754166549798,
+							"parameters": {
+								"text": "\"\""
+							}
+						}
+					],
+					"sid": 789824990134549
+				}
+			],
+			"sid": 940556069216316
 		}
 	],
 	"sid": 255337968219618

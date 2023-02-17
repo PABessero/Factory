@@ -377,6 +377,70 @@
 						"angle": 0,
 						"zElevation": 0
 					}
+				},
+				{
+					"type": "LogText",
+					"properties": {
+						"text": "Test",
+						"placeholder": "",
+						"tooltip": "",
+						"initially-visible": true,
+						"enabled": true,
+						"read-only": true,
+						"spell-check": false,
+						"type": "textarea",
+						"auto-font-size": true,
+						"id": "",
+						"class": ""
+					},
+					"uid": 17,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 1088,
+						"y": 32,
+						"width": 768,
+						"height": 992,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						]
+					}
+				},
+				{
+					"type": "ClearButton",
+					"properties": {
+						"type": "button",
+						"text": "Clear Log",
+						"tooltip": "",
+						"initially-visible": true,
+						"enabled": true,
+						"auto-font-size": true,
+						"checked": false,
+						"id": "",
+						"class": ""
+					},
+					"uid": 18,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 864,
+						"y": 960,
+						"width": 192,
+						"height": 64,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						]
+					}
 				}
 			],
 			"sid": 845636421203411,
@@ -409,22 +473,7 @@
 		}
 	],
 	"sid": 438588122354213,
-	"nonworld-instances": [
-		{
-			"type": "BinaryData",
-			"properties": {
-				"endian": "big"
-			},
-			"uid": 14,
-			"instanceVariables": {}
-		},
-		{
-			"type": "JSON",
-			"properties": {},
-			"uid": 16,
-			"instanceVariables": {}
-		}
-	],
+	"nonworld-instances": [],
 	"effectTypes": [],
 	"width": 3840,
 	"height": 2160,
