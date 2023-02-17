@@ -2,6 +2,16 @@
 	"name": "Variable",
 	"events": [
 		{
+			"eventType": "variable",
+			"name": "UUID",
+			"type": "string",
+			"initialValue": "",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 532236275935404
+		},
+		{
 			"eventType": "comment",
 			"text": "WebSocket"
 		},
@@ -9,11 +19,21 @@
 			"eventType": "variable",
 			"name": "Ip",
 			"type": "string",
-			"initialValue": "wss://eb3e-185-42-101-58.eu.ngrok.io",
+			"initialValue": "wss://49c6-90-29-162-154.eu.ngrok.io",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
-			"sid": 392756894371476
+			"sid": 207236664983049
+		},
+		{
+			"eventType": "variable",
+			"name": "Language",
+			"type": "string",
+			"initialValue": "EN",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 365185925130033
 		},
 		{
 			"eventType": "comment",

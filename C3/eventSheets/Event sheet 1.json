@@ -8,7 +8,7 @@
 		{
 			"eventType": "group",
 			"disabled": false,
-			"title": "WebSocketConnection",
+			"title": "PlayfabConnection And WebSocketConnection",
 			"description": "Web Socket Connection\nStarting game",
 			"isActiveOnStart": true,
 			"children": [
@@ -19,483 +19,754 @@
 							"id": "on-start-of-layout",
 							"objectClass": "System",
 							"sid": 888450021610425
-						},
-						{
-							"id": "is-on-android",
-							"objectClass": "PlatformInfo",
-							"sid": 481945811473656
 						}
 					],
 					"actions": [
 						{
-							"id": "connect",
-							"objectClass": "WebSocket",
-							"sid": 205608273210413,
-							"disabled": true,
+							"id": "check-item-exists",
+							"objectClass": "LocalStorage",
+							"sid": 501092331580050,
 							"parameters": {
-								"url": "Ip",
-								"protocol-optional": "\"\""
+								"key": "\"UUID\""
 							}
 						},
 						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
-							"sid": 572804377770943,
-							"parameters": {
-								"variable": "DataIron",
-								"value": "\"[{\" & newline &\r\n\"\"\"slug\"\": \"\"iron_ore\"\",\" & newline &\r\n\"\"\"quantity\"\": \" & IronOre & newline &\r\n\"},\" & newline & \n\n\"{\" & newline &\r\n\"\"\"slug\"\": \"\"iron_ingot\"\",\" & newline &\r\n\"\"\"quantity\"\": \" & IronIngot & newline &\r\n\"},\" & newline & \n\n\"{\" & newline &\r\n\"\"\"slug\"\": \"\"iron_plate\"\",\" & newline &\r\n\"\"\"quantity\"\": \" & IronPlate & newline &\r\n\"},\" & newline & \n\n\"{\" & newline &\r\n\"\"\"slug\"\": \"\"iron_rod\"\",\" & newline &\r\n\"\"\"quantity\"\": \" & IronRod & newline &\r\n\"},\" & newline & \n\n\"{\" & newline &\r\n\"\"\"slug\"\": \"\"iron_wire\"\",\" & newline &\r\n\"\"\"quantity\"\": \" & IronWire & newline &\r\n\"},\" & newline & \n\n\"{\" & newline &\r\n\"\"\"slug\"\": \"\"iron_screw\"\",\" & newline &\r\n\"\"\"quantity\"\": \" & IronScrew & newline &\r\n\"}]\"\n"
-							}
-						},
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 938501809328416,
+							"sid": 416621186960938,
 							"parameters": {
 								"variable": "DataCopper",
 								"value": "\"[{\" & newline &\r\n\"\"\"slug\"\": \"\"copper_ore\"\",\" & newline &\r\n\"\"\"quantity\"\": \" & CopperOre & newline &\r\n\"},\" & newline &\n\n\"{\" & newline &\r\n\"\"\"slug\"\": \"\"copper_ingot\"\",\" & newline &\r\n\"\"\"quantity\"\": \" & CopperIngot & newline &\r\n\"},\" & newline &\n\n\"{\" & newline & \r\n\"\"\"slug\"\": \"\"copper_plate\"\",\" & newline &\r\n\"\"\"quantity\"\": \" & CopperPlate & newline &\r\n\"},\" & newline & \n\n\"{\" & newline &\r\n\"\"\"slug\"\": \"\"copper_rod\"\",\" & newline &\r\n\"\"\"quantity\"\": \" & CopperRod & newline &\r\n\"},\" & newline &\n\n\"{\" & newline &\r\n\"\"\"slug\"\": \"\"copper_wire\"\",\" & newline &\r\n\"\"\"quantity\"\": \" & CopperWire & newline &\r\n\"},\" & newline & \n\n\"{\" & newline &\r\n\"\"\"slug\"\": \"\"copper_screw\"\",\" & newline &\r\n\"\"\"quantity\"\": \" & CopperScrew & newline &\r\n\"}]\" & newline \n"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 849252643259294,
+							"parameters": {
+								"variable": "DataIron",
+								"value": "\"[{\" & newline &\r\n\"\"\"slug\"\": \"\"iron_ore\"\",\" & newline &\r\n\"\"\"quantity\"\": \" & IronOre & newline &\r\n\"},\" & newline & \n\n\"{\" & newline &\r\n\"\"\"slug\"\": \"\"iron_ingot\"\",\" & newline &\r\n\"\"\"quantity\"\": \" & IronIngot & newline &\r\n\"},\" & newline & \n\n\"{\" & newline &\r\n\"\"\"slug\"\": \"\"iron_plate\"\",\" & newline &\r\n\"\"\"quantity\"\": \" & IronPlate & newline &\r\n\"},\" & newline & \n\n\"{\" & newline &\r\n\"\"\"slug\"\": \"\"iron_rod\"\",\" & newline &\r\n\"\"\"quantity\"\": \" & IronRod & newline &\r\n\"},\" & newline & \n\n\"{\" & newline &\r\n\"\"\"slug\"\": \"\"iron_wire\"\",\" & newline &\r\n\"\"\"quantity\"\": \" & IronWire & newline &\r\n\"},\" & newline & \n\n\"{\" & newline &\r\n\"\"\"slug\"\": \"\"iron_screw\"\",\" & newline &\r\n\"\"\"quantity\"\": \" & IronScrew & newline &\r\n\"}]\"\n"
 							}
 						}
 					],
 					"sid": 408624756623370
 				},
 				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-start-of-layout",
-							"objectClass": "System",
-							"sid": 598341702035866
-						},
-						{
-							"id": "is-on-windows",
-							"objectClass": "PlatformInfo",
-							"sid": 569050149633342
-						}
-					],
-					"actions": [
-						{
-							"id": "connect",
-							"objectClass": "WebSocket",
-							"sid": 190833872707963,
-							"disabled": true,
-							"parameters": {
-								"url": "Ip",
-								"protocol-optional": "\"\""
-							}
-						},
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 130182403801692,
-							"parameters": {
-								"variable": "DataIron",
-								"value": "\"[{\" & newline &\r\n\"\"\"slug\"\": \"\"iron_ore\"\",\" & newline &\r\n\"\"\"quantity\"\": \" & IronOre & newline &\r\n\"},\" & newline & \n\n\"{\" & newline &\r\n\"\"\"slug\"\": \"\"iron_ingot\"\",\" & newline &\r\n\"\"\"quantity\"\": \" & IronIngot & newline &\r\n\"},\" & newline & \n\n\"{\" & newline &\r\n\"\"\"slug\"\": \"\"iron_plate\"\",\" & newline &\r\n\"\"\"quantity\"\": \" & IronPlate & newline &\r\n\"},\" & newline & \n\n\"{\" & newline &\r\n\"\"\"slug\"\": \"\"iron_rod\"\",\" & newline &\r\n\"\"\"quantity\"\": \" & IronRod & newline &\r\n\"},\" & newline & \n\n\"{\" & newline &\r\n\"\"\"slug\"\": \"\"iron_wire\"\",\" & newline &\r\n\"\"\"quantity\"\": \" & IronWire & newline &\r\n\"},\" & newline & \n\n\"{\" & newline &\r\n\"\"\"slug\"\": \"\"iron_screw\"\",\" & newline &\r\n\"\"\"quantity\"\": \" & IronScrew & newline &\r\n\"}]\"\n"
-							}
-						},
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 430132313863636,
-							"parameters": {
-								"variable": "DataCopper",
-								"value": "\"[{\" & newline &\r\n\"\"\"slug\"\": \"\"copper_ore\"\",\" & newline &\r\n\"\"\"quantity\"\": \" & CopperOre & newline &\r\n\"},\" & newline &\n\n\"{\" & newline &\r\n\"\"\"slug\"\": \"\"copper_ingot\"\",\" & newline &\r\n\"\"\"quantity\"\": \" & CopperIngot & newline &\r\n\"},\" & newline &\n\n\"{\" & newline & \r\n\"\"\"slug\"\": \"\"copper_plate\"\",\" & newline &\r\n\"\"\"quantity\"\": \" & CopperPlate & newline &\r\n\"},\" & newline & \n\n\"{\" & newline &\r\n\"\"\"slug\"\": \"\"copper_rod\"\",\" & newline &\r\n\"\"\"quantity\"\": \" & CopperRod & newline &\r\n\"},\" & newline &\n\n\"{\" & newline &\r\n\"\"\"slug\"\": \"\"copper_wire\"\",\" & newline &\r\n\"\"\"quantity\"\": \" & CopperWire & newline &\r\n\"},\" & newline & \n\n\"{\" & newline &\r\n\"\"\"slug\"\": \"\"copper_screw\"\",\" & newline &\r\n\"\"\"quantity\"\": \" & CopperScrew & newline &\r\n\"}]\" & newline \n"
-							}
-						}
-					],
-					"sid": 375384852033821
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "androiddevicelogin0",
-							"objectClass": "Authentication",
-							"sid": 728204045023792
-						}
-					],
-					"actions": [
-						{
-							"id": "set-text",
-							"objectClass": "TextDebug",
-							"sid": 699332977059569,
-							"parameters": {
-								"text": "\"PlayFab is okay\""
-							}
-						}
-					],
-					"sid": 953308221448071
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "customidlogin6",
-							"objectClass": "Authentication",
-							"sid": 974073625666621
-						}
-					],
-					"actions": [
-						{
-							"id": "set-text",
-							"objectClass": "TextDebug",
-							"sid": 546320296676144,
-							"parameters": {
-								"text": "\"PlayFab is okay\""
-							}
-						}
-					],
-					"sid": 118933921233377
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-opened",
-							"objectClass": "WebSocket",
-							"sid": 539990503705593
-						}
-					],
-					"actions": [
-						{
-							"id": "set-text",
-							"objectClass": "TextDebug",
-							"sid": 175434005666662,
-							"parameters": {
-								"text": "\"Websocket is okay\""
-							}
-						}
-					],
-					"sid": 347356015728287
-				},
-				{
-					"eventType": "comment",
-					"text": "Debug Error connection"
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-error",
-							"objectClass": "WebSocket",
-							"sid": 708918676516793
-						}
-					],
-					"actions": [
-						{
-							"id": "set-text",
-							"objectClass": "TextDebug",
-							"sid": 173358121698152,
-							"parameters": {
-								"text": "\"Websocket Error : \" & WebSocket.ErrorMsg"
-							}
-						}
-					],
-					"sid": 575306457398513
-				},
-				{
-					"eventType": "comment",
-					"text": "Debug Close connection"
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-closed",
-							"objectClass": "WebSocket",
-							"sid": 881558645603116
-						}
-					],
-					"actions": [
-						{
-							"id": "set-text",
-							"objectClass": "TextDebug",
-							"sid": 183696887696065,
-							"parameters": {
-								"text": "\"Websocket Error : Close Code :\" & WebSocket.CloseCode & newline & \"Reason : \" & WebSocket.CloseReason"
-							}
-						}
-					],
-					"sid": 610166681123526
-				},
-				{
-					"eventType": "comment",
-					"text": "Système auto reconnection"
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "is-open",
-							"objectClass": "WebSocket",
-							"sid": 277864683247384,
-							"isInverted": true
-						},
-						{
-							"id": "every-x-seconds",
-							"objectClass": "System",
-							"sid": 344188860514627,
-							"parameters": {
-								"interval-seconds": "1.0"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "connect",
-							"objectClass": "WebSocket",
-							"sid": 840338033538013,
-							"parameters": {
-								"url": "Ip",
-								"protocol-optional": "\"\""
-							}
-						}
-					],
-					"sid": 164314138548503,
-					"disabled": true
-				},
-				{
-					"eventType": "comment",
-					"text": "Reception Data"
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "is-open",
-							"objectClass": "WebSocket",
-							"sid": 211545797010259
-						}
-					],
-					"actions": [
-						{
-							"id": "set-text",
-							"objectClass": "TextLogWebSocket",
-							"sid": 339948036367310,
-							"parameters": {
-								"text": "WebSocket.MessageText"
-							}
-						}
-					],
-					"sid": 351489641315026
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-message",
-							"objectClass": "WebSocket",
-							"sid": 520040186890882
-						}
-					],
-					"actions": [
-						{
-							"id": "set-text",
-							"objectClass": "TextLogWebSocket",
-							"sid": 680793385456490,
-							"parameters": {
-								"text": "WebSocket.MessageText"
-							}
-						},
-						{
-							"id": "append-text",
-							"objectClass": "LogText",
-							"sid": 253111278812577,
-							"disabled": true,
-							"parameters": {
-								"text": "WebSocket.MessageText"
-							}
-						},
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 670833496528963,
-							"disabled": true,
-							"parameters": {
-								"variable": "DataMessage",
-								"value": "replace(WebSocket.MessageText, \"{\"\"message\"\":\"\"test\"\",\"\"type\"\":\"\"storage\"\",\"\"slug\"\":\"\"iron_ore\"\",\"\"quantity\"\":\" , \"\")"
-							}
-						},
-						{
-							"id": "set-text",
-							"objectClass": "TextTempo",
-							"sid": 731826440294109,
-							"disabled": true,
-							"parameters": {
-								"text": "replace(DataMessage, \"}\" , \"\")"
-							}
-						},
-						{
-							"id": "append-text",
-							"objectClass": "LogText",
-							"sid": 638318883923838,
-							"disabled": true,
-							"parameters": {
-								"text": "newline & \"iron_ore : \" & replace(DataMessage, \"}\" , \"\")"
-							}
-						},
-						{
-							"id": "set-json",
-							"objectClass": "JSON",
-							"sid": 464324489611875,
-							"parameters": {
-								"path": "\"websocket\"",
-								"json": "WebSocket.MessageText"
-							}
-						},
-						{
-							"id": "append-text",
-							"objectClass": "LogText",
-							"sid": 951988281055306,
-							"parameters": {
-								"text": "JSON.GetAsBeautifiedString(\"websocket\")"
-							}
-						}
-					],
-					"sid": 531983950524301
-				},
-				{
-					"eventType": "comment",
-					"text": "Bouton Déco"
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-clicked",
-							"objectClass": "ButtonLeave",
-							"sid": 102543513788750
-						}
-					],
-					"actions": [
-						{
-							"id": "close",
-							"objectClass": "WebSocket",
-							"sid": 751500870806997
-						}
-					],
-					"sid": 488175555329536
-				},
-				{
-					"eventType": "comment",
-					"text": "Bouton Connection avec Ip diff"
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-clicked",
-							"objectClass": "ButtonServer",
-							"sid": 924874063519308
-						},
-						{
-							"id": "compare-text",
-							"objectClass": "TextIp",
-							"sid": 272394213243888,
-							"parameters": {
-								"text": "\"\"",
-								"case": "case-insensitive"
-							},
-							"isInverted": true
-						},
-						{
-							"id": "is-open",
-							"objectClass": "WebSocket",
-							"sid": 208952368954002,
-							"isInverted": true
-						}
-					],
-					"actions": [
-						{
-							"id": "connect",
-							"objectClass": "WebSocket",
-							"sid": 572456442896785,
-							"parameters": {
-								"url": "TextIp.Text",
-								"protocol-optional": "\"\""
-							}
-						},
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 942843536735587,
-							"parameters": {
-								"variable": "Ip",
-								"value": "TextIp.Text"
-							}
-						}
-					],
-					"sid": 507485595099208
-				},
-				{
-					"eventType": "comment",
-					"text": "Envoi Manuel Data (WIP)"
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-clicked",
-							"objectClass": "ButtonSendData",
-							"sid": 239539055951276
-						}
-					],
-					"actions": [
-						{
-							"id": "send-text",
-							"objectClass": "WebSocket",
-							"sid": 710919519945276,
-							"parameters": {
-								"data": "DataIron"
-							}
-						},
-						{
-							"id": "send-text",
-							"objectClass": "WebSocket",
-							"sid": 167166686198133,
-							"parameters": {
-								"data": "DataCopper"
-							}
-						}
-					],
-					"sid": 376170866869053,
+					"eventType": "group",
+					"disabled": false,
+					"title": "Chargement Donnée Local",
+					"description": "",
+					"isActiveOnStart": true,
 					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-item-missing",
+									"objectClass": "LocalStorage",
+									"sid": 166370878445514,
+									"parameters": {
+										"key": "\"UUID\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 918696503956083,
+							"children": [
+								{
+									"eventType": "script",
+									"script": "runtime.globalVars.UUID = (Math.round(Date.now() * performance.now())).toString()"
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-item",
+											"objectClass": "LocalStorage",
+											"sid": 814851115591265,
+											"parameters": {
+												"key": "\"UUID\"",
+												"value": "UUID"
+											}
+										},
+										{
+											"id": "customidlogin2",
+											"objectClass": "Authentication",
+											"sid": 464440008208804,
+											"parameters": {
+												"custom_id_:0": "UUID",
+												"create_account_:3": "enabled"
+											}
+										}
+									],
+									"sid": 505648291209483
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-item-exists",
+									"objectClass": "LocalStorage",
+									"sid": 936612766304399,
+									"parameters": {
+										"key": "\"UUID\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "get-item",
+									"objectClass": "LocalStorage",
+									"sid": 190125478670835,
+									"parameters": {
+										"key": "\"UUID\""
+									}
+								}
+							],
+							"sid": 964008343511965
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-item-get",
+									"objectClass": "LocalStorage",
+									"sid": 537914836787390,
+									"parameters": {
+										"key": "\"UUID\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 664759066181341,
+									"parameters": {
+										"variable": "UUID",
+										"value": "LocalStorage.ItemValue"
+									}
+								}
+							],
+							"sid": 936394991136430,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-on-android",
+											"objectClass": "PlatformInfo",
+											"sid": 252187841613310
+										}
+									],
+									"actions": [
+										{
+											"id": "androiddevicelogin0",
+											"objectClass": "Authentication",
+											"sid": 932748950111885,
+											"parameters": {
+												"uuid_:0": "UUID",
+												"os_:1": "\"\"",
+												"model_:2": "\"\"",
+												"create_account_:5": "enabled"
+											}
+										}
+									],
+									"sid": 815176795669141
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-on-windows",
+											"objectClass": "PlatformInfo",
+											"sid": 255052959449193
+										}
+									],
+									"actions": [
+										{
+											"id": "customidlogin2",
+											"objectClass": "Authentication",
+											"sid": 809635961911133,
+											"parameters": {
+												"custom_id_:0": "UUID",
+												"create_account_:3": "enabled"
+											}
+										}
+									],
+									"sid": 393330627580740
+								}
+							]
+						}
+					],
+					"sid": 278216706655838
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Android Playfab",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "androiddevicelogin0",
+									"objectClass": "Authentication",
+									"sid": 520907266357073
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "TextDebug",
+									"sid": 493548625552105,
+									"parameters": {
+										"text": "\"PlayFab is okay\""
+									}
+								}
+							],
+							"sid": 161327183608028
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "androiddevicelogin_accountnotfound1",
+									"objectClass": "Authentication",
+									"sid": 212799526700922
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "TextDebug",
+									"sid": 582726540386309,
+									"parameters": {
+										"text": "\"PlayFab Not found\""
+									}
+								}
+							],
+							"sid": 555491556794721
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "androiddevicelogin_error2",
+									"objectClass": "Authentication",
+									"sid": 773297176386377
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "TextDebug",
+									"sid": 537955438117432,
+									"parameters": {
+										"text": "\"PlayFab Error\""
+									}
+								}
+							],
+							"sid": 507225955512612
+						}
+					],
+					"sid": 612646953269622
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "CustomID Playfab",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "customidlogin6",
+									"objectClass": "Authentication",
+									"sid": 343469518834590
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "TextDebug",
+									"sid": 676164874779809,
+									"parameters": {
+										"text": "\"PlayFab is okay\""
+									}
+								},
+								{
+									"id": "connect",
+									"objectClass": "WebSocket",
+									"sid": 844030827512251,
+									"parameters": {
+										"url": "Ip & \"?language=\" & Language & \"&username=\" & UUID",
+										"protocol-optional": "\"\""
+									}
+								}
+							],
+							"sid": 134813954550120
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "customidlogin_accountnotfound7",
+									"objectClass": "Authentication",
+									"sid": 235831671857858
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "TextDebug",
+									"sid": 329183355782055,
+									"parameters": {
+										"text": "\"PlayFab Not found\""
+									}
+								}
+							],
+							"sid": 492644670207516
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "customidlogin_error8",
+									"objectClass": "Authentication",
+									"sid": 319772314472684
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "TextDebug",
+									"sid": 664693525080099,
+									"parameters": {
+										"text": "\"PlayFab Error\""
+									}
+								}
+							],
+							"sid": 253976481294344
+						}
+					],
+					"sid": 707361708927724
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "WebSocket",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-opened",
+									"objectClass": "WebSocket",
+									"sid": 439576075236555
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "TextDebug",
+									"sid": 851047323689312,
+									"parameters": {
+										"text": "\"Websocket is okay\""
+									}
+								}
+							],
+							"sid": 230815001017574
+						},
+						{
+							"eventType": "comment",
+							"text": "Debug Error connection"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-error",
+									"objectClass": "WebSocket",
+									"sid": 920062375041133
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "TextDebug",
+									"sid": 698245054368849,
+									"parameters": {
+										"text": "\"Websocket Error : \" & WebSocket.ErrorMsg"
+									}
+								}
+							],
+							"sid": 730625185626258
+						},
+						{
+							"eventType": "comment",
+							"text": "Debug Close connection"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-closed",
+									"objectClass": "WebSocket",
+									"sid": 427332207343607
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "TextDebug",
+									"sid": 124062945306362,
+									"parameters": {
+										"text": "\"Websocket Error : Close Code :\" & WebSocket.CloseCode & newline & \"Reason : \" & WebSocket.CloseReason"
+									}
+								}
+							],
+							"sid": 368641965295265
+						},
+						{
+							"eventType": "comment",
+							"text": "Système auto reconnection Websocket"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-open",
+									"objectClass": "WebSocket",
+									"sid": 534585708251041,
+									"isInverted": true
+								},
+								{
+									"id": "isloggedin2",
+									"objectClass": "PlayFabAPI",
+									"sid": 945107123367309
+								},
+								{
+									"id": "every-x-seconds",
+									"objectClass": "System",
+									"sid": 866694472027479,
+									"parameters": {
+										"interval-seconds": "1.0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "connect",
+									"objectClass": "WebSocket",
+									"sid": 607262751145767,
+									"parameters": {
+										"url": "Ip & \"?language=\" & Language & \"&username=\" & UUID",
+										"protocol-optional": "\"\""
+									}
+								}
+							],
+							"sid": 457611417207414
+						},
+						{
+							"eventType": "comment",
+							"text": "Système auto reconnection Playfab"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "isloggedin2",
+									"objectClass": "PlayFabAPI",
+									"sid": 874641007932387,
+									"isInverted": true
+								},
+								{
+									"id": "every-x-seconds",
+									"objectClass": "System",
+									"sid": 780069527171784,
+									"parameters": {
+										"interval-seconds": "1.0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "close",
+									"objectClass": "WebSocket",
+									"sid": 261429019837056
+								},
+								{
+									"id": "customidlogin2",
+									"objectClass": "Authentication",
+									"sid": 918882276616949,
+									"parameters": {
+										"custom_id_:0": "UUID",
+										"create_account_:3": "enabled"
+									}
+								}
+							],
+							"sid": 366725393888712
+						},
+						{
+							"eventType": "comment",
+							"text": "Reception Data"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-open",
+									"objectClass": "WebSocket",
+									"sid": 494627758485286
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "TextLogWebSocket",
+									"sid": 106646590440410,
+									"parameters": {
+										"text": "WebSocket.MessageText"
+									}
+								}
+							],
+							"sid": 175611001773561
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-message",
+									"objectClass": "WebSocket",
+									"sid": 298284057544185
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "TextLogWebSocket",
+									"sid": 761328908875816,
+									"parameters": {
+										"text": "WebSocket.MessageText"
+									}
+								},
+								{
+									"id": "append-text",
+									"objectClass": "LogText",
+									"sid": 843057275960608,
+									"disabled": true,
+									"parameters": {
+										"text": "WebSocket.MessageText"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 243475830587865,
+									"disabled": true,
+									"parameters": {
+										"variable": "DataMessage",
+										"value": "replace(WebSocket.MessageText, \"{\"\"message\"\":\"\"test\"\",\"\"type\"\":\"\"storage\"\",\"\"slug\"\":\"\"iron_ore\"\",\"\"quantity\"\":\" , \"\")"
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "TextTempo",
+									"sid": 737217729148346,
+									"disabled": true,
+									"parameters": {
+										"text": "replace(DataMessage, \"}\" , \"\")"
+									}
+								},
+								{
+									"id": "append-text",
+									"objectClass": "LogText",
+									"sid": 503589022439356,
+									"disabled": true,
+									"parameters": {
+										"text": "newline & \"iron_ore : \" & replace(DataMessage, \"}\" , \"\")"
+									}
+								},
+								{
+									"id": "set-json",
+									"objectClass": "JSON",
+									"sid": 977155722394301,
+									"parameters": {
+										"path": "\"websocket\"",
+										"json": "WebSocket.MessageText"
+									}
+								},
+								{
+									"id": "append-text",
+									"objectClass": "LogText",
+									"sid": 844975796536879,
+									"parameters": {
+										"text": "JSON.GetAsBeautifiedString(\"websocket\")"
+									}
+								}
+							],
+							"sid": 730759273802531
+						},
+						{
+							"eventType": "comment",
+							"text": "Bouton Déco (Dev Object)"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-clicked",
+									"objectClass": "ButtonLeave",
+									"sid": 838951634413610
+								}
+							],
+							"actions": [
+								{
+									"id": "close",
+									"objectClass": "WebSocket",
+									"sid": 410613695286012,
+									"disabled": true
+								},
+								{
+									"id": "logout1",
+									"objectClass": "PlayFabAPI",
+									"sid": 574861607665660
+								}
+							],
+							"sid": 199340337882151
+						},
+						{
+							"eventType": "comment",
+							"text": "Bouton Connection avec Ip diff (a voir / supprimer ?)"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-clicked",
+									"objectClass": "ButtonServer",
+									"sid": 418633426988859
+								},
+								{
+									"id": "compare-text",
+									"objectClass": "TextIp",
+									"sid": 289858798810375,
+									"parameters": {
+										"text": "\"\"",
+										"case": "case-insensitive"
+									},
+									"isInverted": true
+								},
+								{
+									"id": "is-open",
+									"objectClass": "WebSocket",
+									"sid": 562649438813590,
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "connect",
+									"objectClass": "WebSocket",
+									"sid": 680050211529806,
+									"parameters": {
+										"url": "TextIp.Text",
+										"protocol-optional": "\"\""
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 712211273238464,
+									"parameters": {
+										"variable": "Ip",
+										"value": "TextIp.Text"
+									}
+								}
+							],
+							"sid": 347386882818325
+						},
+						{
+							"eventType": "comment",
+							"text": "Envoi Manuel Data (WIP)"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-clicked",
+									"objectClass": "ButtonSendData",
+									"sid": 354916768977200
+								}
+							],
+							"actions": [
+								{
+									"id": "send-text",
+									"objectClass": "WebSocket",
+									"sid": 113435829345160,
+									"parameters": {
+										"data": "DataIron"
+									}
+								},
+								{
+									"id": "send-text",
+									"objectClass": "WebSocket",
+									"sid": 393824078255395,
+									"parameters": {
+										"data": "DataCopper"
+									}
+								}
+							],
+							"sid": 210687440786945
+						},
 						{
 							"eventType": "comment",
 							"text": "Envoi Auto Data (WIP)"
-						}
-					]
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "every-x-seconds",
-							"objectClass": "System",
-							"sid": 655875426359180,
-							"parameters": {
-								"interval-seconds": "60.0"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "send-text",
-							"objectClass": "WebSocket",
-							"sid": 810369288090160,
-							"parameters": {
-								"data": "DataIron"
-							}
 						},
 						{
-							"id": "send-text",
-							"objectClass": "WebSocket",
-							"sid": 154340357578871,
-							"parameters": {
-								"data": "DataCopper"
-							}
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "every-x-seconds",
+									"objectClass": "System",
+									"sid": 567178577349112,
+									"parameters": {
+										"interval-seconds": "60.0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "send-text",
+									"objectClass": "WebSocket",
+									"sid": 881432134416758,
+									"parameters": {
+										"data": "DataIron"
+									}
+								},
+								{
+									"id": "send-text",
+									"objectClass": "WebSocket",
+									"sid": 376889905753892,
+									"parameters": {
+										"data": "DataCopper"
+									}
+								}
+							],
+							"sid": 157301339588299
 						}
 					],
-					"sid": 697033408908435
+					"sid": 626061482614791
 				}
 			],
 			"sid": 732324701754908
@@ -692,161 +963,6 @@
 				}
 			],
 			"sid": 940556069216316
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "is-on-android",
-					"objectClass": "PlatformInfo",
-					"sid": 218151514037284
-				}
-			],
-			"actions": [
-				{
-					"id": "set-text",
-					"objectClass": "TextDebug",
-					"sid": 562927483329787,
-					"parameters": {
-						"text": "\"android\""
-					}
-				}
-			],
-			"sid": 612554177788674
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "is-on-chromeos",
-					"objectClass": "PlatformInfo",
-					"sid": 446246050896895
-				}
-			],
-			"actions": [
-				{
-					"id": "set-text",
-					"objectClass": "TextDebug",
-					"sid": 711758143732524,
-					"parameters": {
-						"text": "\"ChromeOS\""
-					}
-				}
-			],
-			"sid": 625918385957145
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "is-on-linux",
-					"objectClass": "PlatformInfo",
-					"sid": 684956641063695
-				}
-			],
-			"actions": [
-				{
-					"id": "set-text",
-					"objectClass": "TextDebug",
-					"sid": 398530967374437,
-					"parameters": {
-						"text": "\"Linux\""
-					}
-				}
-			],
-			"sid": 975567197519944
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "is-on-mobile",
-					"objectClass": "PlatformInfo",
-					"sid": 855345031102043
-				}
-			],
-			"actions": [
-				{
-					"id": "set-text",
-					"objectClass": "TextDebug",
-					"sid": 504402119421015,
-					"parameters": {
-						"text": "\"Mobile\""
-					}
-				}
-			],
-			"sid": 228388415869442
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "is-on-ios",
-					"objectClass": "PlatformInfo",
-					"sid": 876672677763478
-				}
-			],
-			"actions": [
-				{
-					"id": "set-text",
-					"objectClass": "TextDebug",
-					"sid": 368980680377320,
-					"parameters": {
-						"text": "\"IOS\""
-					}
-				}
-			],
-			"sid": 151744663804144
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "is-on-macos",
-					"objectClass": "PlatformInfo",
-					"sid": 364421460890230
-				}
-			],
-			"actions": [
-				{
-					"id": "set-text",
-					"objectClass": "TextDebug",
-					"sid": 316662734656927,
-					"parameters": {
-						"text": "\"MacOS\""
-					}
-				}
-			],
-			"sid": 516436015490901
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "is-on-windows",
-					"objectClass": "PlatformInfo",
-					"sid": 767616884246617
-				}
-			],
-			"actions": [
-				{
-					"id": "set-text",
-					"objectClass": "TextDebug",
-					"sid": 101074144347433,
-					"parameters": {
-						"text": "\"OS : Windows\""
-					}
-				},
-				{
-					"id": "append-text",
-					"objectClass": "TextDebug",
-					"sid": 645453451264772,
-					"parameters": {
-						"text": "newline & \"Memory : \" & PlatformInfo.DeviceMemory & newline & \"Threads CPU : \" & PlatformInfo.HardwareConcurrency & newline & \"renderer : \" & PlatformInfo.Renderer & newline & \"Renderer Detail : \" & PlatformInfo.RendererDetail"
-					}
-				}
-			],
-			"sid": 217856449113478
 		},
 		{
 			"eventType": "group",
