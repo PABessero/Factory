@@ -6,6 +6,8 @@ import {
   Resources,
 } from "./DataBase.js";
 
+//region Init DB
+
 export async function Populate_Resources() {
   //region Iron
   try {
@@ -131,7 +133,7 @@ export async function Populate_Machines() {
   } catch (e) {}
 }
 
-export async function PopulateCrafts() {
+export async function Populate_Crafts() {
   try {
     await Crafts.create({
       slug: "iron_pressing",
@@ -158,3 +160,5 @@ export async function PopulateCrafts() {
     });
   } catch (e) {}
 }
+
+//endregion
