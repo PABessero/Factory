@@ -9,7 +9,7 @@
 			"eventType": "variable",
 			"name": "Ip",
 			"type": "string",
-			"initialValue": "wss://6f11-90-29-162-154.eu.ngrok.io",
+			"initialValue": "wss://eb3e-185-42-101-58.eu.ngrok.io",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
@@ -41,33 +41,13 @@
 		},
 		{
 			"eventType": "variable",
-			"name": "LastDataIron",
-			"type": "string",
-			"initialValue": "",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 172979676976925
-		},
-		{
-			"eventType": "variable",
 			"name": "DataCopper",
 			"type": "string",
-			"initialValue": "Set au démarage (Not Set)",
+			"initialValue": "Set au démarage",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
 			"sid": 878200613398144
-		},
-		{
-			"eventType": "variable",
-			"name": "LastDataCopper",
-			"type": "string",
-			"initialValue": "",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 538001527867682
 		},
 		{
 			"eventType": "comment",

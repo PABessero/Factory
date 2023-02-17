@@ -34,19 +34,19 @@
 						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
-							"sid": 820642935493654,
+							"sid": 572804377770943,
 							"parameters": {
 								"variable": "DataIron",
-								"value": "\"{\" & newline &\r\n\"\"\"slug\"\": \"\"iron_ore\"\",\" & newline &\r\n\"\"\"quantity\"\": \" & IronOre & newline &\r\n\"}\" & newline &\n\n\"{\" & newline &\r\n\"\"\"slug\"\": \"\"iron_ingot\"\",\" & newline &\r\n\"\"\"quantity\"\": \" & IronIngot & newline &\r\n\"}\" & newline &\n\n\"{\" & newline &\r\n\"\"\"slug\"\": \"\"iron_plate\"\",\" & newline &\r\n\"\"\"quantity\"\": \" & IronPlate & newline &\r\n\"}\" & newline &\n\n\"{\" & newline &\r\n\"\"\"slug\"\": \"\"iron_rod\"\",\" & newline &\r\n\"\"\"quantity\"\": \" & IronRod & newline &\r\n\"}\" & newline &\n\n\"{\" & newline &\r\n\"\"\"slug\"\": \"\"iron_wire\"\",\" & newline &\r\n\"\"\"quantity\"\": \" & IronWire & newline &\r\n\"}\" & newline &\n\n\"{\" & newline &\r\n\"\"\"slug\"\": \"\"iron_screw\"\",\" & newline &\r\n\"\"\"quantity\"\": \" & IronScrew & newline &\r\n\"}\" & newline \n"
+								"value": "\"[{\" & newline &\r\n\"\"\"slug\"\": \"\"iron_ore\"\",\" & newline &\r\n\"\"\"quantity\"\": \" & IronOre & newline &\r\n\"},\" & newline & \n\n\"{\" & newline &\r\n\"\"\"slug\"\": \"\"iron_ingot\"\",\" & newline &\r\n\"\"\"quantity\"\": \" & IronIngot & newline &\r\n\"},\" & newline & \n\n\"{\" & newline &\r\n\"\"\"slug\"\": \"\"iron_plate\"\",\" & newline &\r\n\"\"\"quantity\"\": \" & IronPlate & newline &\r\n\"},\" & newline & \n\n\"{\" & newline &\r\n\"\"\"slug\"\": \"\"iron_rod\"\",\" & newline &\r\n\"\"\"quantity\"\": \" & IronRod & newline &\r\n\"},\" & newline & \n\n\"{\" & newline &\r\n\"\"\"slug\"\": \"\"iron_wire\"\",\" & newline &\r\n\"\"\"quantity\"\": \" & IronWire & newline &\r\n\"},\" & newline & \n\n\"{\" & newline &\r\n\"\"\"slug\"\": \"\"iron_screw\"\",\" & newline &\r\n\"\"\"quantity\"\": \" & IronScrew & newline &\r\n\"}]\"\n"
 							}
 						},
 						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
-							"sid": 574323735229706,
+							"sid": 938501809328416,
 							"parameters": {
 								"variable": "DataCopper",
-								"value": "\"{\" & newline &\r\n\"\"\"slug\"\": \"\"copper_ore\"\",\" & newline &\r\n\"\"\"quantity\"\": \" & CopperOre & newline &\r\n\"}\" & newline &\n\n\"{\" & newline &\r\n\"\"\"slug\"\": \"\"copper_ingot\"\",\" & newline &\r\n\"\"\"quantity\"\": \" & CopperIngot & newline &\r\n\"}\" & newline &\n\n\"{\" & newline &\r\n\"\"\"slug\"\": \"\"copper_plate\"\",\" & newline &\r\n\"\"\"quantity\"\": \" & CopperPlate & newline &\r\n\"}\" & newline &\n\n\"{\" & newline &\r\n\"\"\"slug\"\": \"\"copper_rod\"\",\" & newline &\r\n\"\"\"quantity\"\": \" & CopperRod & newline &\r\n\"}\" & newline &\n\n\"{\" & newline &\r\n\"\"\"slug\"\": \"\"copper_wire\"\",\" & newline &\r\n\"\"\"quantity\"\": \" & CopperWire & newline &\r\n\"}\" & newline &\n\n\"{\" & newline &\r\n\"\"\"slug\"\": \"\"copper_screw\"\",\" & newline &\r\n\"\"\"quantity\"\": \" & CopperScrew & newline &\r\n\"}\" & newline \n"
+								"value": "\"[{\" & newline &\r\n\"\"\"slug\"\": \"\"copper_ore\"\",\" & newline &\r\n\"\"\"quantity\"\": \" & CopperOre & newline &\r\n\"},\" & newline &\n\n\"{\" & newline &\r\n\"\"\"slug\"\": \"\"copper_ingot\"\",\" & newline &\r\n\"\"\"quantity\"\": \" & CopperIngot & newline &\r\n\"},\" & newline &\n\n\"{\" & newline & \r\n\"\"\"slug\"\": \"\"copper_plate\"\",\" & newline &\r\n\"\"\"quantity\"\": \" & CopperPlate & newline &\r\n\"},\" & newline & \n\n\"{\" & newline &\r\n\"\"\"slug\"\": \"\"copper_rod\"\",\" & newline &\r\n\"\"\"quantity\"\": \" & CopperRod & newline &\r\n\"},\" & newline &\n\n\"{\" & newline &\r\n\"\"\"slug\"\": \"\"copper_wire\"\",\" & newline &\r\n\"\"\"quantity\"\": \" & CopperWire & newline &\r\n\"},\" & newline & \n\n\"{\" & newline &\r\n\"\"\"slug\"\": \"\"copper_screw\"\",\" & newline &\r\n\"\"\"quantity\"\": \" & CopperScrew & newline &\r\n\"}]\" & newline \n"
 							}
 						}
 					],
@@ -202,11 +202,36 @@
 							}
 						},
 						{
-							"id": "set-text",
-							"objectClass": "TextLogWebSocket",
-							"sid": 436581256501369,
+							"id": "append-text",
+							"objectClass": "LogText",
+							"sid": 253111278812577,
 							"parameters": {
-								"text": "find(WebSocket.MessageText,\"{\n  \"\"slug\"\": \"\"iron_ore\"\",\r\n  \"\"quantity\"\":\"\"\")"
+								"text": "WebSocket.MessageText"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 670833496528963,
+							"parameters": {
+								"variable": "DataMessage",
+								"value": "replace(WebSocket.MessageText, \"{\"\"message\"\":\"\"test\"\",\"\"type\"\":\"\"storage\"\",\"\"slug\"\":\"\"iron_ore\"\",\"\"quantity\"\":\" , \"\")"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "TextTempo",
+							"sid": 731826440294109,
+							"parameters": {
+								"text": "replace(DataMessage, \"}\" , \"\")"
+							}
+						},
+						{
+							"id": "append-text",
+							"objectClass": "LogText",
+							"sid": 638318883923838,
+							"parameters": {
+								"text": "newline & \"iron_ore : \" & replace(DataMessage, \"}\" , \"\")"
 							}
 						}
 					],
@@ -298,79 +323,26 @@
 							"sid": 239539055951276
 						}
 					],
-					"actions": [],
+					"actions": [
+						{
+							"id": "send-text",
+							"objectClass": "WebSocket",
+							"sid": 710919519945276,
+							"parameters": {
+								"data": "DataIron"
+							}
+						},
+						{
+							"id": "send-text",
+							"objectClass": "WebSocket",
+							"sid": 167166686198133,
+							"parameters": {
+								"data": "DataCopper"
+							}
+						}
+					],
 					"sid": 376170866869053,
 					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-eventvar",
-									"objectClass": "System",
-									"sid": 839298508173603,
-									"parameters": {
-										"variable": "DataIron",
-										"comparison": 1,
-										"value": "LastDataIron"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "send-text",
-									"objectClass": "WebSocket",
-									"sid": 425492602007359,
-									"parameters": {
-										"data": "DataIron"
-									}
-								},
-								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 157355822566781,
-									"parameters": {
-										"variable": "LastDataIron",
-										"value": "DataIron"
-									}
-								}
-							],
-							"sid": 722144369273899
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-eventvar",
-									"objectClass": "System",
-									"sid": 353759077170527,
-									"parameters": {
-										"variable": "DataCopper",
-										"comparison": 1,
-										"value": "LastDataCopper"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "send-text",
-									"objectClass": "WebSocket",
-									"sid": 264597889739287,
-									"parameters": {
-										"data": "DataCopper"
-									}
-								},
-								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 773831051362618,
-									"parameters": {
-										"variable": "LastDataIron",
-										"value": "DataCopper"
-									}
-								}
-							],
-							"sid": 156380744678310
-						},
 						{
 							"eventType": "comment",
 							"text": "Envoi Auto Data (WIP)"
@@ -389,80 +361,25 @@
 							}
 						}
 					],
-					"actions": [],
-					"sid": 697033408908435,
-					"children": [
+					"actions": [
 						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-eventvar",
-									"objectClass": "System",
-									"sid": 339911477189298,
-									"parameters": {
-										"variable": "DataIron",
-										"comparison": 1,
-										"value": "LastDataIron"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "send-text",
-									"objectClass": "WebSocket",
-									"sid": 455902302170744,
-									"parameters": {
-										"data": "DataIron"
-									}
-								},
-								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 608825120137303,
-									"parameters": {
-										"variable": "LastDataIron",
-										"value": "DataIron"
-									}
-								}
-							],
-							"sid": 352622585861016
+							"id": "send-text",
+							"objectClass": "WebSocket",
+							"sid": 810369288090160,
+							"parameters": {
+								"data": "DataIron"
+							}
 						},
 						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-eventvar",
-									"objectClass": "System",
-									"sid": 767297426062674,
-									"parameters": {
-										"variable": "DataCopper",
-										"comparison": 1,
-										"value": "LastDataCopper"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "send-text",
-									"objectClass": "WebSocket",
-									"sid": 171865610335221,
-									"parameters": {
-										"data": "DataCopper"
-									}
-								},
-								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 583229225602658,
-									"parameters": {
-										"variable": "LastDataIron",
-										"value": "DataCopper"
-									}
-								}
-							],
-							"sid": 197594675262922
+							"id": "send-text",
+							"objectClass": "WebSocket",
+							"sid": 154340357578871,
+							"parameters": {
+								"data": "DataCopper"
+							}
 						}
-					]
+					],
+					"sid": 697033408908435
 				}
 			],
 			"sid": 732324701754908
@@ -525,10 +442,10 @@
 						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
-							"sid": 666025123251021,
+							"sid": 389634759483495,
 							"parameters": {
 								"variable": "DataIron",
-								"value": "\"{\" & newline &\r\n\"\"\"slug\"\": \"\"iron_ore\"\",\" & newline &\r\n\"\"\"quantity\"\": \" & IronOre & newline &\r\n\"}\" & newline &\n\n\"{\" & newline &\r\n\"\"\"slug\"\": \"\"iron_ingot\"\",\" & newline &\r\n\"\"\"quantity\"\": \" & IronIngot & newline &\r\n\"}\" & newline &\n\n\"{\" & newline &\r\n\"\"\"slug\"\": \"\"iron_plate\"\",\" & newline &\r\n\"\"\"quantity\"\": \" & IronPlate & newline &\r\n\"}\" & newline &\n\n\"{\" & newline &\r\n\"\"\"slug\"\": \"\"iron_rod\"\",\" & newline &\r\n\"\"\"quantity\"\": \" & IronRod & newline &\r\n\"}\" & newline &\n\n\"{\" & newline &\r\n\"\"\"slug\"\": \"\"iron_wire\"\",\" & newline &\r\n\"\"\"quantity\"\": \" & IronWire & newline &\r\n\"}\" & newline &\n\n\"{\" & newline &\r\n\"\"\"slug\"\": \"\"iron_screw\"\",\" & newline &\r\n\"\"\"quantity\"\": \" & IronScrew & newline &\r\n\"}\" & newline \n"
+								"value": "\"[{\" & newline &\r\n\"\"\"slug\"\": \"\"iron_ore\"\",\" & newline &\r\n\"\"\"quantity\"\": \" & IronOre & newline &\r\n\"},\" & newline & \r\n\r\n\"{\" & newline &\r\n\"\"\"slug\"\": \"\"iron_ingot\"\",\" & newline &\r\n\"\"\"quantity\"\": \" & IronIngot & newline &\r\n\"},\" & newline & \r\n\r\n\"{\" & newline &\r\n\"\"\"slug\"\": \"\"iron_plate\"\",\" & newline &\r\n\"\"\"quantity\"\": \" & IronPlate & newline &\r\n\"},\" & newline & \r\n\r\n\"{\" & newline &\r\n\"\"\"slug\"\": \"\"iron_rod\"\",\" & newline &\r\n\"\"\"quantity\"\": \" & IronRod & newline &\r\n\"},\" & newline & \r\n\r\n\"{\" & newline &\r\n\"\"\"slug\"\": \"\"iron_wire\"\",\" & newline &\r\n\"\"\"quantity\"\": \" & IronWire & newline &\r\n\"},\" & newline & \r\n\r\n\"{\" & newline &\r\n\"\"\"slug\"\": \"\"iron_screw\"\",\" & newline &\r\n\"\"\"quantity\"\": \" & IronScrew & newline &\r\n\"}]\"\n"
 							}
 						}
 					],
@@ -583,10 +500,10 @@
 						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
-							"sid": 630354184142747,
+							"sid": 511296442004865,
 							"parameters": {
 								"variable": "DataIron",
-								"value": "\"{\" & newline &\r\n\"\"\"slug\"\": \"\"iron_ore\"\",\" & newline &\r\n\"\"\"quantity\"\": \" & IronOre & newline &\r\n\"}\" & newline &\n\n\"{\" & newline &\r\n\"\"\"slug\"\": \"\"iron_ingot\"\",\" & newline &\r\n\"\"\"quantity\"\": \" & IronIngot & newline &\r\n\"}\" & newline &\n\n\"{\" & newline &\r\n\"\"\"slug\"\": \"\"iron_plate\"\",\" & newline &\r\n\"\"\"quantity\"\": \" & IronPlate & newline &\r\n\"}\" & newline &\n\n\"{\" & newline &\r\n\"\"\"slug\"\": \"\"iron_rod\"\",\" & newline &\r\n\"\"\"quantity\"\": \" & IronRod & newline &\r\n\"}\" & newline &\n\n\"{\" & newline &\r\n\"\"\"slug\"\": \"\"iron_wire\"\",\" & newline &\r\n\"\"\"quantity\"\": \" & IronWire & newline &\r\n\"}\" & newline &\n\n\"{\" & newline &\r\n\"\"\"slug\"\": \"\"iron_screw\"\",\" & newline &\r\n\"\"\"quantity\"\": \" & IronScrew & newline &\r\n\"}\" & newline \n"
+								"value": "\"[{\" & newline &\r\n\"\"\"slug\"\": \"\"iron_ore\"\",\" & newline &\r\n\"\"\"quantity\"\": \" & IronOre & newline &\r\n\"},\" & newline & \r\n\r\n\"{\" & newline &\r\n\"\"\"slug\"\": \"\"iron_ingot\"\",\" & newline &\r\n\"\"\"quantity\"\": \" & IronIngot & newline &\r\n\"},\" & newline & \r\n\r\n\"{\" & newline &\r\n\"\"\"slug\"\": \"\"iron_plate\"\",\" & newline &\r\n\"\"\"quantity\"\": \" & IronPlate & newline &\r\n\"},\" & newline & \r\n\r\n\"{\" & newline &\r\n\"\"\"slug\"\": \"\"iron_rod\"\",\" & newline &\r\n\"\"\"quantity\"\": \" & IronRod & newline &\r\n\"},\" & newline & \r\n\r\n\"{\" & newline &\r\n\"\"\"slug\"\": \"\"iron_wire\"\",\" & newline &\r\n\"\"\"quantity\"\": \" & IronWire & newline &\r\n\"},\" & newline & \r\n\r\n\"{\" & newline &\r\n\"\"\"slug\"\": \"\"iron_screw\"\",\" & newline &\r\n\"\"\"quantity\"\": \" & IronScrew & newline &\r\n\"}]\"\n"
 							}
 						}
 					],
@@ -615,7 +532,7 @@
 						{
 							"id": "set-text",
 							"objectClass": "LogText",
-							"sid": 236754166549798,
+							"sid": 752562280571055,
 							"parameters": {
 								"text": "\"\""
 							}
@@ -659,6 +576,45 @@
 				}
 			],
 			"sid": 940556069216316
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Off",
+			"description": "",
+			"isActiveOnStart": false,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 142470443407593
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "LogText",
+							"sid": 577357281149652,
+							"parameters": {
+								"text": "DataIron"
+							}
+						},
+						{
+							"id": "append-text",
+							"objectClass": "LogText",
+							"sid": 571910887294045,
+							"parameters": {
+								"text": "DataCopper"
+							}
+						}
+					],
+					"sid": 742882039060806
+				}
+			],
+			"sid": 416803906507475
 		}
 	],
 	"sid": 255337968219618
