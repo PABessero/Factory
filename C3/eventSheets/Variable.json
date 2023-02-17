@@ -17,7 +17,65 @@
 		},
 		{
 			"eventType": "comment",
+			"text": "Data"
+		},
+		{
+			"eventType": "variable",
+			"name": "DataMessage",
+			"type": "string",
+			"initialValue": "",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 549979910162396
+		},
+		{
+			"eventType": "variable",
+			"name": "DataIron",
+			"type": "string",
+			"initialValue": "Set au démarage",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 520794692923271
+		},
+		{
+			"eventType": "variable",
+			"name": "LastDataIron",
+			"type": "string",
+			"initialValue": "",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 172979676976925
+		},
+		{
+			"eventType": "variable",
+			"name": "DataCopper",
+			"type": "string",
+			"initialValue": "Set au démarage (Not Set)",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 878200613398144
+		},
+		{
+			"eventType": "variable",
+			"name": "LastDataCopper",
+			"type": "string",
+			"initialValue": "",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 538001527867682
+		},
+		{
+			"eventType": "comment",
 			"text": "Ressource"
+		},
+		{
+			"eventType": "comment",
+			"text": "Ressource Iron"
 		},
 		{
 			"eventType": "variable",
@@ -40,18 +98,112 @@
 			"sid": 917726924950507
 		},
 		{
-			"eventType": "comment",
-			"text": "Tempo (debug)"
-		},
-		{
 			"eventType": "variable",
-			"name": "CompteBouton",
+			"name": "IronPlate",
 			"type": "number",
 			"initialValue": "0",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
-			"sid": 505220146263669
+			"sid": 485625215631667
+		},
+		{
+			"eventType": "variable",
+			"name": "IronRod",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 263480238111197
+		},
+		{
+			"eventType": "variable",
+			"name": "IronWire",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 172916298462319
+		},
+		{
+			"eventType": "variable",
+			"name": "IronScrew",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 418069912741845
+		},
+		{
+			"eventType": "comment",
+			"text": "Ressource Copper"
+		},
+		{
+			"eventType": "variable",
+			"name": "CopperOre",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 390340026422456
+		},
+		{
+			"eventType": "variable",
+			"name": "CopperIngot",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 186736814499939
+		},
+		{
+			"eventType": "variable",
+			"name": "CopperPlate",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 505339019507062
+		},
+		{
+			"eventType": "variable",
+			"name": "CopperRod",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 651570147695735
+		},
+		{
+			"eventType": "variable",
+			"name": "CopperWire",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 568057662096984
+		},
+		{
+			"eventType": "variable",
+			"name": "CopperScrew",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 144404701543936
+		},
+		{
+			"eventType": "comment",
+			"text": "Ressource Pabmium"
 		}
 	],
 	"sid": 638167688340769

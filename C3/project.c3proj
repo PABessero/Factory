@@ -51,7 +51,11 @@
 	],
 	"uniqueId": "5vtm7n4tma6",
 	"objectTypes": {
-		"items": [],
+		"items": [
+			"TextInputTempo",
+			"TextTempo",
+			"ButtonTempo"
+		],
 		"subfolders": [
 			{
 				"items": [
