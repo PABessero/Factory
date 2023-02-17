@@ -4,7 +4,7 @@
 	"name": "Factory Game",
 	"runtime": "c3",
 	"useWorker": "auto",
-	"bundleAddons": false,
+	"bundleAddons": true,
 	"usedAddons": [
 		{
 			"type": "plugin",
@@ -39,7 +39,7 @@
 			"id": "CV_PlayFabClient_APIModule",
 			"name": "PlayFab API",
 			"author": "Chadori",
-			"bundled": false,
+			"bundled": true,
 			"version": "4.3.0.0"
 		},
 		{
@@ -47,7 +47,7 @@
 			"id": "CV_PlayFabClient_Authentication",
 			"name": "Authentication",
 			"author": "Chadori",
-			"bundled": false,
+			"bundled": true,
 			"version": "4.2.1.4"
 		},
 		{
@@ -73,6 +73,13 @@
 		},
 		{
 			"type": "plugin",
+			"id": "PlatformInfo",
+			"name": "Platform info",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
 			"id": "Text",
 			"name": "Text",
 			"author": "Scirra",
@@ -91,7 +98,8 @@
 		"items": [
 			"TextInputTempo",
 			"TextTempo",
-			"ButtonTempo"
+			"ButtonTempo",
+			"PlatformInfo"
 		],
 		"subfolders": [
 			{

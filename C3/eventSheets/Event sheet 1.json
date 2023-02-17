@@ -19,6 +19,11 @@
 							"id": "on-start-of-layout",
 							"objectClass": "System",
 							"sid": 888450021610425
+						},
+						{
+							"id": "is-on-android",
+							"objectClass": "PlatformInfo",
+							"sid": 481945811473656
 						}
 					],
 					"actions": [
@@ -26,6 +31,7 @@
 							"id": "connect",
 							"objectClass": "WebSocket",
 							"sid": 205608273210413,
+							"disabled": true,
 							"parameters": {
 								"url": "Ip",
 								"protocol-optional": "\"\""
@@ -51,6 +57,94 @@
 						}
 					],
 					"sid": 408624756623370
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 598341702035866
+						},
+						{
+							"id": "is-on-windows",
+							"objectClass": "PlatformInfo",
+							"sid": 569050149633342
+						}
+					],
+					"actions": [
+						{
+							"id": "connect",
+							"objectClass": "WebSocket",
+							"sid": 190833872707963,
+							"disabled": true,
+							"parameters": {
+								"url": "Ip",
+								"protocol-optional": "\"\""
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 130182403801692,
+							"parameters": {
+								"variable": "DataIron",
+								"value": "\"[{\" & newline &\r\n\"\"\"slug\"\": \"\"iron_ore\"\",\" & newline &\r\n\"\"\"quantity\"\": \" & IronOre & newline &\r\n\"},\" & newline & \n\n\"{\" & newline &\r\n\"\"\"slug\"\": \"\"iron_ingot\"\",\" & newline &\r\n\"\"\"quantity\"\": \" & IronIngot & newline &\r\n\"},\" & newline & \n\n\"{\" & newline &\r\n\"\"\"slug\"\": \"\"iron_plate\"\",\" & newline &\r\n\"\"\"quantity\"\": \" & IronPlate & newline &\r\n\"},\" & newline & \n\n\"{\" & newline &\r\n\"\"\"slug\"\": \"\"iron_rod\"\",\" & newline &\r\n\"\"\"quantity\"\": \" & IronRod & newline &\r\n\"},\" & newline & \n\n\"{\" & newline &\r\n\"\"\"slug\"\": \"\"iron_wire\"\",\" & newline &\r\n\"\"\"quantity\"\": \" & IronWire & newline &\r\n\"},\" & newline & \n\n\"{\" & newline &\r\n\"\"\"slug\"\": \"\"iron_screw\"\",\" & newline &\r\n\"\"\"quantity\"\": \" & IronScrew & newline &\r\n\"}]\"\n"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 430132313863636,
+							"parameters": {
+								"variable": "DataCopper",
+								"value": "\"[{\" & newline &\r\n\"\"\"slug\"\": \"\"copper_ore\"\",\" & newline &\r\n\"\"\"quantity\"\": \" & CopperOre & newline &\r\n\"},\" & newline &\n\n\"{\" & newline &\r\n\"\"\"slug\"\": \"\"copper_ingot\"\",\" & newline &\r\n\"\"\"quantity\"\": \" & CopperIngot & newline &\r\n\"},\" & newline &\n\n\"{\" & newline & \r\n\"\"\"slug\"\": \"\"copper_plate\"\",\" & newline &\r\n\"\"\"quantity\"\": \" & CopperPlate & newline &\r\n\"},\" & newline & \n\n\"{\" & newline &\r\n\"\"\"slug\"\": \"\"copper_rod\"\",\" & newline &\r\n\"\"\"quantity\"\": \" & CopperRod & newline &\r\n\"},\" & newline &\n\n\"{\" & newline &\r\n\"\"\"slug\"\": \"\"copper_wire\"\",\" & newline &\r\n\"\"\"quantity\"\": \" & CopperWire & newline &\r\n\"},\" & newline & \n\n\"{\" & newline &\r\n\"\"\"slug\"\": \"\"copper_screw\"\",\" & newline &\r\n\"\"\"quantity\"\": \" & CopperScrew & newline &\r\n\"}]\" & newline \n"
+							}
+						}
+					],
+					"sid": 375384852033821
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "androiddevicelogin0",
+							"objectClass": "Authentication",
+							"sid": 728204045023792
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "TextDebug",
+							"sid": 699332977059569,
+							"parameters": {
+								"text": "\"PlayFab is okay\""
+							}
+						}
+					],
+					"sid": 953308221448071
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "customidlogin6",
+							"objectClass": "Authentication",
+							"sid": 974073625666621
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "TextDebug",
+							"sid": 546320296676144,
+							"parameters": {
+								"text": "\"PlayFab is okay\""
+							}
+						}
+					],
+					"sid": 118933921233377
 				},
 				{
 					"eventType": "block",
@@ -156,7 +250,8 @@
 							}
 						}
 					],
-					"sid": 164314138548503
+					"sid": 164314138548503,
+					"disabled": true
 				},
 				{
 					"eventType": "comment",
@@ -597,6 +692,161 @@
 				}
 			],
 			"sid": 940556069216316
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-on-android",
+					"objectClass": "PlatformInfo",
+					"sid": 218151514037284
+				}
+			],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "TextDebug",
+					"sid": 562927483329787,
+					"parameters": {
+						"text": "\"android\""
+					}
+				}
+			],
+			"sid": 612554177788674
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-on-chromeos",
+					"objectClass": "PlatformInfo",
+					"sid": 446246050896895
+				}
+			],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "TextDebug",
+					"sid": 711758143732524,
+					"parameters": {
+						"text": "\"ChromeOS\""
+					}
+				}
+			],
+			"sid": 625918385957145
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-on-linux",
+					"objectClass": "PlatformInfo",
+					"sid": 684956641063695
+				}
+			],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "TextDebug",
+					"sid": 398530967374437,
+					"parameters": {
+						"text": "\"Linux\""
+					}
+				}
+			],
+			"sid": 975567197519944
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-on-mobile",
+					"objectClass": "PlatformInfo",
+					"sid": 855345031102043
+				}
+			],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "TextDebug",
+					"sid": 504402119421015,
+					"parameters": {
+						"text": "\"Mobile\""
+					}
+				}
+			],
+			"sid": 228388415869442
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-on-ios",
+					"objectClass": "PlatformInfo",
+					"sid": 876672677763478
+				}
+			],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "TextDebug",
+					"sid": 368980680377320,
+					"parameters": {
+						"text": "\"IOS\""
+					}
+				}
+			],
+			"sid": 151744663804144
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-on-macos",
+					"objectClass": "PlatformInfo",
+					"sid": 364421460890230
+				}
+			],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "TextDebug",
+					"sid": 316662734656927,
+					"parameters": {
+						"text": "\"MacOS\""
+					}
+				}
+			],
+			"sid": 516436015490901
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-on-windows",
+					"objectClass": "PlatformInfo",
+					"sid": 767616884246617
+				}
+			],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "TextDebug",
+					"sid": 101074144347433,
+					"parameters": {
+						"text": "\"OS : Windows\""
+					}
+				},
+				{
+					"id": "append-text",
+					"objectClass": "TextDebug",
+					"sid": 645453451264772,
+					"parameters": {
+						"text": "newline & \"Memory : \" & PlatformInfo.DeviceMemory & newline & \"Threads CPU : \" & PlatformInfo.HardwareConcurrency & newline & \"renderer : \" & PlatformInfo.Renderer & newline & \"Renderer Detail : \" & PlatformInfo.RendererDetail"
+					}
+				}
+			],
+			"sid": 217856449113478
 		},
 		{
 			"eventType": "group",
