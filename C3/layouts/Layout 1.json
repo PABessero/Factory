@@ -2,7 +2,7 @@
 	"name": "Layout 1",
 	"layers": [
 		{
-			"name": "Layer 0",
+			"name": "jeu",
 			"overriden": 0,
 			"subLayers": [],
 			"instances": [
@@ -445,7 +445,7 @@
 				{
 					"type": "TextInputTempo",
 					"properties": {
-						"text": "{\"slug\": \"iron_ore\",\"quantity\": ",
+						"text": "{\"slug\": \"iron_ore\",\"quantity\": 25},\n{\"slug\": \"iron_ingot\",\"quantity\": 14}",
 						"placeholder": "",
 						"tooltip": "",
 						"initially-visible": true,
@@ -461,10 +461,10 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 140,
-						"y": 771,
-						"width": 201,
-						"height": 24,
+						"x": 46,
+						"y": 759,
+						"width": 288,
+						"height": 67,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -580,7 +580,24 @@
 		}
 	],
 	"sid": 438588122354213,
-	"nonworld-instances": [],
+	"nonworld-instances": [
+		{
+			"type": "Array",
+			"properties": {
+				"width": 10,
+				"height": 1,
+				"depth": 1
+			},
+			"uid": 23,
+			"instanceVariables": {}
+		},
+		{
+			"type": "JSON",
+			"properties": {},
+			"uid": 24,
+			"instanceVariables": {}
+		}
+	],
 	"effectTypes": [],
 	"width": 3840,
 	"height": 2160,

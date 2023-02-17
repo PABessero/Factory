@@ -205,6 +205,7 @@
 							"id": "append-text",
 							"objectClass": "LogText",
 							"sid": 253111278812577,
+							"disabled": true,
 							"parameters": {
 								"text": "WebSocket.MessageText"
 							}
@@ -213,6 +214,7 @@
 							"id": "set-eventvar-value",
 							"objectClass": "System",
 							"sid": 670833496528963,
+							"disabled": true,
 							"parameters": {
 								"variable": "DataMessage",
 								"value": "replace(WebSocket.MessageText, \"{\"\"message\"\":\"\"test\"\",\"\"type\"\":\"\"storage\"\",\"\"slug\"\":\"\"iron_ore\"\",\"\"quantity\"\":\" , \"\")"
@@ -222,6 +224,7 @@
 							"id": "set-text",
 							"objectClass": "TextTempo",
 							"sid": 731826440294109,
+							"disabled": true,
 							"parameters": {
 								"text": "replace(DataMessage, \"}\" , \"\")"
 							}
@@ -230,8 +233,26 @@
 							"id": "append-text",
 							"objectClass": "LogText",
 							"sid": 638318883923838,
+							"disabled": true,
 							"parameters": {
 								"text": "newline & \"iron_ore : \" & replace(DataMessage, \"}\" , \"\")"
+							}
+						},
+						{
+							"id": "set-json",
+							"objectClass": "JSON",
+							"sid": 464324489611875,
+							"parameters": {
+								"path": "\"websocket\"",
+								"json": "WebSocket.MessageText"
+							}
+						},
+						{
+							"id": "append-text",
+							"objectClass": "LogText",
+							"sid": 951988281055306,
+							"parameters": {
+								"text": "JSON.GetAsBeautifiedString(\"websocket\")"
 							}
 						}
 					],

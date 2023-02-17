@@ -1,0 +1,29 @@
+{
+	"name": "PlayFabAPI",
+	"plugin-id": "CV_PlayFabClient_APIModule",
+	"sid": 361622863617807,
+	"singleglobal-inst": {
+		"type": "PlayFabAPI",
+		"properties": {
+			"title-id-:": "2D504",
+			"debug-mode-:": "enabled",
+			"profile-data-:": "automatic",
+			"avatar-url-:": "included",
+			"banned-until-time-:": "included",
+			"campaign-attributions-:": "included",
+			"creation-date-:": "included",
+			"display-name-:": "included",
+			"last-login-time-:": "included",
+			"locations-:": "included",
+			"origination-:": "included",
+			"statistics-:": "included",
+			"tags-:": "included",
+			"values-to-date-in-usd-:": "included",
+			"values-to-date-:": "included",
+			"linked-accounts-:": "included",
+			"push-notification-:": "included",
+			"contact-email-address-:": "included"
+		},
+		"uid": 25
+	}
+}

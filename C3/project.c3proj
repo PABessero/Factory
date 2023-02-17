@@ -8,6 +8,13 @@
 	"usedAddons": [
 		{
 			"type": "plugin",
+			"id": "Arr",
+			"name": "Array",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
 			"id": "Audio",
 			"name": "Audio",
 			"author": "Scirra",
@@ -24,6 +31,36 @@
 			"type": "plugin",
 			"id": "C2WebSocket",
 			"name": "WebSocket",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "CV_PlayFabClient_APIModule",
+			"name": "PlayFab API",
+			"author": "Chadori",
+			"bundled": false,
+			"version": "4.3.0.0"
+		},
+		{
+			"type": "plugin",
+			"id": "CV_PlayFabClient_Authentication",
+			"name": "Authentication",
+			"author": "Chadori",
+			"bundled": false,
+			"version": "4.2.1.4"
+		},
+		{
+			"type": "plugin",
+			"id": "Json",
+			"name": "JSON",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Keyboard",
+			"name": "Keyboard",
 			"author": "Scirra",
 			"bundled": false
 		},
@@ -61,7 +98,12 @@
 				"items": [
 					"Audio",
 					"Mouse",
-					"WebSocket"
+					"WebSocket",
+					"Keyboard",
+					"Array",
+					"JSON",
+					"Authentication",
+					"PlayFabAPI"
 				],
 				"subfolders": [],
 				"name": "Ressource"
