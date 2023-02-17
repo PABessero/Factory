@@ -47,9 +47,70 @@ wss.on("connection", function connection(ws, req) {
         name: resource.name,
         language: resource.language,
       });
-      console.log(resource.slug, resource.name);
     });
     ws.send(JSON.stringify(resources));
+  });
+
+  Machines.findAll({
+    where: {
+      language: "EN",
+    },
+  }).then((res) => {
+    const machines = [];
+    res.forEach((machine) => {
+      machines.push({
+        type: "machines",
+        slug: machine.slug,
+        name: machine.name,
+        language: machine.language,
+      });
+    });
+    ws.send(JSON.stringify(machines));
+  });
+
+  Crafts.findAll({
+    where: {
+      language: "EN",
+    },
+  }).then((res) => {
+    const crafts = [];
+    res.forEach((craft) => {
+      const craftPart = {
+        type: "crafts",
+        slug: craft.slug,
+        name: craft.name,
+        machine: craft.machine,
+        materials: [],
+        outputs: [],
+        time: craft.time,
+      };
+
+      CraftOutputs.findAll({
+        where: {
+          craft_slug: craftPart.slug,
+        },
+      }).then((craftOutputs) => {
+        craftOutputs.forEach((craftOutput) => {
+          craftPart.outputs.push({
+            slug: craftOutput.resource,
+            amount: craftOutput.amount,
+          });
+        });
+        CraftMaterials.findAll({ where: { craft_slug: craftPart.slug } }).then(
+          (craftMaterials) => {
+            craftMaterials.forEach((craftMaterial) => {
+              craftPart.materials.push({
+                slug: craftMaterial.resource,
+                amount: craftMaterial.amount,
+              });
+            });
+            crafts.push(craftMaterials);
+            console.log(JSON.stringify(craftPart));
+          }
+        );
+      });
+    });
+    ws.send(JSON.stringify(crafts));
   });
 
   ws.send(
@@ -73,7 +134,7 @@ wss.on("connection", function connection(ws, req) {
     })
   );
 
-  ws.on("message", function incoming(message, isBinary) {
+  ws.on("message", function incoming(message) {
     console.log(message.toString());
     const test = JSON.parse(message.toString());
     console.log(test);
