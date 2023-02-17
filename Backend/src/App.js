@@ -10,7 +10,11 @@ import {
   Machines,
   Resources,
 } from "./DataBase.js";
-import { Populate_Machines, Populate_Resources } from "./Misc.js";
+import {
+  Populate_Machines,
+  Populate_Resources,
+  PopulateCrafts,
+} from "./Misc.js";
 
 const wss = new WebSocketServer({ port: 4040 });
 console.log("Creating server");
@@ -23,14 +27,24 @@ CraftOutputs.sync().then(() => console.log("Linked to Craft Outputs"));
 
 Populate_Resources().then(() => {
   console.log("Filled Resources");
-  // Populate_Machines().then(() => {
-  //   console.log("Filled Machines");
-  // });
+  Populate_Machines().then(() => {
+    console.log("Filled Machines");
+    PopulateCrafts().then(() => {
+      console.log("Filled Crafts");
+    });
+  });
 });
+
+console.log(
+  JSON.stringify(
+    JSON.parse(`{"type":"crafts","slug":"iron_pressing","name":"Iron Pressing","machine":"metal_press","materials":[{"slug":"iron_ingot","amount":2}],"outputs":[{"slug":"iron_plate","amount":3}],"time":3}
+`)
+  )
+);
 
 wss.on("connection", function connection(ws, req) {
   console.log("New Connection".green);
-  const parameters = url.parse(req.url, true);
+  // const parameters = url.parse(req.url, true);
 
   // ws.send("Hello There!");
 
@@ -135,9 +149,15 @@ wss.on("connection", function connection(ws, req) {
   );
 
   ws.on("message", function incoming(message) {
-    console.log(message.toString());
-    const test = JSON.parse(message.toString());
-    console.log(test);
+    try {
+      const json_message = JSON.parse(message.toString());
+      console.log(json_message);
+    } catch (e) {
+      ws.send("Error in message: " + message.toString());
+      ws.send(e.message);
+      console.log(e.message.toString().red);
+      console.log(message.toString().red);
+    }
   });
 
   ws.on("close", function disconnect() {
