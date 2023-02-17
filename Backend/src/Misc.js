@@ -1,4 +1,12 @@
-import { Machines, Resources } from "./DataBase.js";
+import {
+  CraftMaterials,
+  CraftOutputs,
+  Crafts,
+  Machines,
+  Resources,
+} from "./DataBase.js";
+
+//region Init DB
 
 export async function Populate_Resources() {
   //region Iron
@@ -8,27 +16,29 @@ export async function Populate_Resources() {
       language: "EN",
       name: "Iron Ore",
     });
-  } catch (e) {
-    console.log(e.message);
-  }
+  } catch (e) {}
   try {
     await Resources.create({
       slug: "molten_iron",
       language: "EN",
       name: "Molten Iron",
     });
-  } catch (e) {
-    console.log(e.message);
-  }
+  } catch (e) {}
   try {
     await Resources.create({
       slug: "iron_ingot",
       language: "EN",
       name: "Iron Ingot",
     });
-  } catch (e) {
-    console.log(e.message);
-  }
+  } catch (e) {}
+
+  try {
+    await Resources.create({
+      slug: "iron_plate",
+      language: "EN",
+      name: "Iron Plate",
+    });
+  } catch (e) {}
   //endregion
 
   //region Copper
@@ -38,9 +48,7 @@ export async function Populate_Resources() {
       language: "EN",
       name: "Copper Ore",
     });
-  } catch (e) {
-    console.log(e.message);
-  }
+  } catch (e) {}
   //endregion
 
   //region Pabmium
@@ -50,9 +58,7 @@ export async function Populate_Resources() {
       language: "EN",
       name: "Pabmium Ore",
     });
-  } catch (e) {
-    console.log(e.message);
-  }
+  } catch (e) {}
   //endregion
 
   //region Stone
@@ -62,9 +68,7 @@ export async function Populate_Resources() {
       language: "EN",
       name: "Stone",
     });
-  } catch (e) {
-    console.log(e.message);
-  }
+  } catch (e) {}
   //endregion
 
   //region Wood
@@ -74,9 +78,7 @@ export async function Populate_Resources() {
       language: "EN",
       name: "Wood",
     });
-  } catch (e) {
-    console.log(e.message);
-  }
+  } catch (e) {}
   //endregion
 
   //region Sand
@@ -86,40 +88,77 @@ export async function Populate_Resources() {
       language: "EN",
       name: "Sand",
     });
-  } catch (e) {
-    console.log(e.message);
-  }
+  } catch (e) {}
   try {
     await Resources.create({
       slug: "glass",
       language: "EN",
       name: "Glass",
     });
-  } catch (e) {
-    console.log(e.message);
-  }
+  } catch (e) {}
   //endregion
 }
 
 export async function Populate_Machines() {
-  await Machines.create({
-    slug: "furnace",
-    language: "EN",
-    name: "Furnace",
-  });
-  await Machines.create({
-    slug: "smelter",
-    language: "EN",
-    name: "Smelter",
-  });
-  await Machines.create({
-    slug: "ingot_cast",
-    language: "EN",
-    name: "Ingot Cast",
-  });
-  await Machines.create({
-    slug: "metal_press",
-    language: "EN",
-    name: "Metal Press",
-  });
+  try {
+    await Machines.create({
+      slug: "furnace",
+      language: "EN",
+      name: "Furnace",
+    });
+  } catch (e) {}
+
+  try {
+    await Machines.create({
+      slug: "smelter",
+      language: "EN",
+      name: "Smelter",
+    });
+  } catch (e) {}
+
+  try {
+    await Machines.create({
+      slug: "ingot_cast",
+      language: "EN",
+      name: "Ingot Cast",
+    });
+  } catch (e) {}
+
+  try {
+    await Machines.create({
+      slug: "metal_press",
+      language: "EN",
+      name: "Metal Press",
+    });
+  } catch (e) {}
 }
+
+export async function Populate_Crafts() {
+  try {
+    await Crafts.create({
+      slug: "iron_pressing",
+      machine: "metal_press",
+      name: "Iron Pressing",
+      language: "EN",
+      time: 3,
+    });
+  } catch (e) {}
+
+  try {
+    await CraftOutputs.create({
+      craft_slug: "iron_pressing",
+      resource: "iron_plate",
+      amount: 3,
+    });
+  } catch (e) {}
+
+  try {
+    await CraftMaterials.create({
+      craft_slug: "iron_pressing",
+      resource: "iron_ingot",
+      amount: 2,
+    });
+  } catch (e) {}
+}
+
+//endregion
