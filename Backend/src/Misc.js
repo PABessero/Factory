@@ -39,6 +39,14 @@ export async function Populate_Resources() {
       name: "Iron Plate",
     });
   } catch (e) {}
+
+  try {
+    await Resources.create({
+      slug: "iron_rod",
+      language: "EN",
+      name: "Iron Rod",
+    });
+  } catch (e) {}
   //endregion
 
   //region Copper
@@ -134,6 +142,7 @@ export async function Populate_Machines() {
 }
 
 export async function Populate_Crafts() {
+  //region Iron Plates craft
   try {
     await Crafts.create({
       slug: "iron_pressing",
@@ -159,6 +168,46 @@ export async function Populate_Crafts() {
       amount: 2,
     });
   } catch (e) {}
+  //endregion
+
+  try {
+    await Crafts.create({
+      slug: "iron_plate_cutting",
+      machine: "metal_press",
+      language: "en",
+      name: "Iron Plate Cutting",
+      time: 2,
+    });
+  } catch (e) {}
 }
 
 //endregion
+
+async function getCrafts(language = "EN") {
+  return Crafts.findAll({
+    where: { language: language },
+  }).then(
+    (res) => {
+      const crafts = [];
+      res.forEach(
+        (craft) =>
+          async function (craft) {
+            crafts.push({
+              type: "crafts",
+              slug: craft.slug,
+              name: craft.name,
+              machine: craft.machine,
+              materials: await getCraftInputs(),
+            });
+          }
+      );
+    },
+    () => {
+      return [];
+    }
+  );
+}
+
+async function getCraftInputs(craft) {}
+
+async function getCraftOutput(craft) {}

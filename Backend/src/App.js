@@ -9,6 +9,7 @@ import {
   Crafts,
   Machines,
   Resources,
+  UserData,
 } from "./DataBase.js";
 import {
   Populate_Machines,
@@ -25,6 +26,7 @@ Machines.sync().then(() => console.log("Linked to Machines"));
 Crafts.sync().then(() => console.log("Linked to Crafts"));
 CraftMaterials.sync().then(() => console.log("Linked to Craft Materials"));
 CraftOutputs.sync().then(() => console.log("Linked to Craft Outputs"));
+UserData.sync().then(() => console.log("Linked to User Data"));
 //endregion
 
 //region Fill DB
@@ -51,41 +53,44 @@ wss.on("connection", function connection(ws, req) {
   console.log(username);
 
   //region Send test data
+  // ws.send(
+  //   JSON.stringify({
+  //     message: "Test",
+  //     type: "resource",
+  //     slug: "iron_ore",
+  //     name: "Iron Ore",
+  //     language: "EN",
+  //   })
+  // );
+  //
   ws.send(
-    JSON.stringify({
-      message: "Test",
-      type: "resource",
-      slug: "iron_ore",
-      name: "Iron Ore",
-      language: "EN",
-    })
+    JSON.stringify([
+      {
+        type: "crafts",
+        slug: "iron_to_plates",
+        name: "Iron Pressing",
+        machine: "metal_press",
+        materials: [{ slug: "iron_ingot", amount: 2 }],
+        outputs: [{ slug: "iron_plate", amount: 3 }],
+        time: 3,
+        message: "test",
+      },
+    ])
   );
-
-  ws.send(
-    JSON.stringify({
-      type: "craft",
-      slug: "iron_to_plates",
-      machine: "metal_press",
-      materials: [{ slug: "iron_ingot", amount: 2 }],
-      outputs: [{ slug: "iron_plate", amount: 3 }],
-      time: 3,
-      message: "test",
-    })
-  );
-
-  ws.send(
-    JSON.stringify({
-      message: "test",
-      type: "storage",
-      slug: "iron_ore",
-      quantity: ~~(Math.random() * 500),
-    })
-  );
+  //
+  // ws.send(
+  //   JSON.stringify({
+  //     message: "test",
+  //     type: "storage",
+  //     slug: "iron_ore",
+  //     quantity: ~~(Math.random() * 500),
+  //   })
+  // );
   //endregion
 
   sendResources(ws, language);
   sendMachines(ws, language);
-  sendCrafts(ws, language);
+  // sendCrafts(ws, language);
 
   ws.on("message", function incoming(message) {
     try {
@@ -123,13 +128,15 @@ function sendResources(ws, language = "EN") {
   });
 }
 
-function sendCrafts(ws, language = "EN") {
-  Crafts.findAll({
+async function sendCrafts(ws, language = "EN") {
+  const promises = [];
+  const crafts = [];
+
+  const promise = Crafts.findAll({
     where: {
       language: language,
     },
   }).then((res) => {
-    const crafts = [];
     res.forEach((craft) => {
       const craftPart = {
         type: "crafts",
@@ -140,8 +147,7 @@ function sendCrafts(ws, language = "EN") {
         outputs: [],
         time: craft.time,
       };
-
-      CraftOutputs.findAll({
+      const craftOutputsPromise = CraftOutputs.findAll({
         where: {
           craft_slug: craftPart.slug,
         },
@@ -152,20 +158,26 @@ function sendCrafts(ws, language = "EN") {
             amount: craftOutput.amount,
           });
         });
-        CraftMaterials.findAll({ where: { craft_slug: craftPart.slug } }).then(
-          (craftMaterials) => {
-            craftMaterials.forEach((craftMaterial) => {
-              craftPart.materials.push({
-                slug: craftMaterial.resource,
-                amount: craftMaterial.amount,
-              });
+        const craftMaterialsPromise = CraftMaterials.findAll({
+          where: { craft_slug: craftPart.slug },
+        }).then((craftMaterials) => {
+          craftMaterials.forEach((craftMaterial) => {
+            craftPart.materials.push({
+              slug: craftMaterial.resource,
+              amount: craftMaterial.amount,
             });
-            crafts.push(craftMaterials);
-          }
-        );
+          });
+          crafts.push(craftPart);
+        });
+        promises.push(craftMaterialsPromise);
       });
+      promises.push(craftOutputsPromise);
     });
+  });
+  promises.push(promise);
+  Promise.all(promises).then(() => {
     ws.send(JSON.stringify(crafts));
+    console.log(crafts);
   });
 }
 

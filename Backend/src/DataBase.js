@@ -13,12 +13,16 @@ export const sequelize = new Sequelize.Sequelize(
   }
 );
 
-export const Users = sequelize.define("users", {
-  name: {
+export const UserData = sequelize.define("user_data", {
+  uuid: {
     type: Sequelize.STRING,
-    unique: true,
+    primaryKey: true,
   },
-  username: Sequelize.STRING,
+  resource_slug: {
+    type: Sequelize.STRING,
+    primaryKey: true,
+  },
+  amount: Sequelize.NUMBER,
 });
 
 export const Resources = sequelize.define("resources", {
