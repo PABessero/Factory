@@ -1063,6 +1063,10 @@
 							"text": "Mise en Array resources"
 						},
 						{
+							"eventType": "comment",
+							"text": "Mise en Array Inventory"
+						},
+						{
 							"eventType": "block",
 							"conditions": [
 								{
@@ -1130,16 +1134,6 @@
 									}
 								},
 								{
-									"id": "set-at-xy",
-									"objectClass": "ArrayRessources",
-									"sid": 706965356937388,
-									"parameters": {
-										"x": "ArrayRessources.NombreRessources",
-										"y": "2",
-										"value": "FunctionJSON.Get(\"amount\")"
-									}
-								},
-								{
 									"id": "add-to-instvar",
 									"objectClass": "ArrayRessources",
 									"sid": 245972854323886,
@@ -1150,6 +1144,67 @@
 								}
 							],
 							"sid": 248094308771354
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 994759459713048,
+									"parameters": {
+										"variable": "messageType",
+										"comparison": 0,
+										"value": "\"inventory\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "parse",
+									"objectClass": "FunctionJSON",
+									"sid": 833954477770313,
+									"parameters": {
+										"data": "json"
+									}
+								},
+								{
+									"id": "append-text",
+									"objectClass": "TextInput",
+									"sid": 409193646841425,
+									"parameters": {
+										"text": "\"Got Inventory: \" & FunctionJSON.Get(\"slug\") & newline"
+									}
+								},
+								{
+									"id": "append-text",
+									"objectClass": "TextInput",
+									"sid": 759683696562850,
+									"parameters": {
+										"text": "\"Got Inventory: \" & FunctionJSON.Get(\"amount\") & newline"
+									}
+								},
+								{
+									"id": "set-at-xy",
+									"objectClass": "ArrayRessources",
+									"sid": 922916192402127,
+									"parameters": {
+										"x": "ArrayRessources.RessourceServeur",
+										"y": "2",
+										"value": "FunctionJSON.Get(\"amount\")"
+									}
+								},
+								{
+									"id": "add-to-instvar",
+									"objectClass": "ArrayRessources",
+									"sid": 873518768418695,
+									"parameters": {
+										"instance-variable": "RessourceServeur",
+										"value": "1"
+									}
+								}
+							],
+							"sid": 393919788890179
 						},
 						{
 							"eventType": "comment",

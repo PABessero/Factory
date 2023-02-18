@@ -590,7 +590,8 @@
 			},
 			"uid": 23,
 			"instanceVariables": {
-				"NombreRessources": 0
+				"NombreRessources": 0,
+				"RessourceServeur": 0
 			}
 		},
 		{

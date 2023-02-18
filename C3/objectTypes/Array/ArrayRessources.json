@@ -10,6 +10,13 @@
 			"desc": "",
 			"show": true,
 			"sid": 299870449991124
+		},
+		{
+			"name": "RessourceServeur",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 707837922594927
 		}
 	]
 }
