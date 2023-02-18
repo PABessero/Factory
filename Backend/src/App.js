@@ -56,7 +56,7 @@ wss.on("connection", function connection(ws, req) {
   // ws.send(
   //   JSON.stringify({
   //     message: "Test",
-  //     type: "resource",
+  //     type: "resources",
   //     slug: "iron_ore",
   //     name: "Iron Ore",
   //     language: "EN",
@@ -96,6 +96,17 @@ wss.on("connection", function connection(ws, req) {
     try {
       const json_message = JSON.parse(message.toString());
       console.log(json_message);
+      if (json_message.isArray()) {
+        json_message.forEach((message_line) => {
+          if (message_line.type === "inventory") {
+            insertIntoInventory(
+              username,
+              message_line.slug,
+              message_line.amount
+            );
+          }
+        });
+      }
     } catch (e) {
       ws.send("Error in message: " + message.toString());
       ws.send(e.message);
@@ -118,7 +129,7 @@ function sendResources(ws, language = "EN") {
     const resources = [];
     res.forEach((resource) => {
       resources.push({
-        type: "resource",
+        type: "resources",
         slug: resource.slug,
         name: resource.name,
         language: resource.language,
@@ -197,5 +208,19 @@ function sendMachines(ws, language = "EN") {
       });
     });
     ws.send(JSON.stringify(machines));
+  });
+}
+
+function insertIntoInventory(userUUID, item, amount) {
+  UserData.upsert({
+    uuid: userUUID,
+    resource_slug: item,
+    amount: amount,
+  }).then(([data, created]) => {
+    console.log(
+      created
+        ? `Created data for ${item} for player ${userUUID}`
+        : `Inserted data for ${item} for player ${userUUID}`
+    );
   });
 }
