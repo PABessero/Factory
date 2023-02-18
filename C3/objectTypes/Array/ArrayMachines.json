@@ -1,0 +1,15 @@
+{
+	"name": "ArrayMachines",
+	"plugin-id": "Arr",
+	"sid": 875634826762816,
+	"isGlobal": true,
+	"instanceVariables": [
+		{
+			"name": "NombreMachines",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 601921831863289
+		}
+	]
+}

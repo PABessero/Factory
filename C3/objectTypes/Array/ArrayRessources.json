@@ -1,0 +1,15 @@
+{
+	"name": "ArrayRessources",
+	"plugin-id": "Arr",
+	"sid": 702495473188968,
+	"isGlobal": true,
+	"instanceVariables": [
+		{
+			"name": "NombreRessources",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 299870449991124
+		}
+	]
+}

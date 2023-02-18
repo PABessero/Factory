@@ -114,7 +114,6 @@
 					"Mouse",
 					"WebSocket",
 					"Keyboard",
-					"JSON",
 					"Authentication",
 					"PlayFabAPI",
 					"LocalStorage",
@@ -147,7 +146,7 @@
 			},
 			{
 				"items": [
-					"LogText",
+					"TextInput",
 					"TextIp"
 				],
 				"subfolders": [],
@@ -155,12 +154,20 @@
 			},
 			{
 				"items": [
-					"ArrayCraft",
-					"ArrayMachine",
-					"ArrayRessource"
+					"ArrayCrafts",
+					"ArrayMachines",
+					"ArrayRessources"
 				],
 				"subfolders": [],
 				"name": "Array"
+			},
+			{
+				"items": [
+					"FunctionJSON",
+					"JSON"
+				],
+				"subfolders": [],
+				"name": "JSON"
 			}
 		]
 	},

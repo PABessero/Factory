@@ -33,9 +33,9 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 27,
-						"y": 25,
-						"width": 723,
+						"x": 32,
+						"y": 32,
+						"width": 1024,
 						"height": 160,
 						"originX": 0,
 						"originY": 0,
@@ -66,10 +66,10 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 376,
-						"y": 258,
-						"width": 72,
-						"height": 24,
+						"x": 384,
+						"y": 192,
+						"width": 96,
+						"height": 32,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -107,10 +107,10 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 239,
-						"y": 158,
-						"width": 344,
-						"height": 92,
+						"x": 32,
+						"y": 192,
+						"width": 352,
+						"height": 96,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -150,10 +150,10 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 54,
-						"y": 370,
-						"width": 210,
-						"height": 79,
+						"x": 32,
+						"y": 288,
+						"width": 352,
+						"height": 224,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -183,10 +183,10 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 381,
-						"y": 365,
-						"width": 72,
-						"height": 24,
+						"x": 384,
+						"y": 256,
+						"width": 96,
+						"height": 32,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -224,10 +224,10 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 318,
-						"y": 404,
-						"width": 659,
-						"height": 191,
+						"x": 32,
+						"y": 511,
+						"width": 1056,
+						"height": 64,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -259,10 +259,10 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 93,
-						"y": 600,
-						"width": 150,
-						"height": 22,
+						"x": 32,
+						"y": 608,
+						"width": 224,
+						"height": 32,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -290,10 +290,10 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 138,
-						"y": 639,
-						"width": 72,
-						"height": 24,
+						"x": 32,
+						"y": 672,
+						"width": 96,
+						"height": 32,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -321,10 +321,10 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 345,
-						"y": 643,
-						"width": 72,
-						"height": 24,
+						"x": 160,
+						"y": 672,
+						"width": 96,
+						"height": 32,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -362,10 +362,10 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 356,
-						"y": 290,
-						"width": 200,
-						"height": 63,
+						"x": 512,
+						"y": 192,
+						"width": 544,
+						"height": 96,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -379,7 +379,7 @@
 					}
 				},
 				{
-					"type": "LogText",
+					"type": "TextInput",
 					"properties": {
 						"text": "Test",
 						"placeholder": "",
@@ -461,8 +461,8 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 46,
-						"y": 759,
+						"x": 32,
+						"y": 736,
 						"width": 288,
 						"height": 67,
 						"originX": 0,
@@ -502,10 +502,10 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 368,
-						"y": 785,
-						"width": 293,
-						"height": 30,
+						"x": 352,
+						"y": 736,
+						"width": 320,
+						"height": 64,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -535,10 +535,10 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 299,
-						"y": 898,
-						"width": 72,
-						"height": 24,
+						"x": 256,
+						"y": 832,
+						"width": 128,
+						"height": 32,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -582,14 +582,16 @@
 	"sid": 438588122354213,
 	"nonworld-instances": [
 		{
-			"type": "ArrayRessource",
+			"type": "ArrayRessources",
 			"properties": {
-				"width": 10,
-				"height": 1,
+				"width": 20,
+				"height": 3,
 				"depth": 1
 			},
 			"uid": 23,
-			"instanceVariables": {}
+			"instanceVariables": {
+				"NombreRessources": 0
+			}
 		},
 		{
 			"type": "JSON",
@@ -598,23 +600,33 @@
 			"instanceVariables": {}
 		},
 		{
-			"type": "ArrayCraft",
+			"type": "ArrayCrafts",
 			"properties": {
 				"width": 10,
-				"height": 1,
+				"height": 6,
 				"depth": 1
 			},
 			"uid": 27,
-			"instanceVariables": {}
+			"instanceVariables": {
+				"NombreCrafts": 0
+			}
 		},
 		{
-			"type": "ArrayMachine",
+			"type": "ArrayMachines",
 			"properties": {
 				"width": 10,
 				"height": 1,
 				"depth": 1
 			},
 			"uid": 28,
+			"instanceVariables": {
+				"NombreMachines": 0
+			}
+		},
+		{
+			"type": "FunctionJSON",
+			"properties": {},
+			"uid": 29,
 			"instanceVariables": {}
 		}
 	],

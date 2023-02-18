@@ -68,6 +68,36 @@
 			"isStatic": false,
 			"isConstant": false,
 			"sid": 878200613398144
+		},
+		{
+			"eventType": "variable",
+			"name": "DataRessourcesFinish",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 119240724317830
+		},
+		{
+			"eventType": "variable",
+			"name": "DataMachinesFinish",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 527065672210575
+		},
+		{
+			"eventType": "variable",
+			"name": "DataCraftsFinish",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 890533671847245
 		}
 	],
 	"sid": 638167688340769

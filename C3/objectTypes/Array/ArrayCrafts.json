@@ -1,0 +1,15 @@
+{
+	"name": "ArrayCrafts",
+	"plugin-id": "Arr",
+	"sid": 819651557294724,
+	"isGlobal": true,
+	"instanceVariables": [
+		{
+			"name": "NombreCrafts",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 957149892898676
+		}
+	]
+}
