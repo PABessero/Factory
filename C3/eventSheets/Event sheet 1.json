@@ -598,6 +598,16 @@
 									}
 								},
 								{
+									"id": "split-string",
+									"objectClass": "ArrayRessource",
+									"sid": 914323389568188,
+									"parameters": {
+										"string": "websocket.MessageText",
+										"separator": "\",\"",
+										"type": "string"
+									}
+								},
+								{
 									"id": "set-json",
 									"objectClass": "JSON",
 									"sid": 977155722394301,

@@ -105,9 +105,7 @@
 		"items": [
 			"TextInputTempo",
 			"TextTempo",
-			"ButtonTempo",
-			"PlatformInfo",
-			"LocalStorage"
+			"ButtonTempo"
 		],
 		"subfolders": [
 			{
@@ -116,10 +114,11 @@
 					"Mouse",
 					"WebSocket",
 					"Keyboard",
-					"Array",
 					"JSON",
 					"Authentication",
-					"PlayFabAPI"
+					"PlayFabAPI",
+					"LocalStorage",
+					"PlatformInfo"
 				],
 				"subfolders": [],
 				"name": "Ressource"
@@ -153,6 +152,15 @@
 				],
 				"subfolders": [],
 				"name": "TextInput"
+			},
+			{
+				"items": [
+					"ArrayCraft",
+					"ArrayMachine",
+					"ArrayRessource"
+				],
+				"subfolders": [],
+				"name": "Array"
 			}
 		]
 	},

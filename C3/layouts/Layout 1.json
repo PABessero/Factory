@@ -582,7 +582,7 @@
 	"sid": 438588122354213,
 	"nonworld-instances": [
 		{
-			"type": "Array",
+			"type": "ArrayRessource",
 			"properties": {
 				"width": 10,
 				"height": 1,
@@ -595,6 +595,26 @@
 			"type": "JSON",
 			"properties": {},
 			"uid": 24,
+			"instanceVariables": {}
+		},
+		{
+			"type": "ArrayCraft",
+			"properties": {
+				"width": 10,
+				"height": 1,
+				"depth": 1
+			},
+			"uid": 27,
+			"instanceVariables": {}
+		},
+		{
+			"type": "ArrayMachine",
+			"properties": {
+				"width": 10,
+				"height": 1,
+				"depth": 1
+			},
+			"uid": 28,
 			"instanceVariables": {}
 		}
 	],
