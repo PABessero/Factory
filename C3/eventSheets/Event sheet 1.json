@@ -719,10 +719,10 @@
 						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
-							"sid": 255938332263631,
+							"sid": 444288043352208,
 							"parameters": {
 								"variable": "DataIron",
-								"value": "\"[{\r\n  type: \"\"inventory\"\",\r\n  slug: &\"\"iron_ore\"\"&,\r\n  amount: \" & ArrayRessources.At(0,2) & \"\r\n},\r\n{\r\n  type: \"\"inventory\"\",\r\n  slug: \"\"copper_ore\"\",\r\n  amount: \" & ArrayRessources.At(1,2) & \"\r\n}]\""
+								"value": "\"[{\r\n  \"\"type\"\": \"\"inventory\"\",\r\n  \"\"slug\"\": \"\"iron_ore\"\",\r\n  \"\"amount\"\":\" & ArrayRessources.At(0,2) & \"\r\n},\r\n{\r\n  \"\"type\"\": \"\"inventory\"\",\r\n  \"\"slug\"\": \"\"copper_ore\"\",\r\n  \"\"amount\"\": \" & ArrayRessources.At(1,2) & \"\r\n},\n{\r\n  \"\"type\"\": \"\"inventory\"\",\r\n  \"\"slug\"\": \"\"iron_ingot\"\",\r\n  \"\"amount\"\": \" & ArrayRessources.At(7,2) & \"\r\n}]\""
 							}
 						}
 					],
@@ -772,10 +772,10 @@
 						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
-							"sid": 814871209568282,
+							"sid": 889986770375899,
 							"parameters": {
 								"variable": "DataIron",
-								"value": "\"[{\r\n  type: \"\"inventory\"\",\r\n  slug: &\"\"iron_ore\"\"&,\r\n  amount: \" & ArrayRessources.At(0,2) & \"\r\n},\r\n{\r\n  type: \"\"inventory\"\",\r\n  slug: \"\"copper_ore\"\",\r\n  amount: \" & ArrayRessources.At(1,2) & \"\r\n},\n[{\r\n  type: \"\"inventory\"\",\r\n  slug: &\"\"iron_ingot\"\"&,\r\n  amount: \" & ArrayRessources.At(7,2) & \"\r\n},]\""
+								"value": "\"[{\r\n  \"\"type\"\": \"\"inventory\"\",\r\n  \"\"slug\"\": \"\"iron_ore\"\",\r\n  \"\"amount\"\":\" & ArrayRessources.At(0,2) & \"\r\n},\r\n{\r\n  \"\"type\"\": \"\"inventory\"\",\r\n  \"\"slug\"\": \"\"copper_ore\"\",\r\n  \"\"amount\"\": \" & ArrayRessources.At(1,2) & \"\r\n},\n{\r\n  \"\"type\"\": \"\"inventory\"\",\r\n  \"\"slug\"\": \"\"iron_ingot\"\",\r\n  \"\"amount\"\": \" & ArrayRessources.At(7,2) & \"\r\n}]\""
 							}
 						}
 					],
