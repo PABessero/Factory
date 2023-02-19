@@ -739,12 +739,12 @@
 						{
 							"id": "compare-at-xy",
 							"objectClass": "ArrayRessources",
-							"sid": 698569572473832,
+							"sid": 255079779520144,
 							"parameters": {
 								"x": "0",
 								"y": "2",
 								"comparison": 4,
-								"value": "0"
+								"value": "1"
 							}
 						}
 					],
@@ -752,11 +752,11 @@
 						{
 							"id": "set-at-xy",
 							"objectClass": "ArrayRessources",
-							"sid": 850040672983624,
+							"sid": 188235185805862,
 							"parameters": {
 								"x": "0",
 								"y": "2",
-								"value": "ArrayRessources.At(0,2) - 1"
+								"value": "ArrayRessources.At(0,2) - 2"
 							}
 						},
 						{
@@ -777,9 +777,132 @@
 								"variable": "DataIron",
 								"value": "\"[{\r\n  \"\"type\"\": \"\"inventory\"\",\r\n  \"\"slug\"\": \"\"iron_ore\"\",\r\n  \"\"amount\"\":\" & ArrayRessources.At(0,2) & \"\r\n},\r\n{\r\n  \"\"type\"\": \"\"inventory\"\",\r\n  \"\"slug\"\": \"\"copper_ore\"\",\r\n  \"\"amount\"\": \" & ArrayRessources.At(1,2) & \"\r\n},\n{\r\n  \"\"type\"\": \"\"inventory\"\",\r\n  \"\"slug\"\": \"\"iron_ingot\"\",\r\n  \"\"amount\"\": \" & ArrayRessources.At(7,2) & \"\r\n}]\""
 							}
+						},
+						{
+							"id": "stop",
+							"objectClass": "Audio",
+							"sid": 400532584753799,
+							"parameters": {
+								"tag": "\"ManualCrafting\""
+							}
+						},
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 263955352032982,
+							"parameters": {
+								"audio-file": "yt1s.com - Hammer Hitting Metal Sound Effect With Download  Free  No Copyright Sounds",
+								"loop": "not-looping",
+								"volume": "-10",
+								"stereo-pan": "0",
+								"tag-optional": "\"ManualCrafting\""
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 508866129336193,
+							"parameters": {
+								"seconds": "1.5"
+							}
+						},
+						{
+							"id": "stop",
+							"objectClass": "Audio",
+							"sid": 414704637202691,
+							"parameters": {
+								"tag": "\"ManualCrafting\""
+							}
 						}
 					],
 					"sid": 736522467125298
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-at-xy",
+							"objectClass": "ArrayRessources",
+							"sid": 369259575116537,
+							"parameters": {
+								"x": "0",
+								"y": "2",
+								"comparison": 4,
+								"value": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-enabled",
+							"objectClass": "ButtonCraftManual",
+							"sid": 501687383736260,
+							"parameters": {
+								"mode": "enabled"
+							}
+						},
+						{
+							"id": "set-font-color",
+							"objectClass": "TextCraftCurrentManuel",
+							"sid": 610596254915746,
+							"parameters": {
+								"color": "rgbEx(255, 255, 255)"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "TextCraftCurrentManuel",
+							"sid": 708611239685232,
+							"parameters": {
+								"text": "\"Current Crafting : \" & newline &\r\n\"Iron Ore x2 To Iron Ingot x1\""
+							}
+						}
+					],
+					"sid": 827518784204753
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-at-xy",
+							"objectClass": "ArrayRessources",
+							"sid": 711050327495149,
+							"parameters": {
+								"x": "0",
+								"y": "2",
+								"comparison": 4,
+								"value": "1"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-enabled",
+							"objectClass": "ButtonCraftManual",
+							"sid": 105842861692248,
+							"parameters": {
+								"mode": "disabled"
+							}
+						},
+						{
+							"id": "set-font-color",
+							"objectClass": "TextCraftCurrentManuel",
+							"sid": 994316670886162,
+							"parameters": {
+								"color": "rgbEx(255, 0, 0)"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "TextCraftCurrentManuel",
+							"sid": 987287253413636,
+							"parameters": {
+								"text": "\"Current Crafting : \" & newline &\r\n\"Iron Ore x2 To Iron Ingot x1\" & newline &\n\"MISSING RESOURCE\""
+							}
+						}
+					],
+					"sid": 658120846534731
 				}
 			],
 			"sid": 862471311643176
@@ -884,6 +1007,105 @@
 						}
 					],
 					"sid": 742882039060806
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 958907214726371,
+							"parameters": {
+								"first-value": "ArrayRessources.At(0,2)",
+								"comparison": 4,
+								"second-value": "1"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 511039028524993,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "every-x-seconds",
+									"objectClass": "System",
+									"sid": 952711218659095,
+									"parameters": {
+										"interval-seconds": "1"
+									}
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 549626422686607,
+									"parameters": {
+										"first-value": "ProgressBarCrafting.Maximum",
+										"comparison": 1,
+										"second-value": "ProgressBarCrafting.Progress"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-progress",
+									"objectClass": "ProgressBarCrafting",
+									"sid": 236632756734983,
+									"parameters": {
+										"value": "ProgressBarCrafting.Progress + 1"
+									}
+								}
+							],
+							"sid": 311170367161251
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 920650447223436,
+									"parameters": {
+										"first-value": "ProgressBarCrafting.Maximum",
+										"comparison": 0,
+										"second-value": "ProgressBarCrafting.Progress"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-at-xy",
+									"objectClass": "ArrayRessources",
+									"sid": 359038567024373,
+									"parameters": {
+										"x": "0",
+										"y": "2",
+										"value": "ArrayRessources.At(0,2) - 2"
+									}
+								},
+								{
+									"id": "set-at-xy",
+									"objectClass": "ArrayRessources",
+									"sid": 459985483374907,
+									"parameters": {
+										"x": "7",
+										"y": "2",
+										"value": "ArrayRessources.At(0,7) + 1"
+									}
+								},
+								{
+									"id": "set-progress",
+									"objectClass": "ProgressBarCrafting",
+									"sid": 897843392890023,
+									"parameters": {
+										"value": "0"
+									}
+								}
+							],
+							"sid": 600028296456931
+						}
+					]
 				}
 			],
 			"sid": 416803906507475
@@ -1584,6 +1806,38 @@
 				}
 			],
 			"sid": 403937924598734
+		},
+		{
+			"eventType": "block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-css-style",
+					"objectClass": "ProgressBarCrafting",
+					"sid": 478722907595635,
+					"parameters": {
+						"property-name": "\"background-color\"",
+						"value": "\"rgb(44,4,4)\""
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "TextAutoCraft",
+					"sid": 383094505006843,
+					"parameters": {
+						"text": "ArrayCrafts.At(0,2) & newline & \n\"Craft : \" & ArrayCrafts.At(0,1) & newline &\n\"Materials : \" & ArrayCrafts.At(0,3) & \" To \" & ArrayCrafts.At(0,4) & newline & \n\"Time : \" & ArrayCrafts.At(0,5)"
+					}
+				},
+				{
+					"id": "set-maximum",
+					"objectClass": "ProgressBarCrafting",
+					"sid": 191170697604496,
+					"parameters": {
+						"maximum": "ArrayCrafts.At(0,5)"
+					}
+				}
+			],
+			"sid": 177740453843115
 		}
 	],
 	"sid": 255337968219618

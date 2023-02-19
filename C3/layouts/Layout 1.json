@@ -81,7 +81,7 @@
 					}
 				},
 				{
-					"type": "TextCraftCurrent",
+					"type": "TextCraftCurrentManuel",
 					"properties": {
 						"text": "Current Crafting : \nIron Ore x2 \nTo\nIron Ingot x1",
 						"enable-bbcode": true,
@@ -336,7 +336,7 @@
 					}
 				},
 				{
-					"type": "TextSendData",
+					"type": "TextAutoCraft",
 					"properties": {
 						"text": "Text",
 						"enable-bbcode": true,
@@ -538,6 +538,34 @@
 						"x": 256,
 						"y": 832,
 						"width": 128,
+						"height": 32,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						]
+					}
+				},
+				{
+					"type": "ProgressBarCrafting",
+					"properties": {
+						"value": 0,
+						"maximum": 100,
+						"tooltip": "",
+						"initially-visible": true,
+						"id": "",
+						"class": ""
+					},
+					"uid": 30,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 512,
+						"y": 288,
+						"width": 544,
 						"height": 32,
 						"originX": 0,
 						"originY": 0,
