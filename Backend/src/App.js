@@ -1,5 +1,3 @@
-// noinspection JSVoidFunctionReturnValueUsed
-
 import { WebSocketServer } from "ws";
 import * as url from "url";
 import "colors";
@@ -45,12 +43,12 @@ wss.on("connection", function connection(ws, req) {
   console.log("New Connection".green);
   //region Get URL parameters
   const parameters = url.parse(req.url, true);
-  const username = parameters.query.username
+  const uuid = parameters.query.username
     ? parameters.query.username
     : "Default";
   const language = parameters.query.language ? parameters.query.language : "EN";
   //endregion
-  console.log(username);
+  console.log(uuid);
 
   //region Send test data
   // ws.send(
@@ -92,20 +90,19 @@ wss.on("connection", function connection(ws, req) {
   sendMachines(ws, language);
   // sendCrafts(ws, language);
 
+  sendInventory(ws, uuid);
+
   ws.on("message", function incoming(message) {
     try {
       const json_message = JSON.parse(message.toString());
-      console.log(json_message);
-      if (json_message.isArray()) {
+      if (Array.isArray(json_message)) {
         json_message.forEach((message_line) => {
           if (message_line.type === "inventory") {
-            insertIntoInventory(
-              username,
-              message_line.slug,
-              message_line.amount
-            );
+            insertIntoInventory(uuid, message_line.slug, message_line.amount);
           }
         });
+      } else {
+        console.log("Not an array?");
       }
     } catch (e) {
       ws.send("Error in message: " + message.toString());
@@ -216,11 +213,27 @@ function insertIntoInventory(userUUID, item, amount) {
     uuid: userUUID,
     resource_slug: item,
     amount: amount,
-  }).then(([data, created]) => {
-    console.log(
-      created
-        ? `Created data for ${item} for player ${userUUID}`
-        : `Inserted data for ${item} for player ${userUUID}`
-    );
+  }).then(
+    ([data, created]) => {},
+    (error) => console.log(error)
+  );
+}
+
+function sendInventory(ws, userUUID) {
+  const inventory = [];
+  UserData.findAll({
+    where: {
+      uuid: userUUID,
+    },
+  }).then((res) => {
+    res.forEach((slot) => {
+      inventory.push({
+        type: "inventory",
+        slug: slot.resource_slug,
+        amount: slot.amount,
+      });
+    });
+    ws.send(JSON.stringify(inventory));
+    console.log(`Inventory for ${userUUID}`, inventory);
   });
 }
