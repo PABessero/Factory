@@ -3,6 +3,14 @@
 	"plugin-id": "Button",
 	"sid": 590926715240077,
 	"isGlobal": false,
-	"instanceVariables": [],
+	"instanceVariables": [
+		{
+			"name": "Craft",
+			"type": "boolean",
+			"desc": "",
+			"show": true,
+			"sid": 920094981895269
+		}
+	],
 	"behaviorTypes": []
 }

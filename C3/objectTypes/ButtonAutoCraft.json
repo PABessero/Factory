@@ -1,7 +1,7 @@
 {
-	"name": "ClearButton",
+	"name": "ButtonAutoCraft",
 	"plugin-id": "Button",
-	"sid": 688613543820258,
+	"sid": 491473591801249,
 	"isGlobal": false,
 	"instanceVariables": [],
 	"behaviorTypes": []

@@ -17,6 +17,13 @@
 			"desc": "",
 			"show": true,
 			"sid": 707837922594927
+		},
+		{
+			"name": "SetDataIron",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 332216159927614
 		}
 	]
 }

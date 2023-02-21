@@ -87,6 +87,13 @@
 		},
 		{
 			"type": "plugin",
+			"id": "Sprite",
+			"name": "Sprite",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
 			"id": "Text",
 			"name": "Text",
 			"author": "Scirra",
@@ -110,10 +117,14 @@
 	"uniqueId": "5vtm7n4tma6",
 	"objectTypes": {
 		"items": [
-			"TextInputTempo",
-			"TextTempo",
-			"ButtonTempo",
-			"ProgressBarCrafting"
+			"ProgressBarCrafting",
+			"SpriteFondRessource",
+			"SpriteFondCraftManuel",
+			"ButtonAutoCraft",
+			"SpriteFondAutoCraft",
+			"SpriteFondProductionLine",
+			"SpriteForeuse",
+			"ButtonBuyForeuse"
 		],
 		"subfolders": [
 			{
@@ -133,10 +144,7 @@
 			{
 				"items": [
 					"ButtonCraftManual",
-					"ButtonSendData",
-					"ButtonServer",
-					"ClearButton",
-					"ButtonLeave"
+					"ButtonSendData"
 				],
 				"subfolders": [],
 				"name": "Button"
@@ -144,8 +152,6 @@
 			{
 				"items": [
 					"TextCraftCurrentManuel",
-					"TextDebug",
-					"TextLogWebSocket",
 					"TextRessource",
 					"TextAutoCraft"
 				],
@@ -153,10 +159,7 @@
 				"name": "Text"
 			},
 			{
-				"items": [
-					"TextInput",
-					"TextIp"
-				],
+				"items": [],
 				"subfolders": [],
 				"name": "TextInput"
 			},
@@ -176,6 +179,20 @@
 				],
 				"subfolders": [],
 				"name": "JSON"
+			},
+			{
+				"items": [
+					"TextDebugMenu",
+					"ButtonClear",
+					"ButtonLeave",
+					"ButtonConnectServer",
+					"TextLogWebSocket",
+					"TextDebug",
+					"TextIp",
+					"TextInput"
+				],
+				"subfolders": [],
+				"name": "Debug"
 			}
 		]
 	},
@@ -206,9 +223,9 @@
 		"sound": {
 			"items": [
 				{
-					"name": "yt1s.com - Hammer Hitting Metal Sound Effect With Download  Free  No Copyright Sounds.webm",
+					"name": "HammerSound.webm",
 					"type": "audio/webm; codecs=opus",
-					"sid": 676608376479908,
+					"sid": 412291559552663,
 					"file-info": {
 						"purpose": "none"
 					}

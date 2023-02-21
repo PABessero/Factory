@@ -2,7 +2,7 @@
 	"name": "Layout 1",
 	"layers": [
 		{
-			"name": "jeu",
+			"name": "debug",
 			"overriden": 0,
 			"subLayers": [],
 			"instances": [
@@ -47,154 +47,6 @@
 						],
 						"angle": 0,
 						"zElevation": 0
-					}
-				},
-				{
-					"type": "ButtonCraftManual",
-					"properties": {
-						"type": "button",
-						"text": "Craft",
-						"tooltip": "",
-						"initially-visible": true,
-						"enabled": true,
-						"auto-font-size": true,
-						"checked": false,
-						"id": "",
-						"class": ""
-					},
-					"uid": 5,
-					"instanceVariables": {},
-					"behaviors": {},
-					"world": {
-						"x": 384,
-						"y": 192,
-						"width": 96,
-						"height": 32,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						]
-					}
-				},
-				{
-					"type": "TextCraftCurrentManuel",
-					"properties": {
-						"text": "Current Crafting : \nIron Ore x2 \nTo\nIron Ingot x1",
-						"enable-bbcode": true,
-						"font": "Arial",
-						"size": 12,
-						"line-height": 0,
-						"bold": false,
-						"italic": false,
-						"color": [
-							0,
-							0,
-							0,
-							1
-						],
-						"horizontal-alignment": "center",
-						"vertical-alignment": "center",
-						"wrapping": "word",
-						"initially-visible": true,
-						"origin": "top-left",
-						"read-aloud": false
-					},
-					"uid": 6,
-					"instanceVariables": {},
-					"behaviors": {},
-					"world": {
-						"x": 32,
-						"y": 192,
-						"width": 352,
-						"height": 96,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "TextRessource",
-					"properties": {
-						"text": "Ressource :\n- Iron Ore :\n- Iron Ingot :",
-						"enable-bbcode": true,
-						"font": "Arial",
-						"size": 12,
-						"line-height": 0,
-						"bold": false,
-						"italic": false,
-						"color": [
-							0,
-							0,
-							0,
-							1
-						],
-						"horizontal-alignment": "left",
-						"vertical-alignment": "top",
-						"wrapping": "word",
-						"initially-visible": true,
-						"origin": "top-left",
-						"read-aloud": false
-					},
-					"uid": 8,
-					"instanceVariables": {},
-					"behaviors": {},
-					"world": {
-						"x": 32,
-						"y": 288,
-						"width": 352,
-						"height": 224,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "ButtonSendData",
-					"properties": {
-						"type": "button",
-						"text": "Send Data",
-						"tooltip": "",
-						"initially-visible": true,
-						"enabled": true,
-						"auto-font-size": true,
-						"checked": false,
-						"id": "",
-						"class": ""
-					},
-					"uid": 9,
-					"instanceVariables": {},
-					"behaviors": {},
-					"world": {
-						"x": 384,
-						"y": 256,
-						"width": 96,
-						"height": 32,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						]
 					}
 				},
 				{
@@ -274,7 +126,7 @@
 					}
 				},
 				{
-					"type": "ButtonServer",
+					"type": "ButtonConnectServer",
 					"properties": {
 						"type": "button",
 						"text": "Connect",
@@ -336,49 +188,6 @@
 					}
 				},
 				{
-					"type": "TextAutoCraft",
-					"properties": {
-						"text": "Text",
-						"enable-bbcode": true,
-						"font": "Arial",
-						"size": 12,
-						"line-height": 0,
-						"bold": false,
-						"italic": false,
-						"color": [
-							0,
-							0,
-							0,
-							1
-						],
-						"horizontal-alignment": "left",
-						"vertical-alignment": "top",
-						"wrapping": "word",
-						"initially-visible": true,
-						"origin": "top-left",
-						"read-aloud": false
-					},
-					"uid": 15,
-					"instanceVariables": {},
-					"behaviors": {},
-					"world": {
-						"x": 512,
-						"y": 192,
-						"width": 544,
-						"height": 96,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
 					"type": "TextInput",
 					"properties": {
 						"text": "Test",
@@ -412,7 +221,7 @@
 					}
 				},
 				{
-					"type": "ClearButton",
+					"type": "ButtonClear",
 					"properties": {
 						"type": "button",
 						"text": "Clear Log",
@@ -443,28 +252,233 @@
 					}
 				},
 				{
-					"type": "TextInputTempo",
+					"type": "TextDebugMenu",
 					"properties": {
-						"text": "{\"slug\": \"iron_ore\",\"quantity\": 25},\n{\"slug\": \"iron_ingot\",\"quantity\": 14}",
-						"placeholder": "",
-						"tooltip": "",
+						"text": "DEBUG MENU ! ! !",
+						"enable-bbcode": true,
+						"font": "Arial",
+						"size": 50,
+						"line-height": 0,
+						"bold": true,
+						"italic": true,
+						"color": [
+							1,
+							0,
+							0,
+							1
+						],
+						"horizontal-alignment": "center",
+						"vertical-alignment": "center",
+						"wrapping": "word",
 						"initially-visible": true,
-						"enabled": true,
-						"read-only": false,
-						"spell-check": false,
-						"type": "text",
-						"auto-font-size": true,
-						"id": "",
-						"class": ""
+						"origin": "top-left",
+						"read-aloud": false
+					},
+					"uid": 31,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 0,
+						"y": 926,
+						"width": 640,
+						"height": 96,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				}
+			],
+			"sid": 845636421203411,
+			"effectTypes": [],
+			"isInitiallyVisible": false,
+			"isInitiallyInteractive": false,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				0.3686274509803922,
+				0.3686274509803922,
+				0.3686274509803922,
+				1
+			],
+			"isTransparent": false,
+			"parallaxX": 1,
+			"parallaxY": 1,
+			"scaleRate": 1,
+			"forceOwnTexture": false,
+			"renderingMode": "3d",
+			"drawOrder": "z-order",
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"zElevation": 0,
+			"global": false
+		},
+		{
+			"name": "Jeu",
+			"overriden": 0,
+			"subLayers": [],
+			"instances": [
+				{
+					"type": "SpriteFondCraftManuel",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 16,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 589,
+						"y": 109,
+						"width": 416,
+						"height": 224,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "SpriteFondRessource",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
 					},
 					"uid": 14,
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 32,
-						"y": 736,
-						"width": 288,
-						"height": 67,
+						"x": 192,
+						"y": 256,
+						"width": 384,
+						"height": 512,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "SpriteFondAutoCraft",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 32,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 589,
+						"y": 365,
+						"width": 416,
+						"height": 288,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "TextAutoCraft",
+					"properties": {
+						"text": "Text",
+						"enable-bbcode": true,
+						"font": "Arial",
+						"size": 20,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							0,
+							0,
+							0,
+							1
+						],
+						"horizontal-alignment": "center",
+						"vertical-alignment": "center",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left",
+						"read-aloud": false
+					},
+					"uid": 15,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 416,
+						"y": 256,
+						"width": 352,
+						"height": 128,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "ProgressBarCrafting",
+					"properties": {
+						"value": 0,
+						"maximum": 100,
+						"tooltip": "",
+						"initially-visible": true,
+						"id": "",
+						"class": ""
+					},
+					"uid": 30,
+					"instanceVariables": {
+						"Craft": false,
+						"AutoCraft": true
+					},
+					"behaviors": {},
+					"world": {
+						"x": 416,
+						"y": 384,
+						"width": 352,
+						"height": 32,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -476,12 +490,43 @@
 					}
 				},
 				{
-					"type": "TextTempo",
+					"type": "ButtonSendData",
 					"properties": {
-						"text": "Text",
+						"type": "button",
+						"text": "Send Data",
+						"tooltip": "",
+						"initially-visible": true,
+						"enabled": true,
+						"auto-font-size": true,
+						"checked": false,
+						"id": "",
+						"class": ""
+					},
+					"uid": 9,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 32,
+						"y": 544,
+						"width": 96,
+						"height": 32,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						]
+					}
+				},
+				{
+					"type": "TextRessource",
+					"properties": {
+						"text": "Ressource :\n- Iron Ore :\n- Iron Ingot :",
 						"enable-bbcode": true,
 						"font": "Arial",
-						"size": 12,
+						"size": 20,
 						"line-height": 0,
 						"bold": false,
 						"italic": false,
@@ -498,14 +543,14 @@
 						"origin": "top-left",
 						"read-aloud": false
 					},
-					"uid": 16,
+					"uid": 8,
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 352,
-						"y": 736,
+						"x": 32,
+						"y": 32,
 						"width": 320,
-						"height": 64,
+						"height": 448,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -519,10 +564,53 @@
 					}
 				},
 				{
-					"type": "ButtonTempo",
+					"type": "TextCraftCurrentManuel",
+					"properties": {
+						"text": "Current Crafting : \nIron Ore x2 \nTo\nIron Ingot x1",
+						"enable-bbcode": true,
+						"font": "Arial",
+						"size": 12,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							0,
+							0,
+							0,
+							1
+						],
+						"horizontal-alignment": "center",
+						"vertical-alignment": "center",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left",
+						"read-aloud": false
+					},
+					"uid": 6,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 416,
+						"y": 32,
+						"width": 352,
+						"height": 96,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "ButtonCraftManual",
 					"properties": {
 						"type": "button",
-						"text": "OK",
+						"text": "Craft",
 						"tooltip": "",
 						"initially-visible": true,
 						"enabled": true,
@@ -531,13 +619,15 @@
 						"id": "",
 						"class": ""
 					},
-					"uid": 19,
-					"instanceVariables": {},
+					"uid": 5,
+					"instanceVariables": {
+						"Craft": false
+					},
 					"behaviors": {},
 					"world": {
-						"x": 256,
-						"y": 832,
-						"width": 128,
+						"x": 544,
+						"y": 160,
+						"width": 96,
 						"height": 32,
 						"originX": 0,
 						"originY": 0,
@@ -550,23 +640,117 @@
 					}
 				},
 				{
-					"type": "ProgressBarCrafting",
+					"type": "ButtonAutoCraft",
 					"properties": {
-						"value": 0,
-						"maximum": 100,
+						"type": "checkbox",
+						"text": "AutoCraft",
 						"tooltip": "",
 						"initially-visible": true,
+						"enabled": true,
+						"auto-font-size": true,
+						"checked": true,
 						"id": "",
 						"class": ""
 					},
-					"uid": 30,
+					"uid": 19,
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 512,
-						"y": 288,
-						"width": 544,
+						"x": 544,
+						"y": 448,
+						"width": 96,
 						"height": 32,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						]
+					}
+				},
+				{
+					"type": "SpriteFondProductionLine",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 33,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 1539,
+						"y": 547,
+						"width": 768,
+						"height": 1088,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "SpriteForeuse",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 34,
+					"instanceVariables": {
+						"Buy": false
+					},
+					"behaviors": {},
+					"world": {
+						"x": 1536,
+						"y": 192,
+						"width": 96,
+						"height": 96,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "ButtonBuyForeuse",
+					"properties": {
+						"type": "button",
+						"text": "Buy Foreuse",
+						"tooltip": "",
+						"initially-visible": true,
+						"enabled": false,
+						"auto-font-size": true,
+						"checked": false,
+						"id": "",
+						"class": ""
+					},
+					"uid": 35,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 1472,
+						"y": 256,
+						"width": 128,
+						"height": 64,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -578,7 +762,7 @@
 					}
 				}
 			],
-			"sid": 845636421203411,
+			"sid": 851412690414988,
 			"effectTypes": [],
 			"isInitiallyVisible": true,
 			"isInitiallyInteractive": true,
@@ -619,7 +803,8 @@
 			"uid": 23,
 			"instanceVariables": {
 				"NombreRessources": 0,
-				"RessourceServeur": 0
+				"RessourceServeur": 0,
+				"SetDataIron": 0
 			}
 		},
 		{

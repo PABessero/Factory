@@ -527,85 +527,6 @@
 						},
 						{
 							"eventType": "comment",
-							"text": "Bouton Déco (Dev Object)"
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "on-clicked",
-									"objectClass": "ButtonLeave",
-									"sid": 838951634413610
-								}
-							],
-							"actions": [
-								{
-									"id": "close",
-									"objectClass": "WebSocket",
-									"sid": 410613695286012,
-									"disabled": true
-								},
-								{
-									"id": "logout1",
-									"objectClass": "PlayFabAPI",
-									"sid": 574861607665660
-								}
-							],
-							"sid": 199340337882151
-						},
-						{
-							"eventType": "comment",
-							"text": "Bouton Connection avec Ip diff (a voir / supprimer ?)"
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "on-clicked",
-									"objectClass": "ButtonServer",
-									"sid": 418633426988859
-								},
-								{
-									"id": "compare-text",
-									"objectClass": "TextIp",
-									"sid": 289858798810375,
-									"parameters": {
-										"text": "\"\"",
-										"case": "case-insensitive"
-									},
-									"isInverted": true
-								},
-								{
-									"id": "is-open",
-									"objectClass": "WebSocket",
-									"sid": 562649438813590,
-									"isInverted": true
-								}
-							],
-							"actions": [
-								{
-									"id": "connect",
-									"objectClass": "WebSocket",
-									"sid": 680050211529806,
-									"parameters": {
-										"url": "TextIp.Text",
-										"protocol-optional": "\"\""
-									}
-								},
-								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 712211273238464,
-									"parameters": {
-										"variable": "Ip",
-										"value": "TextIp.Text"
-									}
-								}
-							],
-							"sid": 347386882818325
-						},
-						{
-							"eventType": "comment",
 							"text": "Envoi Manuel Data (WIP)"
 						},
 						{
@@ -621,9 +542,9 @@
 								{
 									"id": "send-text",
 									"objectClass": "WebSocket",
-									"sid": 113435829345160,
+									"sid": 426042270612851,
 									"parameters": {
-										"data": "DataIron"
+										"data": "replace(DataIron, \"]]\", \"]\")"
 									}
 								},
 								{
@@ -658,9 +579,9 @@
 								{
 									"id": "send-text",
 									"objectClass": "WebSocket",
-									"sid": 881432134416758,
+									"sid": 514266530509954,
 									"parameters": {
-										"data": "DataIron"
+										"data": "replace(DataIron, \"]]\", \"]\")"
 									}
 								},
 								{
@@ -684,10 +605,732 @@
 		{
 			"eventType": "group",
 			"disabled": false,
-			"title": "Prototype",
-			"description": "",
+			"title": "Récupération Data (Pab)",
+			"description": "+ Update text ressource",
 			"isActiveOnStart": true,
 			"children": [
+				{
+					"eventType": "comment",
+					"text": "Reception Data"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-message",
+							"objectClass": "WebSocket",
+							"sid": 161965124415475
+						}
+					],
+					"actions": [
+						{
+							"id": "parse",
+							"objectClass": "JSON",
+							"sid": 404492912852285,
+							"parameters": {
+								"data": "WebSocket.MessageText"
+							}
+						}
+					],
+					"sid": 941459214413980,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-value",
+									"objectClass": "JSON",
+									"sid": 914079220623345,
+									"parameters": {
+										"path": "\"0.type\"",
+										"cmp": 0,
+										"value": "\"resources\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-size",
+									"objectClass": "ArrayRessources",
+									"sid": 701681278983650,
+									"parameters": {
+										"width": "JSON.ArraySize(\"\")",
+										"height": "3",
+										"depth": "1"
+									}
+								}
+							],
+							"sid": 482613846675593
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-value",
+									"objectClass": "JSON",
+									"sid": 931714726414092,
+									"parameters": {
+										"path": "\"0.type\"",
+										"cmp": 0,
+										"value": "\"machines\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-size",
+									"objectClass": "ArrayMachines",
+									"sid": 852814196149584,
+									"parameters": {
+										"width": "JSON.ArraySize(\"\")",
+										"height": "2",
+										"depth": "1"
+									}
+								}
+							],
+							"sid": 402327636561032
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-value",
+									"objectClass": "JSON",
+									"sid": 461290857425271,
+									"parameters": {
+										"path": "\"0.type\"",
+										"cmp": 0,
+										"value": "\"crafts\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-size",
+									"objectClass": "ArrayCrafts",
+									"sid": 575577596836147,
+									"parameters": {
+										"width": "JSON.ArraySize(\"\")",
+										"height": "6",
+										"depth": "1"
+									}
+								}
+							],
+							"sid": 166009320557375
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "JSON",
+									"sid": 831141690000777,
+									"parameters": {
+										"path": "\"\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "JSON Parse",
+									"sid": 243854596993909,
+									"parameters": [
+										"JSON.Get(JSON.CurrentKey & \".type\")",
+										"JSON.GetAsCompactString(JSON.CurrentKey)"
+									]
+								}
+							],
+							"sid": 630398429021871
+						}
+					]
+				},
+				{
+					"functionName": "JSON Parse",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "messageType",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 892839662879502
+						},
+						{
+							"name": "json",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 886586556006024
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 348314211648457,
+					"children": [
+						{
+							"eventType": "comment",
+							"text": "Mise en Array resources"
+						},
+						{
+							"eventType": "comment",
+							"text": "Mise en Array Inventory"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 193370016703193,
+									"parameters": {
+										"variable": "messageType",
+										"comparison": 0,
+										"value": "\"resources\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "parse",
+									"objectClass": "FunctionJSON",
+									"sid": 706882693920926,
+									"parameters": {
+										"data": "json"
+									}
+								},
+								{
+									"id": "append-text",
+									"objectClass": "TextInput",
+									"sid": 586187915586242,
+									"parameters": {
+										"text": "\"Got Resource: \" & FunctionJSON.Get(\"slug\") & newline"
+									}
+								},
+								{
+									"id": "append-text",
+									"objectClass": "TextInput",
+									"sid": 334792944379475,
+									"parameters": {
+										"text": "\"Got Resource: \" & FunctionJSON.Get(\"name\") & newline"
+									}
+								},
+								{
+									"id": "append-text",
+									"objectClass": "TextInput",
+									"sid": 488040690962751,
+									"parameters": {
+										"text": "\"Got Resource: \" & FunctionJSON.Get(\"amount\") & newline"
+									}
+								},
+								{
+									"id": "set-at-xy",
+									"objectClass": "ArrayRessources",
+									"sid": 721700135015783,
+									"parameters": {
+										"x": "ArrayRessources.NombreRessources",
+										"y": "0",
+										"value": "FunctionJSON.Get(\"slug\")"
+									}
+								},
+								{
+									"id": "set-at-xy",
+									"objectClass": "ArrayRessources",
+									"sid": 403172961383563,
+									"parameters": {
+										"x": "ArrayRessources.NombreRessources",
+										"y": "1",
+										"value": "FunctionJSON.Get(\"name\")"
+									}
+								},
+								{
+									"id": "add-to-instvar",
+									"objectClass": "ArrayRessources",
+									"sid": 984180275672858,
+									"parameters": {
+										"instance-variable": "NombreRessources",
+										"value": "1"
+									}
+								}
+							],
+							"sid": 428744759807366
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 969366526873721,
+									"parameters": {
+										"variable": "messageType",
+										"comparison": 0,
+										"value": "\"inventory\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "parse",
+									"objectClass": "FunctionJSON",
+									"sid": 824065805073733,
+									"parameters": {
+										"data": "json"
+									}
+								},
+								{
+									"id": "append-text",
+									"objectClass": "TextInput",
+									"sid": 384705813365130,
+									"parameters": {
+										"text": "\"Got Inventory: \" & FunctionJSON.Get(\"slug\") & newline"
+									}
+								},
+								{
+									"id": "append-text",
+									"objectClass": "TextInput",
+									"sid": 391175689676804,
+									"parameters": {
+										"text": "\"Got Inventory: \" & FunctionJSON.Get(\"amount\") & newline"
+									}
+								},
+								{
+									"id": "set-at-xy",
+									"objectClass": "ArrayRessources",
+									"sid": 836695387665696,
+									"parameters": {
+										"x": "ArrayRessources.RessourceServeur",
+										"y": "2",
+										"value": "FunctionJSON.Get(\"amount\")"
+									}
+								},
+								{
+									"id": "add-to-instvar",
+									"objectClass": "ArrayRessources",
+									"sid": 500152915569230,
+									"parameters": {
+										"instance-variable": "RessourceServeur",
+										"value": "1"
+									}
+								}
+							],
+							"sid": 758103672210451
+						},
+						{
+							"eventType": "comment",
+							"text": "Mise en Array Machines"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 862936639583575,
+									"parameters": {
+										"variable": "messageType",
+										"comparison": 0,
+										"value": "\"machines\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "parse",
+									"objectClass": "FunctionJSON",
+									"sid": 811339052231700,
+									"parameters": {
+										"data": "json"
+									}
+								},
+								{
+									"id": "append-text",
+									"objectClass": "TextInput",
+									"sid": 413391659997732,
+									"parameters": {
+										"text": "\"Got Machine: \" & FunctionJSON.Get(\"slug\") & newline"
+									}
+								},
+								{
+									"id": "append-text",
+									"objectClass": "TextInput",
+									"sid": 678770495151880,
+									"parameters": {
+										"text": "\"Got Machine: \" & FunctionJSON.Get(\"name\") & newline"
+									}
+								},
+								{
+									"id": "set-at-xy",
+									"objectClass": "ArrayMachines",
+									"sid": 268445501912906,
+									"parameters": {
+										"x": "ArrayMachines.NombreMachines",
+										"y": "1",
+										"value": "FunctionJSON.Get(\"name\")"
+									}
+								},
+								{
+									"id": "set-at-xy",
+									"objectClass": "ArrayMachines",
+									"sid": 277673819341470,
+									"parameters": {
+										"x": "ArrayMachines.NombreMachines",
+										"y": "0",
+										"value": "FunctionJSON.Get(\"slug\")"
+									}
+								},
+								{
+									"id": "add-to-instvar",
+									"objectClass": "ArrayMachines",
+									"sid": 461541031794158,
+									"parameters": {
+										"instance-variable": "NombreMachines",
+										"value": "1"
+									}
+								}
+							],
+							"sid": 859992114644928
+						},
+						{
+							"eventType": "comment",
+							"text": "Mise en Array Crafts"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 626834142450635,
+									"parameters": {
+										"variable": "messageType",
+										"comparison": 0,
+										"value": "\"crafts\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "parse",
+									"objectClass": "FunctionJSON",
+									"sid": 703376165223946,
+									"parameters": {
+										"data": "json"
+									}
+								},
+								{
+									"id": "append-text",
+									"objectClass": "TextInput",
+									"sid": 641873955643196,
+									"parameters": {
+										"text": "\"Got Craft: \" & FunctionJSON.Get(\"name\") & newline"
+									}
+								},
+								{
+									"id": "append-text",
+									"objectClass": "TextInput",
+									"sid": 150364109156091,
+									"parameters": {
+										"text": "\"Got Craft: \" & FunctionJSON.GetAsCompactString(\"slug\") & newline"
+									}
+								},
+								{
+									"id": "append-text",
+									"objectClass": "TextInput",
+									"sid": 861790453654786,
+									"parameters": {
+										"text": "\"Got Craft: \" & FunctionJSON.GetAsCompactString(\"name\") & newline"
+									}
+								},
+								{
+									"id": "append-text",
+									"objectClass": "TextInput",
+									"sid": 309399500015728,
+									"parameters": {
+										"text": "\"Got Craft: \" & FunctionJSON.GetAsCompactString(\"machine\") & newline"
+									}
+								},
+								{
+									"id": "append-text",
+									"objectClass": "TextInput",
+									"sid": 394418250196644,
+									"parameters": {
+										"text": "\"Got Craft: \" & FunctionJSON.GetAsCompactString(\"materials\") & newline"
+									}
+								},
+								{
+									"id": "append-text",
+									"objectClass": "TextInput",
+									"sid": 614195953761810,
+									"parameters": {
+										"text": "\"Got Craft: \" & FunctionJSON.GetAsCompactString(\"outputs\") & newline"
+									}
+								},
+								{
+									"id": "append-text",
+									"objectClass": "TextInput",
+									"sid": 172685091047212,
+									"parameters": {
+										"text": "\"Got Craft: \" & FunctionJSON.GetAsCompactString(\"time\") & newline"
+									}
+								},
+								{
+									"id": "set-at-xy",
+									"objectClass": "ArrayCrafts",
+									"sid": 730227181350289,
+									"parameters": {
+										"x": "ArrayCrafts.NombreCrafts",
+										"y": "0",
+										"value": "FunctionJSON.GetAsCompactString(\"slug\")"
+									}
+								},
+								{
+									"id": "set-at-xy",
+									"objectClass": "ArrayCrafts",
+									"sid": 777136095977914,
+									"parameters": {
+										"x": "ArrayCrafts.NombreCrafts",
+										"y": "1",
+										"value": "FunctionJSON.GetAsCompactString(\"name\")"
+									}
+								},
+								{
+									"id": "set-at-xy",
+									"objectClass": "ArrayCrafts",
+									"sid": 426091325158785,
+									"parameters": {
+										"x": "ArrayCrafts.NombreCrafts",
+										"y": "2",
+										"value": "FunctionJSON.GetAsCompactString(\"machine\")"
+									}
+								},
+								{
+									"id": "set-at-xy",
+									"objectClass": "ArrayCrafts",
+									"sid": 606755876138216,
+									"parameters": {
+										"x": "ArrayCrafts.NombreCrafts",
+										"y": "3",
+										"value": "FunctionJSON.GetAsCompactString(\"materials\")"
+									}
+								},
+								{
+									"id": "set-at-xy",
+									"objectClass": "ArrayCrafts",
+									"sid": 813875146427717,
+									"parameters": {
+										"x": "ArrayCrafts.NombreCrafts",
+										"y": "4",
+										"value": "FunctionJSON.GetAsCompactString(\"outputs\")"
+									}
+								},
+								{
+									"id": "set-at-xy",
+									"objectClass": "ArrayCrafts",
+									"sid": 524777952688844,
+									"parameters": {
+										"x": "ArrayCrafts.NombreCrafts",
+										"y": "5",
+										"value": "FunctionJSON.GetAsCompactString(\"time\")"
+									}
+								}
+							],
+							"sid": 632327887374184,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each",
+											"objectClass": "FunctionJSON",
+											"sid": 903178453778682,
+											"parameters": {
+												"path": "\"materials\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "append-text",
+											"objectClass": "TextInput",
+											"sid": 615393280791976,
+											"parameters": {
+												"text": "\"Got Craft: \" & FunctionJSON.Get(\"name\") & \" | Materials: \" & FunctionJSON.Get(\"materials.\" & FunctionJSON.CurrentKey & \".slug\") & \" x\" & FunctionJSON.Get(\"materials.\" & FunctionJSON.CurrentKey & \".amount\") & newline"
+											}
+										}
+									],
+									"sid": 875066660196997
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each",
+											"objectClass": "FunctionJSON",
+											"sid": 123134051073958,
+											"parameters": {
+												"path": "\"outputs\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "append-text",
+											"objectClass": "TextInput",
+											"sid": 255107447049332,
+											"parameters": {
+												"text": "\"Got Craft: \" & FunctionJSON.Get(\"name\") & \" | Ouputs: \" & FunctionJSON.Get(\"outputs.\" & FunctionJSON.CurrentKey & \".slug\") & \" x\" & FunctionJSON.Get(\"outputs.\" & FunctionJSON.CurrentKey & \".amount\") & newline"
+											}
+										}
+									],
+									"sid": 189811392307448
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "comment",
+					"text": "Fin Mise en Array Resources"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 926444013051298,
+							"parameters": {
+								"first-value": "ArrayRessources.Width",
+								"comparison": 0,
+								"second-value": "ArrayRessources.NombreRessources"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 542443171486788,
+							"parameters": {
+								"variable": "DataRessourcesFinish",
+								"value": "true"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "ArrayRessources",
+							"sid": 236317999309587,
+							"parameters": {
+								"instance-variable": "NombreRessources",
+								"value": "0"
+							}
+						}
+					],
+					"sid": 151868391821047
+				},
+				{
+					"eventType": "comment",
+					"text": "Update text Resources"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 657268919692226,
+							"parameters": {
+								"variable": "DataRessourcesFinish"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "TextRessource",
+							"sid": 860703295610434,
+							"parameters": {
+								"text": "\"Resource :\" & newline\n\n"
+							}
+						}
+					],
+					"sid": 762055642028642,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "repeat",
+									"objectClass": "System",
+									"sid": 490905049219959,
+									"parameters": {
+										"count": "ArrayRessources.Width"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "append-text",
+									"objectClass": "TextRessource",
+									"sid": 481433493083702,
+									"parameters": {
+										"text": "\"- \" & ArrayRessources.At(ArrayRessources.NombreRessources,1) & \" : \" & ArrayRessources.At(ArrayRessources.NombreRessources,2) & newline\n"
+									}
+								},
+								{
+									"id": "add-to-instvar",
+									"objectClass": "ArrayRessources",
+									"sid": 376848903133516,
+									"parameters": {
+										"instance-variable": "NombreRessources",
+										"value": "1"
+									}
+								}
+							],
+							"sid": 146532944122388
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-message",
+							"objectClass": "WebSocket",
+							"sid": 822720194388674
+						}
+					],
+					"actions": [
+						{
+							"id": "append-text",
+							"objectClass": "TextInput",
+							"sid": 382412676684496,
+							"parameters": {
+								"text": "WebSocket.MessageText"
+							}
+						}
+					],
+					"sid": 213509089096573
+				}
+			],
+			"sid": 737222901563125
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Prototype",
+			"description": "Code Principale du jeu",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "Click obtenir ressource"
+				},
 				{
 					"eventType": "block",
 					"conditions": [
@@ -695,6 +1338,14 @@
 							"id": "on-any-click",
 							"objectClass": "Mouse",
 							"sid": 725170424187434
+						},
+						{
+							"id": "layer-is-interactive",
+							"objectClass": "System",
+							"sid": 182225722458574,
+							"parameters": {
+								"layer": "1"
+							}
 						},
 						{
 							"id": "compare-boolean-eventvar",
@@ -729,6 +1380,10 @@
 					"sid": 330287568170441
 				},
 				{
+					"eventType": "comment",
+					"text": "Boutton Craft"
+				},
+				{
 					"eventType": "block",
 					"conditions": [
 						{
@@ -746,9 +1401,35 @@
 								"comparison": 4,
 								"value": "1"
 							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "ButtonCraftManual",
+							"sid": 374735098714790,
+							"parameters": {
+								"instance-variable": "Craft"
+							},
+							"isInverted": true
 						}
 					],
 					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "ButtonCraftManual",
+							"sid": 554179871194673,
+							"parameters": {
+								"instance-variable": "Craft",
+								"value": "true"
+							}
+						},
+						{
+							"id": "set-enabled",
+							"objectClass": "ButtonCraftManual",
+							"sid": 921078294972245,
+							"parameters": {
+								"mode": "disabled"
+							}
+						},
 						{
 							"id": "set-at-xy",
 							"objectClass": "ArrayRessources",
@@ -770,28 +1451,11 @@
 							}
 						},
 						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 889986770375899,
-							"parameters": {
-								"variable": "DataIron",
-								"value": "\"[{\r\n  \"\"type\"\": \"\"inventory\"\",\r\n  \"\"slug\"\": \"\"iron_ore\"\",\r\n  \"\"amount\"\":\" & ArrayRessources.At(0,2) & \"\r\n},\r\n{\r\n  \"\"type\"\": \"\"inventory\"\",\r\n  \"\"slug\"\": \"\"copper_ore\"\",\r\n  \"\"amount\"\": \" & ArrayRessources.At(1,2) & \"\r\n},\n{\r\n  \"\"type\"\": \"\"inventory\"\",\r\n  \"\"slug\"\": \"\"iron_ingot\"\",\r\n  \"\"amount\"\": \" & ArrayRessources.At(7,2) & \"\r\n}]\""
-							}
-						},
-						{
-							"id": "stop",
-							"objectClass": "Audio",
-							"sid": 400532584753799,
-							"parameters": {
-								"tag": "\"ManualCrafting\""
-							}
-						},
-						{
 							"id": "play",
 							"objectClass": "Audio",
-							"sid": 263955352032982,
+							"sid": 688788772549975,
 							"parameters": {
-								"audio-file": "yt1s.com - Hammer Hitting Metal Sound Effect With Download  Free  No Copyright Sounds",
+								"audio-file": "HammerSound",
 								"loop": "not-looping",
 								"volume": "-10",
 								"stereo-pan": "0",
@@ -801,9 +1465,9 @@
 						{
 							"id": "wait",
 							"objectClass": "System",
-							"sid": 508866129336193,
+							"sid": 718532157185001,
 							"parameters": {
-								"seconds": "1.5"
+								"seconds": "1"
 							}
 						},
 						{
@@ -813,9 +1477,30 @@
 							"parameters": {
 								"tag": "\"ManualCrafting\""
 							}
+						},
+						{
+							"id": "set-enabled",
+							"objectClass": "ButtonCraftManual",
+							"sid": 980499800432139,
+							"parameters": {
+								"mode": "enabled"
+							}
+						},
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "ButtonCraftManual",
+							"sid": 222440563899055,
+							"parameters": {
+								"instance-variable": "Craft",
+								"value": "false"
+							}
 						}
 					],
 					"sid": 736522467125298
+				},
+				{
+					"eventType": "comment",
+					"text": "Detection si assez de ressource (craft manuel)"
 				},
 				{
 					"eventType": "block",
@@ -830,6 +1515,15 @@
 								"comparison": 4,
 								"value": "1"
 							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "ButtonCraftManual",
+							"sid": 160727378966929,
+							"parameters": {
+								"instance-variable": "Craft"
+							},
+							"isInverted": true
 						}
 					],
 					"actions": [
@@ -844,21 +1538,25 @@
 						{
 							"id": "set-font-color",
 							"objectClass": "TextCraftCurrentManuel",
-							"sid": 610596254915746,
+							"sid": 945352969140110,
 							"parameters": {
-								"color": "rgbEx(255, 255, 255)"
+								"color": "rgbEx(0, 0, 0)"
 							}
 						},
 						{
 							"id": "set-text",
 							"objectClass": "TextCraftCurrentManuel",
-							"sid": 708611239685232,
+							"sid": 237198375740798,
 							"parameters": {
-								"text": "\"Current Crafting : \" & newline &\r\n\"Iron Ore x2 To Iron Ingot x1\""
+								"text": "\"Current Crafting : \" & newline &\r\n\"Iron Ore x2 To Molten Iron x1\""
 							}
 						}
 					],
 					"sid": 827518784204753
+				},
+				{
+					"eventType": "comment",
+					"text": "Detection si assez de ressource (craft manuel)"
 				},
 				{
 					"eventType": "block",
@@ -896,13 +1594,479 @@
 						{
 							"id": "set-text",
 							"objectClass": "TextCraftCurrentManuel",
-							"sid": 987287253413636,
+							"sid": 582105022855353,
 							"parameters": {
-								"text": "\"Current Crafting : \" & newline &\r\n\"Iron Ore x2 To Iron Ingot x1\" & newline &\n\"MISSING RESOURCE\""
+								"text": "\"Current Crafting : \" & newline &\r\n\"Iron Ore x2 To Molten Iron x1\" & newline &\n\"MISSING RESOURCE\""
 							}
 						}
 					],
 					"sid": 658120846534731
+				},
+				{
+					"eventType": "comment",
+					"text": "Update texte + Update progress bar"
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-css-style",
+							"objectClass": "ProgressBarCrafting",
+							"sid": 457505356774775,
+							"parameters": {
+								"property-name": "\"background-color\"",
+								"value": "\"rgb(44,4,4)\""
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "TextAutoCraft",
+							"sid": 562938788035751,
+							"parameters": {
+								"text": "ArrayCrafts.At(0,2) & newline & \n\"Craft : \" & ArrayCrafts.At(0,1) & newline &\n\"Materials : \" & ArrayCrafts.At(0,3) & \" To \" & ArrayCrafts.At(0,4) & newline & \n\"Time : \" & ArrayCrafts.At(0,5)"
+							}
+						},
+						{
+							"id": "set-maximum",
+							"objectClass": "ProgressBarCrafting",
+							"sid": 645831337638670,
+							"parameters": {
+								"maximum": "ArrayCrafts.At(0,5)"
+							}
+						}
+					],
+					"sid": 439187734616038
+				},
+				{
+					"eventType": "comment",
+					"text": "Auto Craft (WIP)"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 911176664759127,
+							"parameters": {
+								"first-value": "ArrayRessources.At(0,2)",
+								"comparison": 5,
+								"second-value": "2"
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "ProgressBarCrafting",
+							"sid": 622576483367983,
+							"parameters": {
+								"instance-variable": "AutoCraft"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 252646477575188,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "every-x-seconds",
+									"objectClass": "System",
+									"sid": 340736541945133,
+									"parameters": {
+										"interval-seconds": "0.01"
+									}
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 564892956970027,
+									"parameters": {
+										"first-value": "ProgressBarCrafting.Progress ",
+										"comparison": 1,
+										"second-value": "ProgressBarCrafting.Maximum"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-progress",
+									"objectClass": "ProgressBarCrafting",
+									"sid": 856354518811417,
+									"parameters": {
+										"value": "ProgressBarCrafting.Progress + 0.02"
+									}
+								}
+							],
+							"sid": 357457284082306
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 626568580582170,
+									"parameters": {
+										"first-value": "ProgressBarCrafting.Progress",
+										"comparison": 5,
+										"second-value": "ProgressBarCrafting.Maximum"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-at-xy",
+									"objectClass": "ArrayRessources",
+									"sid": 571276685449974,
+									"parameters": {
+										"x": "0",
+										"y": "2",
+										"value": "ArrayRessources.At(0,2) - 2"
+									}
+								},
+								{
+									"id": "set-at-xy",
+									"objectClass": "ArrayRessources",
+									"sid": 133638908405150,
+									"parameters": {
+										"x": "7",
+										"y": "2",
+										"value": "ArrayRessources.At(7,2) + 1"
+									}
+								},
+								{
+									"id": "set-progress",
+									"objectClass": "ProgressBarCrafting",
+									"sid": 989087194987817,
+									"parameters": {
+										"value": "0"
+									}
+								},
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 272233570305743,
+									"parameters": {
+										"audio-file": "HammerSound",
+										"loop": "not-looping",
+										"volume": "-10",
+										"stereo-pan": "0",
+										"tag-optional": "\"AutoCrafting\""
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 998532589615369,
+									"parameters": {
+										"seconds": "1.0"
+									}
+								},
+								{
+									"id": "stop",
+									"objectClass": "Audio",
+									"sid": 866768384275102,
+									"parameters": {
+										"tag": "\"AutoCrafting\""
+									}
+								}
+							],
+							"sid": 606561355563087
+						}
+					]
+				},
+				{
+					"eventType": "comment",
+					"text": "Activation AutoCraft"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-checked",
+							"objectClass": "ButtonAutoCraft",
+							"sid": 402014074279523
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "ProgressBarCrafting",
+							"sid": 274423466990348,
+							"parameters": {
+								"instance-variable": "AutoCraft",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 452395060669367
+				},
+				{
+					"eventType": "comment",
+					"text": "Désactivation AutoCraft"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-checked",
+							"objectClass": "ButtonAutoCraft",
+							"sid": 925745208586129,
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "ProgressBarCrafting",
+							"sid": 442247690632529,
+							"parameters": {
+								"instance-variable": "AutoCraft",
+								"value": "false"
+							}
+						}
+					],
+					"sid": 416761912756416
+				},
+				{
+					"eventType": "comment",
+					"text": "Update DataIron"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 152140310067989
+						},
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 746403553178845,
+							"parameters": {
+								"variable": "DataRessourcesFinish"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 895172808537332,
+							"parameters": {
+								"variable": "DataIron",
+								"value": "\"[\""
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "ArrayRessources",
+							"sid": 625972700292239,
+							"parameters": {
+								"instance-variable": "SetDataIron",
+								"value": "0"
+							}
+						}
+					],
+					"sid": 745898241071558,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "repeat",
+									"objectClass": "System",
+									"sid": 367856747560040,
+									"parameters": {
+										"count": "ArrayRessources.Width"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 898258984102570,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "ArrayRessources",
+											"sid": 719303303489386,
+											"parameters": {
+												"instance-variable": "SetDataIron",
+												"comparison": 0,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 279923672646182,
+											"parameters": {
+												"variable": "DataIron",
+												"value": "DataIron & \"{\r\n  \"\"type\"\": \"\"inventory\"\",\r\n  \"\"slug\"\": \"\"\" & ArrayRessources.At(ArrayRessources.SetDataIron,1) & \"\"\",\r\n  \"\"amount\"\":\" & ArrayRessources.At(ArrayRessources.SetDataIron,2) & \"\r\n}\"\r\n"
+											}
+										},
+										{
+											"id": "add-to-instvar",
+											"objectClass": "ArrayRessources",
+											"sid": 784158141285718,
+											"parameters": {
+												"instance-variable": "SetDataIron",
+												"value": "1"
+											}
+										}
+									],
+									"sid": 948502637504769
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "ArrayRessources",
+											"sid": 597915865506724,
+											"parameters": {
+												"instance-variable": "SetDataIron",
+												"comparison": 1,
+												"value": "ArrayRessources.Width"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 483044541418759,
+											"parameters": {
+												"variable": "DataIron",
+												"value": "DataIron & \",{\r\n  \"\"type\"\": \"\"inventory\"\",\r\n  \"\"slug\"\": \"\"\" & ArrayRessources.At(ArrayRessources.SetDataIron,1) & \"\"\",\r\n  \"\"amount\"\":\" & ArrayRessources.At(ArrayRessources.SetDataIron,2) & \"\r\n}\"\r\n"
+											}
+										},
+										{
+											"id": "add-to-instvar",
+											"objectClass": "ArrayRessources",
+											"sid": 542472232469188,
+											"parameters": {
+												"instance-variable": "SetDataIron",
+												"value": "1"
+											}
+										}
+									],
+									"sid": 360350180785402
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "ArrayRessources",
+											"sid": 987116736186416,
+											"parameters": {
+												"instance-variable": "SetDataIron",
+												"comparison": 0,
+												"value": "ArrayRessources.Width"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 558511009467020,
+											"parameters": {
+												"variable": "DataIron",
+												"value": "DataIron & \"]\"\r\n"
+											}
+										}
+									],
+									"sid": 587590287943220
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 850704029193253
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "ButtonBuyForeuse",
+							"sid": 417950616545510,
+							"parameters": {
+								"text": "\"Buy Foreuse\" & newline & \"Price : 10 Iron Ore\""
+							}
+						},
+						{
+							"id": "stop-animation",
+							"objectClass": "SpriteForeuse",
+							"sid": 832962721863198
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "SpriteForeuse",
+							"sid": 122653026887562,
+							"parameters": {
+								"frame-number": "0"
+							}
+						}
+					],
+					"sid": 473416634834340
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 681598940932113,
+							"parameters": {
+								"variable": "DataRessourcesFinish"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 314177661938755,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 727176206227761,
+									"parameters": {
+										"first-value": "ArrayRessources.At(0,2)",
+										"comparison": 5,
+										"second-value": "10"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-enabled",
+									"objectClass": "ButtonBuyForeuse",
+									"sid": 156811373770555,
+									"parameters": {
+										"mode": "enabled"
+									}
+								}
+							],
+							"sid": 155843166935530
+						}
+					]
 				}
 			],
 			"sid": 862471311643176
@@ -911,7 +2075,7 @@
 			"eventType": "group",
 			"disabled": false,
 			"title": "Debug",
-			"description": "",
+			"description": "Menu debug",
 			"isActiveOnStart": true,
 			"children": [
 				{
@@ -919,7 +2083,7 @@
 					"conditions": [
 						{
 							"id": "on-clicked",
-							"objectClass": "ClearButton",
+							"objectClass": "ButtonClear",
 							"sid": 252353151371623
 						}
 					],
@@ -937,37 +2101,272 @@
 				},
 				{
 					"eventType": "comment",
-					"text": "Prototype Transformation texte pour récup nombre"
+					"text": "Bouton Déco (Dev Object)"
 				},
 				{
 					"eventType": "block",
 					"conditions": [
 						{
 							"id": "on-clicked",
-							"objectClass": "ButtonTempo",
-							"sid": 903526375777383
+							"objectClass": "ButtonLeave",
+							"sid": 838951634413610
 						}
 					],
 					"actions": [
 						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 236259483829091,
+							"id": "close",
+							"objectClass": "WebSocket",
+							"sid": 410613695286012,
+							"disabled": true
+						},
+						{
+							"id": "logout1",
+							"objectClass": "PlayFabAPI",
+							"sid": 574861607665660
+						}
+					],
+					"sid": 199340337882151
+				},
+				{
+					"eventType": "comment",
+					"text": "Bouton Connection avec Ip diff (a voir / supprimer ?)"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-clicked",
+							"objectClass": "ButtonConnectServer",
+							"sid": 418633426988859
+						},
+						{
+							"id": "compare-text",
+							"objectClass": "TextIp",
+							"sid": 289858798810375,
 							"parameters": {
-								"variable": "DataMessage",
-								"value": "replace(TextInputTempo.Text, \"{\"\"slug\"\": \"\"iron_ore\"\",\"\"quantity\"\": \" , \"\")"
+								"text": "\"\"",
+								"case": "case-insensitive"
+							},
+							"isInverted": true
+						},
+						{
+							"id": "is-open",
+							"objectClass": "WebSocket",
+							"sid": 562649438813590,
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "connect",
+							"objectClass": "WebSocket",
+							"sid": 680050211529806,
+							"parameters": {
+								"url": "TextIp.Text",
+								"protocol-optional": "\"\""
 							}
 						},
 						{
-							"id": "set-text",
-							"objectClass": "TextTempo",
-							"sid": 532734556839965,
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 712211273238464,
 							"parameters": {
-								"text": "int(replace(DataMessage, \"}\" , \"\"))"
+								"variable": "Ip",
+								"value": "TextIp.Text"
 							}
 						}
 					],
-					"sid": 759110236513548
+					"sid": 347386882818325
+				},
+				{
+					"eventType": "comment",
+					"text": "Prototype Transformation texte pour récup nombre"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "key-is-down",
+							"objectClass": "Keyboard",
+							"sid": 775672829687402,
+							"parameters": {
+								"key": 18
+							}
+						},
+						{
+							"id": "key-is-down",
+							"objectClass": "Keyboard",
+							"sid": 531941004427597,
+							"parameters": {
+								"key": 17
+							}
+						},
+						{
+							"id": "key-is-down",
+							"objectClass": "Keyboard",
+							"sid": 489638578386852,
+							"parameters": {
+								"key": 68
+							}
+						},
+						{
+							"id": "layer-is-interactive",
+							"objectClass": "System",
+							"sid": 714374060659321,
+							"parameters": {
+								"layer": "0"
+							},
+							"isInverted": true
+						},
+						{
+							"id": "layer-is-visible",
+							"objectClass": "System",
+							"sid": 519665404855152,
+							"parameters": {
+								"layer": "0"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 567620896729979,
+							"parameters": {
+								"seconds": "0.1"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 383046545680470,
+							"parameters": {
+								"layer": "0",
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-layer-interactive",
+							"objectClass": "System",
+							"sid": 860645328240806,
+							"parameters": {
+								"layer": "0",
+								"interactive": true
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 538752398063217,
+							"parameters": {
+								"layer": "1",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-layer-interactive",
+							"objectClass": "System",
+							"sid": 905726568042946,
+							"parameters": {
+								"layer": "1",
+								"interactive": false
+							}
+						}
+					],
+					"sid": 863131543736402
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "key-is-down",
+							"objectClass": "Keyboard",
+							"sid": 103668213003542,
+							"parameters": {
+								"key": 18
+							}
+						},
+						{
+							"id": "key-is-down",
+							"objectClass": "Keyboard",
+							"sid": 747774461347468,
+							"parameters": {
+								"key": 17
+							}
+						},
+						{
+							"id": "key-is-down",
+							"objectClass": "Keyboard",
+							"sid": 182816413809268,
+							"parameters": {
+								"key": 68
+							}
+						},
+						{
+							"id": "layer-is-interactive",
+							"objectClass": "System",
+							"sid": 170060269790631,
+							"parameters": {
+								"layer": "0"
+							}
+						},
+						{
+							"id": "layer-is-visible",
+							"objectClass": "System",
+							"sid": 322754529341781,
+							"parameters": {
+								"layer": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 568898848073089,
+							"parameters": {
+								"seconds": "0.1"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 945434601623845,
+							"parameters": {
+								"layer": "0",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-layer-interactive",
+							"objectClass": "System",
+							"sid": 686829379239015,
+							"parameters": {
+								"layer": "0",
+								"interactive": false
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 129143559064294,
+							"parameters": {
+								"layer": "1",
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-layer-interactive",
+							"objectClass": "System",
+							"sid": 165568656690102,
+							"parameters": {
+								"layer": "1",
+								"interactive": true
+							}
+						}
+					],
+					"sid": 499806938474468
 				}
 			],
 			"sid": 940556069216316
@@ -976,7 +2375,7 @@
 			"eventType": "group",
 			"disabled": false,
 			"title": "Off",
-			"description": "",
+			"description": "Code Désactivé",
 			"isActiveOnStart": false,
 			"children": [
 				{
@@ -1007,837 +2406,9 @@
 						}
 					],
 					"sid": 742882039060806
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-two-values",
-							"objectClass": "System",
-							"sid": 958907214726371,
-							"parameters": {
-								"first-value": "ArrayRessources.At(0,2)",
-								"comparison": 4,
-								"second-value": "1"
-							}
-						}
-					],
-					"actions": [],
-					"sid": 511039028524993,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "every-x-seconds",
-									"objectClass": "System",
-									"sid": 952711218659095,
-									"parameters": {
-										"interval-seconds": "1"
-									}
-								},
-								{
-									"id": "compare-two-values",
-									"objectClass": "System",
-									"sid": 549626422686607,
-									"parameters": {
-										"first-value": "ProgressBarCrafting.Maximum",
-										"comparison": 1,
-										"second-value": "ProgressBarCrafting.Progress"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-progress",
-									"objectClass": "ProgressBarCrafting",
-									"sid": 236632756734983,
-									"parameters": {
-										"value": "ProgressBarCrafting.Progress + 1"
-									}
-								}
-							],
-							"sid": 311170367161251
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-two-values",
-									"objectClass": "System",
-									"sid": 920650447223436,
-									"parameters": {
-										"first-value": "ProgressBarCrafting.Maximum",
-										"comparison": 0,
-										"second-value": "ProgressBarCrafting.Progress"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-at-xy",
-									"objectClass": "ArrayRessources",
-									"sid": 359038567024373,
-									"parameters": {
-										"x": "0",
-										"y": "2",
-										"value": "ArrayRessources.At(0,2) - 2"
-									}
-								},
-								{
-									"id": "set-at-xy",
-									"objectClass": "ArrayRessources",
-									"sid": 459985483374907,
-									"parameters": {
-										"x": "7",
-										"y": "2",
-										"value": "ArrayRessources.At(0,7) + 1"
-									}
-								},
-								{
-									"id": "set-progress",
-									"objectClass": "ProgressBarCrafting",
-									"sid": 897843392890023,
-									"parameters": {
-										"value": "0"
-									}
-								}
-							],
-							"sid": 600028296456931
-						}
-					]
 				}
 			],
 			"sid": 416803906507475
-		},
-		{
-			"eventType": "group",
-			"disabled": false,
-			"title": "Proto Pab",
-			"description": "",
-			"isActiveOnStart": true,
-			"children": [
-				{
-					"eventType": "comment",
-					"text": "Reception Data"
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-message",
-							"objectClass": "WebSocket",
-							"sid": 897271518315990
-						}
-					],
-					"actions": [
-						{
-							"id": "parse",
-							"objectClass": "JSON",
-							"sid": 601001120088168,
-							"parameters": {
-								"data": "WebSocket.MessageText"
-							}
-						}
-					],
-					"sid": 977523519025741,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-value",
-									"objectClass": "JSON",
-									"sid": 181255981248240,
-									"parameters": {
-										"path": "\"0.type\"",
-										"cmp": 0,
-										"value": "\"resources\""
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-size",
-									"objectClass": "ArrayRessources",
-									"sid": 394600746491411,
-									"parameters": {
-										"width": "JSON.ArraySize(\"\")",
-										"height": "3",
-										"depth": "1"
-									}
-								}
-							],
-							"sid": 447800726925979
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-value",
-									"objectClass": "JSON",
-									"sid": 479899102396440,
-									"parameters": {
-										"path": "\"0.type\"",
-										"cmp": 0,
-										"value": "\"machines\""
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-size",
-									"objectClass": "ArrayMachines",
-									"sid": 814946040679334,
-									"parameters": {
-										"width": "JSON.ArraySize(\"\")",
-										"height": "2",
-										"depth": "1"
-									}
-								}
-							],
-							"sid": 383431369962040
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-value",
-									"objectClass": "JSON",
-									"sid": 266886367935395,
-									"parameters": {
-										"path": "\"0.type\"",
-										"cmp": 0,
-										"value": "\"crafts\""
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-size",
-									"objectClass": "ArrayCrafts",
-									"sid": 157442173694251,
-									"parameters": {
-										"width": "JSON.ArraySize(\"\")",
-										"height": "6",
-										"depth": "1"
-									}
-								}
-							],
-							"sid": 904501323959633
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "for-each",
-									"objectClass": "JSON",
-									"sid": 675255358528005,
-									"parameters": {
-										"path": "\"\""
-									}
-								}
-							],
-							"actions": [
-								{
-									"callFunction": "JSON Parse",
-									"sid": 517354013634388,
-									"parameters": [
-										"JSON.Get(JSON.CurrentKey & \".type\")",
-										"JSON.GetAsCompactString(JSON.CurrentKey)"
-									]
-								}
-							],
-							"sid": 615010192613378
-						}
-					]
-				},
-				{
-					"functionName": "JSON Parse",
-					"functionDescription": "",
-					"functionCategory": "",
-					"functionReturnType": "none",
-					"functionCopyPicked": false,
-					"functionIsAsync": false,
-					"functionParameters": [
-						{
-							"name": "messageType",
-							"type": "string",
-							"initialValue": "",
-							"comment": "",
-							"sid": 892839662879502
-						},
-						{
-							"name": "json",
-							"type": "string",
-							"initialValue": "",
-							"comment": "",
-							"sid": 886586556006024
-						}
-					],
-					"eventType": "function-block",
-					"conditions": [],
-					"actions": [],
-					"sid": 617100495176235,
-					"children": [
-						{
-							"eventType": "comment",
-							"text": "Mise en Array resources"
-						},
-						{
-							"eventType": "comment",
-							"text": "Mise en Array Inventory"
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-eventvar",
-									"objectClass": "System",
-									"sid": 620797320433255,
-									"parameters": {
-										"variable": "messageType",
-										"comparison": 0,
-										"value": "\"resources\""
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "parse",
-									"objectClass": "FunctionJSON",
-									"sid": 310466815505272,
-									"parameters": {
-										"data": "json"
-									}
-								},
-								{
-									"id": "append-text",
-									"objectClass": "TextInput",
-									"sid": 421406036833088,
-									"parameters": {
-										"text": "\"Got Resource: \" & FunctionJSON.Get(\"slug\") & newline"
-									}
-								},
-								{
-									"id": "append-text",
-									"objectClass": "TextInput",
-									"sid": 815116095714503,
-									"parameters": {
-										"text": "\"Got Resource: \" & FunctionJSON.Get(\"name\") & newline"
-									}
-								},
-								{
-									"id": "append-text",
-									"objectClass": "TextInput",
-									"sid": 767629059038882,
-									"parameters": {
-										"text": "\"Got Resource: \" & FunctionJSON.Get(\"amount\") & newline"
-									}
-								},
-								{
-									"id": "set-at-xy",
-									"objectClass": "ArrayRessources",
-									"sid": 994272607154496,
-									"parameters": {
-										"x": "ArrayRessources.NombreRessources",
-										"y": "0",
-										"value": "FunctionJSON.Get(\"slug\")"
-									}
-								},
-								{
-									"id": "set-at-xy",
-									"objectClass": "ArrayRessources",
-									"sid": 294442496007252,
-									"parameters": {
-										"x": "ArrayRessources.NombreRessources",
-										"y": "1",
-										"value": "FunctionJSON.Get(\"name\")"
-									}
-								},
-								{
-									"id": "add-to-instvar",
-									"objectClass": "ArrayRessources",
-									"sid": 245972854323886,
-									"parameters": {
-										"instance-variable": "NombreRessources",
-										"value": "1"
-									}
-								}
-							],
-							"sid": 248094308771354
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-eventvar",
-									"objectClass": "System",
-									"sid": 994759459713048,
-									"parameters": {
-										"variable": "messageType",
-										"comparison": 0,
-										"value": "\"inventory\""
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "parse",
-									"objectClass": "FunctionJSON",
-									"sid": 833954477770313,
-									"parameters": {
-										"data": "json"
-									}
-								},
-								{
-									"id": "append-text",
-									"objectClass": "TextInput",
-									"sid": 409193646841425,
-									"parameters": {
-										"text": "\"Got Inventory: \" & FunctionJSON.Get(\"slug\") & newline"
-									}
-								},
-								{
-									"id": "append-text",
-									"objectClass": "TextInput",
-									"sid": 759683696562850,
-									"parameters": {
-										"text": "\"Got Inventory: \" & FunctionJSON.Get(\"amount\") & newline"
-									}
-								},
-								{
-									"id": "set-at-xy",
-									"objectClass": "ArrayRessources",
-									"sid": 922916192402127,
-									"parameters": {
-										"x": "ArrayRessources.RessourceServeur",
-										"y": "2",
-										"value": "FunctionJSON.Get(\"amount\")"
-									}
-								},
-								{
-									"id": "add-to-instvar",
-									"objectClass": "ArrayRessources",
-									"sid": 873518768418695,
-									"parameters": {
-										"instance-variable": "RessourceServeur",
-										"value": "1"
-									}
-								}
-							],
-							"sid": 393919788890179
-						},
-						{
-							"eventType": "comment",
-							"text": "Mise en Array Machines"
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-eventvar",
-									"objectClass": "System",
-									"sid": 362980365299753,
-									"parameters": {
-										"variable": "messageType",
-										"comparison": 0,
-										"value": "\"machines\""
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "parse",
-									"objectClass": "FunctionJSON",
-									"sid": 561008467629398,
-									"parameters": {
-										"data": "json"
-									}
-								},
-								{
-									"id": "append-text",
-									"objectClass": "TextInput",
-									"sid": 399771188958974,
-									"parameters": {
-										"text": "\"Got Machine: \" & FunctionJSON.Get(\"slug\") & newline"
-									}
-								},
-								{
-									"id": "append-text",
-									"objectClass": "TextInput",
-									"sid": 774545459488835,
-									"parameters": {
-										"text": "\"Got Machine: \" & FunctionJSON.Get(\"name\") & newline"
-									}
-								},
-								{
-									"id": "set-at-xy",
-									"objectClass": "ArrayMachines",
-									"sid": 810813071497641,
-									"parameters": {
-										"x": "ArrayMachines.NombreMachines",
-										"y": "1",
-										"value": "FunctionJSON.Get(\"name\")"
-									}
-								},
-								{
-									"id": "set-at-xy",
-									"objectClass": "ArrayMachines",
-									"sid": 534798610109105,
-									"parameters": {
-										"x": "ArrayMachines.NombreMachines",
-										"y": "0",
-										"value": "FunctionJSON.Get(\"slug\")"
-									}
-								},
-								{
-									"id": "add-to-instvar",
-									"objectClass": "ArrayMachines",
-									"sid": 699017870290793,
-									"parameters": {
-										"instance-variable": "NombreMachines",
-										"value": "1"
-									}
-								}
-							],
-							"sid": 460425721490817
-						},
-						{
-							"eventType": "comment",
-							"text": "Mise en Array Crafts"
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-eventvar",
-									"objectClass": "System",
-									"sid": 855249391448573,
-									"parameters": {
-										"variable": "messageType",
-										"comparison": 0,
-										"value": "\"crafts\""
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "parse",
-									"objectClass": "FunctionJSON",
-									"sid": 903128082459492,
-									"parameters": {
-										"data": "json"
-									}
-								},
-								{
-									"id": "append-text",
-									"objectClass": "TextInput",
-									"sid": 468779347234013,
-									"parameters": {
-										"text": "\"Got Craft: \" & FunctionJSON.Get(\"name\") & newline"
-									}
-								},
-								{
-									"id": "append-text",
-									"objectClass": "TextInput",
-									"sid": 385623441803966,
-									"parameters": {
-										"text": "\"Got Craft: \" & FunctionJSON.GetAsCompactString(\"slug\") & newline"
-									}
-								},
-								{
-									"id": "append-text",
-									"objectClass": "TextInput",
-									"sid": 595214752195889,
-									"parameters": {
-										"text": "\"Got Craft: \" & FunctionJSON.GetAsCompactString(\"name\") & newline"
-									}
-								},
-								{
-									"id": "append-text",
-									"objectClass": "TextInput",
-									"sid": 570912299574193,
-									"parameters": {
-										"text": "\"Got Craft: \" & FunctionJSON.GetAsCompactString(\"machine\") & newline"
-									}
-								},
-								{
-									"id": "append-text",
-									"objectClass": "TextInput",
-									"sid": 720809476046266,
-									"parameters": {
-										"text": "\"Got Craft: \" & FunctionJSON.GetAsCompactString(\"materials\") & newline"
-									}
-								},
-								{
-									"id": "append-text",
-									"objectClass": "TextInput",
-									"sid": 435270474936115,
-									"parameters": {
-										"text": "\"Got Craft: \" & FunctionJSON.GetAsCompactString(\"outputs\") & newline"
-									}
-								},
-								{
-									"id": "append-text",
-									"objectClass": "TextInput",
-									"sid": 289436109407646,
-									"parameters": {
-										"text": "\"Got Craft: \" & FunctionJSON.GetAsCompactString(\"time\") & newline"
-									}
-								},
-								{
-									"id": "set-at-xy",
-									"objectClass": "ArrayCrafts",
-									"sid": 609497674578247,
-									"parameters": {
-										"x": "ArrayCrafts.NombreCrafts",
-										"y": "0",
-										"value": "FunctionJSON.GetAsCompactString(\"slug\")"
-									}
-								},
-								{
-									"id": "set-at-xy",
-									"objectClass": "ArrayCrafts",
-									"sid": 762404571935232,
-									"parameters": {
-										"x": "ArrayCrafts.NombreCrafts",
-										"y": "1",
-										"value": "FunctionJSON.GetAsCompactString(\"name\")"
-									}
-								},
-								{
-									"id": "set-at-xy",
-									"objectClass": "ArrayCrafts",
-									"sid": 387838254395964,
-									"parameters": {
-										"x": "ArrayCrafts.NombreCrafts",
-										"y": "2",
-										"value": "FunctionJSON.GetAsCompactString(\"machine\")"
-									}
-								},
-								{
-									"id": "set-at-xy",
-									"objectClass": "ArrayCrafts",
-									"sid": 144048308454841,
-									"parameters": {
-										"x": "ArrayCrafts.NombreCrafts",
-										"y": "3",
-										"value": "FunctionJSON.GetAsCompactString(\"materials\")"
-									}
-								},
-								{
-									"id": "set-at-xy",
-									"objectClass": "ArrayCrafts",
-									"sid": 798603022709699,
-									"parameters": {
-										"x": "ArrayCrafts.NombreCrafts",
-										"y": "4",
-										"value": "FunctionJSON.GetAsCompactString(\"outputs\")"
-									}
-								},
-								{
-									"id": "set-at-xy",
-									"objectClass": "ArrayCrafts",
-									"sid": 789873655727990,
-									"parameters": {
-										"x": "ArrayCrafts.NombreCrafts",
-										"y": "5",
-										"value": "FunctionJSON.GetAsCompactString(\"time\")"
-									}
-								}
-							],
-							"sid": 627351215899615,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "for-each",
-											"objectClass": "FunctionJSON",
-											"sid": 288136316842841,
-											"parameters": {
-												"path": "\"materials\""
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "append-text",
-											"objectClass": "TextInput",
-											"sid": 104618104274091,
-											"parameters": {
-												"text": "\"Got Craft: \" & FunctionJSON.Get(\"name\") & \" | Materials: \" & FunctionJSON.Get(\"materials.\" & FunctionJSON.CurrentKey & \".slug\") & \" x\" & FunctionJSON.Get(\"materials.\" & FunctionJSON.CurrentKey & \".amount\") & newline"
-											}
-										}
-									],
-									"sid": 774857775574216
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "for-each",
-											"objectClass": "FunctionJSON",
-											"sid": 427678029129766,
-											"parameters": {
-												"path": "\"outputs\""
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "append-text",
-											"objectClass": "TextInput",
-											"sid": 323069474743971,
-											"parameters": {
-												"text": "\"Got Craft: \" & FunctionJSON.Get(\"name\") & \" | Ouputs: \" & FunctionJSON.Get(\"outputs.\" & FunctionJSON.CurrentKey & \".slug\") & \" x\" & FunctionJSON.Get(\"outputs.\" & FunctionJSON.CurrentKey & \".amount\") & newline"
-											}
-										}
-									],
-									"sid": 270347756463573
-								}
-							]
-						}
-					]
-				},
-				{
-					"eventType": "comment",
-					"text": "Fin Mise en Array Resources"
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-two-values",
-							"objectClass": "System",
-							"sid": 416007297903531,
-							"parameters": {
-								"first-value": "ArrayRessources.Width",
-								"comparison": 0,
-								"second-value": "ArrayRessources.NombreRessources"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-boolean-eventvar",
-							"objectClass": "System",
-							"sid": 490296096904092,
-							"parameters": {
-								"variable": "DataRessourcesFinish",
-								"value": "true"
-							}
-						},
-						{
-							"id": "set-instvar-value",
-							"objectClass": "ArrayRessources",
-							"sid": 115570978618091,
-							"parameters": {
-								"instance-variable": "NombreRessources",
-								"value": "0"
-							}
-						}
-					],
-					"sid": 519978542086650
-				},
-				{
-					"eventType": "comment",
-					"text": "Update text Resources"
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-boolean-eventvar",
-							"objectClass": "System",
-							"sid": 935498915344843,
-							"parameters": {
-								"variable": "DataRessourcesFinish"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-text",
-							"objectClass": "TextRessource",
-							"sid": 349113485356472,
-							"parameters": {
-								"text": "\"Resource :\" & newline\n\n"
-							}
-						}
-					],
-					"sid": 451577280231836,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "repeat",
-									"objectClass": "System",
-									"sid": 686220941093523,
-									"parameters": {
-										"count": "ArrayRessources.Width"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "append-text",
-									"objectClass": "TextRessource",
-									"sid": 341671031217157,
-									"parameters": {
-										"text": "\"- \" & ArrayRessources.At(ArrayRessources.NombreRessources,1) & \" : \" & ArrayRessources.At(ArrayRessources.NombreRessources,2) & newline\n"
-									}
-								},
-								{
-									"id": "add-to-instvar",
-									"objectClass": "ArrayRessources",
-									"sid": 500722237236924,
-									"parameters": {
-										"instance-variable": "NombreRessources",
-										"value": "1"
-									}
-								}
-							],
-							"sid": 112903413209441
-						}
-					]
-				}
-			],
-			"sid": 403937924598734
-		},
-		{
-			"eventType": "block",
-			"conditions": [],
-			"actions": [
-				{
-					"id": "set-css-style",
-					"objectClass": "ProgressBarCrafting",
-					"sid": 478722907595635,
-					"parameters": {
-						"property-name": "\"background-color\"",
-						"value": "\"rgb(44,4,4)\""
-					}
-				},
-				{
-					"id": "set-text",
-					"objectClass": "TextAutoCraft",
-					"sid": 383094505006843,
-					"parameters": {
-						"text": "ArrayCrafts.At(0,2) & newline & \n\"Craft : \" & ArrayCrafts.At(0,1) & newline &\n\"Materials : \" & ArrayCrafts.At(0,3) & \" To \" & ArrayCrafts.At(0,4) & newline & \n\"Time : \" & ArrayCrafts.At(0,5)"
-					}
-				},
-				{
-					"id": "set-maximum",
-					"objectClass": "ProgressBarCrafting",
-					"sid": 191170697604496,
-					"parameters": {
-						"maximum": "ArrayCrafts.At(0,5)"
-					}
-				}
-			],
-			"sid": 177740453843115
 		}
 	],
 	"sid": 255337968219618

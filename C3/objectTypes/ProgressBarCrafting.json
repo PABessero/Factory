@@ -3,6 +3,21 @@
 	"plugin-id": "progressbar",
 	"sid": 105991864814585,
 	"isGlobal": false,
-	"instanceVariables": [],
+	"instanceVariables": [
+		{
+			"name": "Craft",
+			"type": "boolean",
+			"desc": "",
+			"show": true,
+			"sid": 784817568709393
+		},
+		{
+			"name": "AutoCraft",
+			"type": "boolean",
+			"desc": "",
+			"show": true,
+			"sid": 252868228606974
+		}
+	],
 	"behaviorTypes": []
 }
