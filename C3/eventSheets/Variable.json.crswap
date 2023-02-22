@@ -12,16 +12,6 @@
 			"sid": 532236275935404
 		},
 		{
-			"eventType": "variable",
-			"name": "serverCliendID",
-			"type": "string",
-			"initialValue": "468549582980-v6uhibtlt2bcocp9vi10j5jbtdk22unu.apps.googleusercontent.com",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 899491927955159
-		},
-		{
 			"eventType": "comment",
 			"text": "WebSocket"
 		},

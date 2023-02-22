@@ -1366,15 +1366,6 @@
 								"y": "2",
 								"value": "ArrayRessources.At(0,2) + 1"
 							}
-						},
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 444288043352208,
-							"parameters": {
-								"variable": "DataIron",
-								"value": "\"[{\r\n  \"\"type\"\": \"\"inventory\"\",\r\n  \"\"slug\"\": \"\"iron_ore\"\",\r\n  \"\"amount\"\":\" & ArrayRessources.At(0,2) & \"\r\n},\r\n{\r\n  \"\"type\"\": \"\"inventory\"\",\r\n  \"\"slug\"\": \"\"copper_ore\"\",\r\n  \"\"amount\"\": \" & ArrayRessources.At(1,2) & \"\r\n},\n{\r\n  \"\"type\"\": \"\"inventory\"\",\r\n  \"\"slug\"\": \"\"iron_ingot\"\",\r\n  \"\"amount\"\": \" & ArrayRessources.At(7,2) & \"\r\n}]\""
-							}
 						}
 					],
 					"sid": 330287568170441
@@ -1992,6 +1983,10 @@
 					]
 				},
 				{
+					"eventType": "comment",
+					"text": "Update Button et sprite au démarrage"
+				},
+				{
 					"eventType": "block",
 					"conditions": [
 						{
@@ -2037,9 +2032,30 @@
 							}
 						}
 					],
-					"actions": [],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "TextUUID",
+							"sid": 936183202680355,
+							"parameters": {
+								"text": "\"UUID : \" & UUID"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "TextVersionJeu",
+							"sid": 128735746267100,
+							"parameters": {
+								"text": "\"Version Jeu : \" & projectversion"
+							}
+						}
+					],
 					"sid": 314177661938755,
 					"children": [
+						{
+							"eventType": "comment",
+							"text": "Prix Button foreuse"
+						},
 						{
 							"eventType": "block",
 							"conditions": [
@@ -2066,6 +2082,445 @@
 							],
 							"sid": 155843166935530
 						}
+					]
+				},
+				{
+					"eventType": "comment",
+					"text": "Achat Foreuse"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-clicked",
+							"objectClass": "ButtonBuyForeuse",
+							"sid": 632432790813127
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation-frame",
+							"objectClass": "SpriteForeuse",
+							"sid": 944774670290805,
+							"parameters": {
+								"frame-number": "1"
+							}
+						},
+						{
+							"id": "set-at-xy",
+							"objectClass": "ArrayRessources",
+							"sid": 845963685520888,
+							"parameters": {
+								"x": "0",
+								"y": "2",
+								"value": "ArrayRessources.At(0,2) - 10"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "ButtonBuyForeuse",
+							"sid": 879752570884562,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 197419281061996
+				},
+				{
+					"eventType": "comment",
+					"text": "Update text production + Système idle Iron Ore"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-x-seconds",
+							"objectClass": "System",
+							"sid": 979983015260403,
+							"parameters": {
+								"interval-seconds": "1.0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "TextProductionIronOre",
+							"sid": 462032262829412,
+							"parameters": {
+								"text": "\"Iron Ore | +\" & ArrayRessources.At(0,2) - LastIronOre & \"/s\""
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 881330334890778,
+							"parameters": {
+								"variable": "LastIronOre",
+								"value": "ArrayRessources.At(0,2)"
+							}
+						}
+					],
+					"sid": 726154365776541,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-animation-frame",
+									"objectClass": "SpriteForeuse",
+									"sid": 319396982444779,
+									"parameters": {
+										"comparison": 0,
+										"number": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-at-xy",
+									"objectClass": "ArrayRessources",
+									"sid": 894558091783006,
+									"parameters": {
+										"x": "0",
+										"y": "2",
+										"value": "ArrayRessources.At(0,2) + 1"
+									}
+								}
+							],
+							"sid": 393932195937099
+						}
+					]
+				},
+				{
+					"eventType": "comment",
+					"text": "Menu Option"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-object-clicked",
+							"objectClass": "Mouse",
+							"sid": 206981280065226,
+							"parameters": {
+								"mouse-button": "left",
+								"click-type": "clicked",
+								"object-clicked": "SpriteOption"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 549969116985101,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "SpriteOption",
+									"sid": 652908807130032,
+									"parameters": {
+										"instance-variable": "Option"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 737493558816063,
+									"parameters": {
+										"seconds": "0.01"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "ButtonSendData",
+									"sid": 922213514967179,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "ButtonCraftManual",
+									"sid": 497520448606210,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "ButtonBuyForeuse",
+									"sid": 339624622298311,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "ButtonAutoCraft",
+									"sid": 543677193113064,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "ProgressBarCrafting",
+									"sid": 890231962294399,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 234861985188155,
+									"parameters": {
+										"layer": "2",
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-layer-interactive",
+									"objectClass": "System",
+									"sid": 576957472001195,
+									"parameters": {
+										"layer": "2",
+										"interactive": true
+									}
+								},
+								{
+									"id": "set-layer-interactive",
+									"objectClass": "System",
+									"sid": 518343104716755,
+									"parameters": {
+										"layer": "1",
+										"interactive": false
+									}
+								},
+								{
+									"id": "move-to-layer",
+									"objectClass": "SpriteOption",
+									"sid": 851911158017355,
+									"parameters": {
+										"layer": "2"
+									}
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "SpriteOption",
+									"sid": 625429120180417,
+									"parameters": {
+										"instance-variable": "Option",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 641710735280809
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "SpriteOption",
+									"sid": 530761542313124,
+									"parameters": {
+										"instance-variable": "Option"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 353863723821311,
+									"parameters": {
+										"seconds": "0.01"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "ButtonSendData",
+									"sid": 470306647529267,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "ButtonCraftManual",
+									"sid": 555430996037314,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "ButtonBuyForeuse",
+									"sid": 606023628752436,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "ButtonAutoCraft",
+									"sid": 551845533284700,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "ProgressBarCrafting",
+									"sid": 807329555091460,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 933123590144269,
+									"parameters": {
+										"layer": "2",
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-layer-interactive",
+									"objectClass": "System",
+									"sid": 248920370435332,
+									"parameters": {
+										"layer": "2",
+										"interactive": false
+									}
+								},
+								{
+									"id": "set-layer-interactive",
+									"objectClass": "System",
+									"sid": 764511019644650,
+									"parameters": {
+										"layer": "1",
+										"interactive": true
+									}
+								},
+								{
+									"id": "move-to-layer",
+									"objectClass": "SpriteOption",
+									"sid": 102881826852135,
+									"parameters": {
+										"layer": "1"
+									}
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "SpriteOption",
+									"sid": 966413073698046,
+									"parameters": {
+										"instance-variable": "Option",
+										"value": "false"
+									}
+								}
+							],
+							"sid": 864446067851846
+						}
+					]
+				},
+				{
+					"eventType": "comment",
+					"text": "Link Google",
+					"background-color": [
+						1,
+						0,
+						0,
+						1
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-clicked",
+							"objectClass": "ButtonGoogle",
+							"sid": 750238338893325
+						}
+					],
+					"actions": [
+						{
+							"id": "linkgoogle4",
+							"objectClass": "SyncManager",
+							"sid": 626307684928741,
+							"parameters": {
+								"serverauthcode_:0": "\"\"",
+								"force_link_:3": "disabled"
+							}
+						}
+					],
+					"sid": 788053049129775
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-linking",
+							"objectClass": "SyncManager",
+							"sid": 912145366693369,
+							"parameters": {
+								"auth-method": "google"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-enabled",
+							"objectClass": "ButtonGoogle",
+							"sid": 543141968839148,
+							"parameters": {
+								"mode": "disabled"
+							}
+						}
+					],
+					"sid": 175893029325688
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-unlinking",
+							"objectClass": "SyncManager",
+							"sid": 937830256695783,
+							"parameters": {
+								"auth-method": "google"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-enabled",
+							"objectClass": "ButtonGoogle",
+							"sid": 552973125514551,
+							"parameters": {
+								"mode": "enabled"
+							}
+						}
+					],
+					"sid": 592539730775918
+				},
+				{
+					"eventType": "comment",
+					"text": "Link Google",
+					"background-color": [
+						1,
+						0,
+						0,
+						1
 					]
 				}
 			],

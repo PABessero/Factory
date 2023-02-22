@@ -1,0 +1,10 @@
+{
+	"name": "SyncManager",
+	"plugin-id": "CV_PlayFabClient_SyncManager",
+	"sid": 999083097480121,
+	"singleglobal-inst": {
+		"type": "SyncManager",
+		"properties": {},
+		"uid": 44
+	}
+}

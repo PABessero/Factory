@@ -52,6 +52,14 @@
 		},
 		{
 			"type": "plugin",
+			"id": "CV_PlayFabClient_SyncManager",
+			"name": "Sync Manager",
+			"author": "Chadori",
+			"bundled": true,
+			"version": "4.1.0.2"
+		},
+		{
+			"type": "plugin",
 			"id": "Json",
 			"name": "JSON",
 			"author": "Scirra",
@@ -117,34 +125,43 @@
 	"uniqueId": "5vtm7n4tma6",
 	"objectTypes": {
 		"items": [
-			"ProgressBarCrafting",
-			"SpriteFondRessource",
-			"SpriteFondCraftManuel",
-			"ButtonAutoCraft",
-			"SpriteFondAutoCraft",
-			"SpriteFondProductionLine",
-			"SpriteForeuse",
-			"ButtonBuyForeuse"
+			"ProgressBarCrafting"
 		],
 		"subfolders": [
 			{
-				"items": [
-					"Audio",
-					"Mouse",
-					"WebSocket",
-					"Keyboard",
-					"Authentication",
-					"PlayFabAPI",
-					"LocalStorage",
-					"PlatformInfo"
+				"items": [],
+				"subfolders": [
+					{
+						"items": [
+							"Authentication",
+							"PlayFabAPI",
+							"SyncManager"
+						],
+						"subfolders": [],
+						"name": "PlayFab"
+					},
+					{
+						"items": [
+							"Audio",
+							"Keyboard",
+							"LocalStorage",
+							"Mouse",
+							"PlatformInfo",
+							"WebSocket"
+						],
+						"subfolders": [],
+						"name": "C3"
+					}
 				],
-				"subfolders": [],
 				"name": "Ressource"
 			},
 			{
 				"items": [
 					"ButtonCraftManual",
-					"ButtonSendData"
+					"ButtonSendData",
+					"ButtonAutoCraft",
+					"ButtonBuyForeuse",
+					"ButtonGoogle"
 				],
 				"subfolders": [],
 				"name": "Button"
@@ -153,7 +170,11 @@
 				"items": [
 					"TextCraftCurrentManuel",
 					"TextRessource",
-					"TextAutoCraft"
+					"TextAutoCraft",
+					"TextOption",
+					"TextProductionIronOre",
+					"TextUUID",
+					"TextVersionJeu"
 				],
 				"subfolders": [],
 				"name": "Text"
@@ -193,6 +214,19 @@
 				],
 				"subfolders": [],
 				"name": "Debug"
+			},
+			{
+				"items": [
+					"SpriteFondAutoCraft",
+					"SpriteFondCraftManuel",
+					"SpriteFondGrisOption",
+					"SpriteFondProductionLine",
+					"SpriteFondRessource",
+					"SpriteForeuse",
+					"SpriteOption"
+				],
+				"subfolders": [],
+				"name": "Sprite"
 			}
 		]
 	},
