@@ -118,6 +118,40 @@
 			"isStatic": false,
 			"isConstant": false,
 			"sid": 746231398728745
+		},
+		{
+			"eventType": "comment",
+			"text": "Autre"
+		},
+		{
+			"eventType": "variable",
+			"name": "Buy",
+			"type": "string",
+			"initialValue": "",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 416831066453508
+		},
+		{
+			"eventType": "variable",
+			"name": "priceForeuse",
+			"type": "number",
+			"initialValue": "10",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 439249716693473
+		},
+		{
+			"eventType": "variable",
+			"name": "ProductionIronOre",
+			"type": "number",
+			"initialValue": "1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 470529873022494
 		}
 	],
 	"sid": 638167688340769

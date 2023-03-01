@@ -1997,14 +1997,6 @@
 					],
 					"actions": [
 						{
-							"id": "set-text",
-							"objectClass": "ButtonBuyForeuse",
-							"sid": 417950616545510,
-							"parameters": {
-								"text": "\"Buy Foreuse\" & newline & \"Price : 10 Iron Ore\""
-							}
-						},
-						{
 							"id": "stop-animation",
 							"objectClass": "SpriteForeuse",
 							"sid": 832962721863198
@@ -2062,70 +2054,55 @@
 								{
 									"id": "compare-two-values",
 									"objectClass": "System",
-									"sid": 727176206227761,
+									"sid": 153876453546482,
 									"parameters": {
 										"first-value": "ArrayRessources.At(0,2)",
 										"comparison": 5,
-										"second-value": "10"
+										"second-value": "priceForeuse"
 									}
 								}
 							],
-							"actions": [
+							"actions": [],
+							"sid": 155843166935530,
+							"children": [
 								{
-									"id": "set-enabled",
-									"objectClass": "ButtonBuyForeuse",
-									"sid": 156811373770555,
-									"parameters": {
-										"mode": "enabled"
-									}
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-animation-frame",
+											"objectClass": "SpriteForeuse",
+											"sid": 177908831208060,
+											"parameters": {
+												"comparison": 0,
+												"number": "1"
+											}
+										},
+										{
+											"id": "compare-animation-frame",
+											"objectClass": "SpriteForeuse",
+											"sid": 234322640892135,
+											"parameters": {
+												"comparison": 0,
+												"number": "3"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-enabled",
+											"objectClass": "ButtonBuy",
+											"sid": 544200789208590,
+											"parameters": {
+												"mode": "enabled"
+											}
+										}
+									],
+									"sid": 420406650985649,
+									"isOrBlock": true
 								}
-							],
-							"sid": 155843166935530
+							]
 						}
 					]
-				},
-				{
-					"eventType": "comment",
-					"text": "Achat Foreuse"
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-clicked",
-							"objectClass": "ButtonBuyForeuse",
-							"sid": 632432790813127
-						}
-					],
-					"actions": [
-						{
-							"id": "set-animation-frame",
-							"objectClass": "SpriteForeuse",
-							"sid": 944774670290805,
-							"parameters": {
-								"frame-number": "1"
-							}
-						},
-						{
-							"id": "set-at-xy",
-							"objectClass": "ArrayRessources",
-							"sid": 845963685520888,
-							"parameters": {
-								"x": "0",
-								"y": "2",
-								"value": "ArrayRessources.At(0,2) - 10"
-							}
-						},
-						{
-							"id": "set-visible",
-							"objectClass": "ButtonBuyForeuse",
-							"sid": 879752570884562,
-							"parameters": {
-								"visibility": "invisible"
-							}
-						}
-					],
-					"sid": 197419281061996
 				},
 				{
 					"eventType": "comment",
@@ -2147,9 +2124,9 @@
 						{
 							"id": "set-text",
 							"objectClass": "TextProductionIronOre",
-							"sid": 462032262829412,
+							"sid": 629130942140233,
 							"parameters": {
-								"text": "\"Iron Ore | +\" & ArrayRessources.At(0,2) - LastIronOre & \"/s\""
+								"text": "\"Iron Ore | +\" & ArrayRessources.At(0,2) - LastIronOre & \"/s\" & newline &\n\"Level Drill : \" & ProductionIronOre"
 							}
 						},
 						{
@@ -2170,10 +2147,19 @@
 								{
 									"id": "compare-animation-frame",
 									"objectClass": "SpriteForeuse",
-									"sid": 319396982444779,
+									"sid": 927695741783196,
 									"parameters": {
 										"comparison": 0,
-										"number": "1"
+										"number": "2"
+									}
+								},
+								{
+									"id": "compare-animation-frame",
+									"objectClass": "SpriteForeuse",
+									"sid": 683826544638999,
+									"parameters": {
+										"comparison": 0,
+										"number": "3"
 									}
 								}
 							],
@@ -2181,15 +2167,16 @@
 								{
 									"id": "set-at-xy",
 									"objectClass": "ArrayRessources",
-									"sid": 894558091783006,
+									"sid": 388607350500666,
 									"parameters": {
 										"x": "0",
 										"y": "2",
-										"value": "ArrayRessources.At(0,2) + 1"
+										"value": "ArrayRessources.At(0,2) + ProductionIronOre"
 									}
 								}
 							],
-							"sid": 393932195937099
+							"sid": 393932195937099,
+							"isOrBlock": true
 						}
 					]
 				},
@@ -2254,7 +2241,7 @@
 								},
 								{
 									"id": "set-visible",
-									"objectClass": "ButtonBuyForeuse",
+									"objectClass": "ButtonBuy",
 									"sid": 339624622298311,
 									"parameters": {
 										"visibility": "invisible"
@@ -2362,7 +2349,7 @@
 								},
 								{
 									"id": "set-visible",
-									"objectClass": "ButtonBuyForeuse",
+									"objectClass": "ButtonBuy",
 									"sid": 606023628752436,
 									"parameters": {
 										"visibility": "visible"
@@ -2864,6 +2851,193 @@
 				}
 			],
 			"sid": 416803906507475
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Button Buy",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "Achat Foreuse"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-clicked",
+							"objectClass": "ButtonBuy",
+							"sid": 488317040171958
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation-frame",
+							"objectClass": "SpriteForeuse",
+							"sid": 531625029889979,
+							"parameters": {
+								"frame-number": "3"
+							}
+						},
+						{
+							"id": "set-at-xy",
+							"objectClass": "ArrayRessources",
+							"sid": 903666184479133,
+							"parameters": {
+								"x": "0",
+								"y": "2",
+								"value": "ArrayRessources.At(0,2) - priceForeuse"
+							}
+						},
+						{
+							"id": "set-enabled",
+							"objectClass": "ButtonBuy",
+							"sid": 962042883860705,
+							"parameters": {
+								"mode": "disabled"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 331462996048322,
+							"parameters": {
+								"variable": "priceForeuse",
+								"value": "priceForeuse + (ProductionIronOre * 10)"
+							}
+						},
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 546490827132893,
+							"parameters": {
+								"variable": "ProductionIronOre",
+								"value": "1"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "ButtonBuy",
+							"sid": 920478768846309,
+							"parameters": {
+								"text": "\"Buy Foreuse\" & newline & \"Price : \" & priceForeuse & \" Iron Ore\""
+							}
+						}
+					],
+					"sid": 939065560171695
+				},
+				{
+					"eventType": "comment",
+					"text": "Click Sprite Foreuse"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-object-clicked",
+							"objectClass": "Mouse",
+							"sid": 427645560599903,
+							"parameters": {
+								"mouse-button": "left",
+								"click-type": "clicked",
+								"object-clicked": "SpriteForeuse"
+							}
+						},
+						{
+							"id": "compare-animation-frame",
+							"objectClass": "SpriteForeuse",
+							"sid": 234713483566455,
+							"parameters": {
+								"comparison": 0,
+								"number": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 763520224228734,
+							"parameters": {
+								"variable": "Buy",
+								"value": "SpriteForeuse.ObjectTypeName"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "ButtonBuy",
+							"sid": 869894572214111,
+							"parameters": {
+								"text": "\"Buy Foreuse\" & newline & \"Price : \" & priceForeuse & \" Iron Ore\""
+							}
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "SpriteForeuse",
+							"sid": 440378898118337,
+							"parameters": {
+								"frame-number": "1"
+							}
+						}
+					],
+					"sid": 387891595219929
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-object-clicked",
+							"objectClass": "Mouse",
+							"sid": 260490748498050,
+							"parameters": {
+								"mouse-button": "left",
+								"click-type": "clicked",
+								"object-clicked": "SpriteForeuse"
+							}
+						},
+						{
+							"id": "compare-animation-frame",
+							"objectClass": "SpriteForeuse",
+							"sid": 730754976421920,
+							"parameters": {
+								"comparison": 0,
+								"number": "2"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 934446508346132,
+							"parameters": {
+								"variable": "Buy",
+								"value": "SpriteForeuse.ObjectTypeName"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "ButtonBuy",
+							"sid": 446658972123341,
+							"parameters": {
+								"text": "\"Buy Foreuse\" & newline & \"Price : \" & priceForeuse & \" Iron Ore\""
+							}
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "SpriteForeuse",
+							"sid": 793829877492018,
+							"parameters": {
+								"frame-number": "3"
+							}
+						}
+					],
+					"sid": 394003098545435
+				}
+			],
+			"sid": 498888760128916
 		}
 	],
 	"sid": 255337968219618

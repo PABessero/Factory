@@ -416,6 +416,95 @@
 					}
 				},
 				{
+					"type": "SpriteFondProductionLine",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 33,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 1539,
+						"y": 547,
+						"width": 768,
+						"height": 1088,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "SpriteForeuse",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 34,
+					"instanceVariables": {
+						"Buy": false
+					},
+					"behaviors": {},
+					"world": {
+						"x": 1536,
+						"y": 192,
+						"width": 96,
+						"height": 96,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "SpriteBuy",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 43,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 973,
+						"y": 109,
+						"width": 352,
+						"height": 224,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
 					"type": "TextAutoCraft",
 					"properties": {
 						"text": "Text",
@@ -671,70 +760,10 @@
 					}
 				},
 				{
-					"type": "SpriteFondProductionLine",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 33,
-					"instanceVariables": {},
-					"behaviors": {},
-					"world": {
-						"x": 1539,
-						"y": 547,
-						"width": 768,
-						"height": 1088,
-						"originX": 0.5,
-						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "SpriteForeuse",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 34,
-					"instanceVariables": {
-						"Buy": false
-					},
-					"behaviors": {},
-					"world": {
-						"x": 1536,
-						"y": 192,
-						"width": 96,
-						"height": 96,
-						"originX": 0.5,
-						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "ButtonBuyForeuse",
+					"type": "ButtonBuy",
 					"properties": {
 						"type": "button",
-						"text": "Buy Foreuse",
+						"text": "Buy",
 						"tooltip": "",
 						"initially-visible": true,
 						"enabled": false,
@@ -747,10 +776,10 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 1472,
-						"y": 256,
-						"width": 128,
-						"height": 64,
+						"x": 864,
+						"y": 32,
+						"width": 224,
+						"height": 128,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -789,9 +818,9 @@
 					"behaviors": {},
 					"world": {
 						"x": 1472,
-						"y": 96,
+						"y": 64,
 						"width": 128,
-						"height": 32,
+						"height": 64,
 						"originX": 0,
 						"originY": 0,
 						"color": [

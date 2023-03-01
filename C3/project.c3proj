@@ -125,7 +125,8 @@
 	"uniqueId": "5vtm7n4tma6",
 	"objectTypes": {
 		"items": [
-			"ProgressBarCrafting"
+			"ProgressBarCrafting",
+			"SpriteBuy"
 		],
 		"subfolders": [
 			{
@@ -160,7 +161,7 @@
 					"ButtonCraftManual",
 					"ButtonSendData",
 					"ButtonAutoCraft",
-					"ButtonBuyForeuse",
+					"ButtonBuy",
 					"ButtonGoogle"
 				],
 				"subfolders": [],
